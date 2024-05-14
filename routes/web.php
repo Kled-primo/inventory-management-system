@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProducttypeController;
 use App\Http\Controllers\Dashboards\DashboardController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\Order\DueOrderController;
@@ -61,6 +62,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/customers', CustomerController::class);
     Route::resource('/suppliers', SupplierController::class);
     Route::resource('/categories', CategoryController::class);
+    Route::resource('/producttypes', ProductType::class);
     Route::resource('/units', UnitController::class);
 
     // Route Products

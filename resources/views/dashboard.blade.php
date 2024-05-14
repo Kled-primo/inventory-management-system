@@ -15,10 +15,6 @@
                 <!-- Page title actions -->
                 <div class="col-auto ms-auto d-print-none">
                     <div class="btn-list">
-                        <a href="{{ route('orders.create') }}" class="btn btn-primary d-none d-sm-inline-block">
-                            <x-icon.plus />
-                            Create new order
-                        </a>
                         <a href="{{ route('orders.create') }}" class="btn btn-primary d-sm-none btn-icon"
                             aria-label="Create new report">
                             <x-icon.plus />
@@ -261,30 +257,7 @@
                             <div class="card card-sm">
                                 <div class="card-body">
                                     <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <span
-                                                class="bg-facebook text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="icon icon-tabler icon-tabler-files" width="24" height="24"
-                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                    <path d="M15 3v4a1 1 0 0 0 1 1h4" />
-                                                    <path
-                                                        d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2z" />
-                                                    <path
-                                                        d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="col">
-                                            <div class="font-weight-medium">
-                                                {{ $quotations }} Quotations
-                                            </div>
-                                            <div class="text-muted">
-                                                {{ $todayQuotations }} today
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

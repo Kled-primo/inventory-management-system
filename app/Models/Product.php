@@ -22,6 +22,7 @@ class Product extends Model
         'quantity_alert',
         'buying_price',
         'selling_price',
+        'producttype',
         'tax',
         'tax_type',
         'notes',
@@ -43,6 +44,11 @@ class Product extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function producttype(): BelongsTo
+    {
+        return $this->belongsTo(ProductType::class);
     }
 
     public function category(): BelongsTo
