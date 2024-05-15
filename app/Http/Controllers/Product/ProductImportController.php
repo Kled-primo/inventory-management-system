@@ -40,15 +40,15 @@ class ProductImportController extends Controller
                     'code'          => $sheet->getCell('E' . $row)->getValue(),
                     'quantity'      => $sheet->getCell('F' . $row)->getValue(),
                     "quantity_alert" => $sheet->getCell('G' . $row)->getValue(),
-                    'buying_price'  => $sheet->getCell('H' . $row)->getValue(),
+                    'unit_number'  => $sheet->getCell('H' . $row)->getValue(),
                     'selling_price' => $sheet->getCell('I' . $row)->getValue(),
-                    'product_image' => $sheet->getCell('J' . $row)->getValue(),
                     'notes' => $sheet->getCell('K' . $row)->getValue(),
                 ];
                 $startcount++;
             }
 
             foreach ($data as $product) {
+
                 Product::firstOrCreate([
                     "slug" => $product["slug"],
                     "code" => $product["code"],

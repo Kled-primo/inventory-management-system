@@ -136,26 +136,6 @@
 
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label" for="buying_price">
-                                                    Buying price
-                                                    <span class="text-danger">*</span>
-                                                </label>
-
-                                                <input type="text" id="buying_price" name="buying_price"
-                                                    class="form-control @error('buying_price') is-invalid @enderror"
-                                                    placeholder="0"
-                                                    value="{{ old('buying_price', $product->buying_price) }}">
-
-                                                @error('buying_price')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="mb-3">
                                                 <label for="selling_price" class="form-label">
                                                     Selling price
                                                     <span class="text-danger">*</span>
@@ -203,49 +183,6 @@
                                                     value="{{ old('quantity_alert', $product->quantity_alert) }}">
 
                                                 @error('quantity_alert')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="tax" class="form-label">
-                                                    {{ __('Tax') }}
-                                                </label>
-
-                                                <input type="number" id="tax" name="tax"
-                                                    class="form-control @error('tax') is-invalid @enderror"
-                                                    min="0" placeholder="0"
-                                                    value="{{ old('tax', $product->tax) }}">
-
-                                                @error('tax')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="tax_type">
-                                                    {{ __('Tax Type') }}
-                                                </label>
-
-                                                <select name="tax_type" id="tax_type"
-                                                    class="form-select @error('tax_type') is-invalid @enderror">
-                                                    @foreach (\App\Enums\TaxType::cases() as $taxType)
-                                                        <option value="{{ $taxType->value }}"
-                                                            @selected(old('tax_type', $product->tax_type) == $taxType->value)>
-                                                            {{ $taxType->label() }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-
-                                                @error('tax_type')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>

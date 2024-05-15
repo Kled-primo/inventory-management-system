@@ -18,34 +18,28 @@ class ProductSeeder extends Seeder
                 'slug' => 'iphone-14-pro',
                 'code' => 001,
                 'quantity' => 10,
-                'buying_price' => 900,
+                'unit_number' => 900,
                 'selling_price' => 1400,
                 'quantity_alert' => 10,
-                'tax' => 24,
-                'tax_type' => 1,
                 'notes' => null,
                 'category_id' => 3,
                 'unit_id' => 1,
                 'user_id'=>1,
                 'uuid'=>Str::uuid(),
-                'product_image' => 'assets/img/products/ip14.png'
             ],
             [
                 'name' => 'ASUS Laptop',
                 'slug' => 'asus-laptop',
                 'code' => 002,
                 'quantity' => 10,
-                'buying_price' => 900,
+                'unit_number' => 900,
                 'selling_price' => 1400,
                 'quantity_alert' => 10,
-                'tax' => 24,
-                'tax_type' => 1,
                 'notes' => null,
                 'category_id' => 1,
                 'unit_id' => 2,
                 'user_id'=>1,
                 'uuid'=>Str::uuid(),
-                'product_image' => 'assets/img/products/ip14.png'
             ]
         ]);
 

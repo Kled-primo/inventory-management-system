@@ -70,11 +70,9 @@ class ProductController extends Controller
             'category_id'       => $request->category_id,
             'unit_id'           => $request->unit_id,
             'quantity'          => $request->quantity,
-            'buying_price'      => $request->buying_price,
+            'unit_number'      => $request->unit_number,
             'selling_price'     => $request->selling_price,
             'quantity_alert'    => $request->quantity_alert,
-            'tax'               => $request->tax,
-            'tax_type'          => $request->tax_type,
             'notes'             => $request->notes,
             "user_id" => auth()->id(),
             "slug" => Str::slug($request->name, '-'),
@@ -129,13 +127,10 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->unit_id = $request->unit_id;
         $product->quantity = $request->quantity;
-        $product->buying_price = $request->buying_price;
+        $product->unit_number = $request->unit_number;
         $product->selling_price = $request->selling_price;
         $product->quantity_alert = $request->quantity_alert;
-        $product->tax = $request->tax;
-        $product->tax_type = $request->tax_type;
         $product->notes = $request->notes;
-        $product->product_image = $image;
         $product->save();
 
 

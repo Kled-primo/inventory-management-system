@@ -64,9 +64,6 @@
                         {{ __('No.') }}
                     </th>
                     <th scope="col" class="align-middle text-center">
-                        {{ __('Image') }}
-                    </th>
-                    <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('name')" href="#" role="button">
                             {{ __('Name') }}
                             @include('inclues._sort-icon', ['field' => 'name'])
@@ -76,6 +73,18 @@
                         <a wire:click.prevent="sortBy('code')" href="#" role="button">
                             {{ __('Code') }}
                             @include('inclues._sort-icon', ['field' => 'code'])
+                        </a>
+                    </th>
+                    <th scope="col" class="align-middle text-center">
+                        <a wire:click.prevent="sortBy('unit_number')" href="#" role="button">
+                            {{ __('Unit Number') }}
+                            @include('inclues._sort-icon', ['field' => 'code'])
+                        </a>
+                    </th>
+                    <th scope="col" class="align-middle text-center">
+                        <a wire:click.prevent="sortBy('unit_id')" href="#" role="button">
+                            {{ __('Unit') }}
+                            @include('inclues._sort-icon', ['field' => 'unit_id'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
@@ -91,6 +100,13 @@
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
+                        <a wire:click.prevent="sortBy('selling_price')" href="#" role="button">
+                            {{ __('Selling Price') }}
+                            @include('inclues._sort-icon', ['field' => 'selling_price'])
+                        </a>
+                    </th>
+                    
+                    <th scope="col" class="align-middle text-center">
                         {{ __('Action') }}
                     </th>
                 </tr>
@@ -102,21 +118,25 @@
                             {{ $loop->iteration }}
                         </td>
                         <td class="align-middle text-center">
-                            <img style="width: 90px;"
-                                src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/img/products/default.webp') }}"
-                                alt="">
-                        </td>
-                        <td class="align-middle text-center">
                             {{ $product->name }}
                         </td>
                         <td class="align-middle text-center">
                             {{ $product->code }}
                         </td>
                         <td class="align-middle text-center">
+                            {{ $product->unit_number }}
+                        </td>
+                        <td class="align-middle text-center">
+                            {{ $product->unit ? $product->unit->name : '--' }}
+                        </td>
+                        <td class="align-middle text-center">
                             {{ $product->category ? $product->category->name : '--' }}
                         </td>
                         <td class="align-middle text-center">
                             {{ $product->quantity }}
+                        </td>
+                        <td class="align-middle text-center">
+                            {{ $product->selling_price }}
                         </td>
                         <td class="align-middle text-center" style="width: 10%">
                             <x-button.show class="btn-icon" route="{{ route('products.show', $product->uuid) }}" />

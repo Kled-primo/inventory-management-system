@@ -22,9 +22,6 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title">
-                                    {{ __('Product Image') }}
-                                </h3>
 
                                 <img style="width: 90px;" id="image-preview"
                                     src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/img/products/default.webp') }}"
@@ -88,10 +85,6 @@
                                             <td>{{ $product->code }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Barcode</td>
-                                            <td>{!! $barcode !!}</td>
-                                        </tr>
-                                        <tr>
                                             <td>Category</td>
                                             <td>
                                                 <a href="{{ route('categories.show', $product->category) }}"
@@ -109,7 +102,10 @@
                                                 </a>
                                             </td>
                                         </tr>
-
+                                        <tr>
+                                            <td>Unit Number</td>
+                                            <td>{{ $product->unit_number }}</td>
+                                        </tr>
                                         <tr>
                                             <td>Quantity</td>
                                             <td>{{ $product->quantity }}</td>
@@ -122,26 +118,9 @@
                                                 </span>
                                             </td>
                                         </tr>
-
-                                        <tr>
-                                            <td>Buying Price</td>
-                                            <td>{{ $product->buying_price }}</td>
-                                        </tr>
                                         <tr>
                                             <td>Selling Price</td>
                                             <td>{{ $product->selling_price }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tax</td>
-                                            <td>
-                                                <span class="badge bg-red-lt">
-                                                    {{ $product->tax }} %
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tax Type</td>
-                                            <td>{{ $product->tax_type->label() }}</td>
                                         </tr>
                                         <tr>
                                             <td>{{ __('Notes') }}</td>

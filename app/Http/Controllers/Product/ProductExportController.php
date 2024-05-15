@@ -22,9 +22,8 @@ class ProductExportController extends Controller
             'Product Code',
             'Stock',
             "Stock Alert",
-            'Buying Price',
+            'Unit Number',
             'Selling Price',
-            'Product Image',
             "Note"
         );
 
@@ -37,9 +36,8 @@ class ProductExportController extends Controller
                 'Product Code' => $product->code,
                 'Stock' => $product->quantity,
                 "Stock Alert" => $product->quantity_alert,
-                'Buying Price' => $product->buying_price,
+                'Unit Number' => $product->unit_number,
                 'Selling Price' => $product->selling_price,
-                'Product Image' => $product->product_image,
                 "Note" => $product->note
             );
         }

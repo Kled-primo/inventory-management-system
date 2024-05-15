@@ -9,38 +9,6 @@
             <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    {{ __('Product Image') }}
-                                </h3>
-
-                                <img class="img-account-profile mb-2" src="{{ asset('assets/img/products/default.webp') }}" alt="" id="image-preview" />
-
-                                <div class="small font-italic text-muted mb-2">
-                                    JPG or PNG no larger than 2 MB
-                                </div>
-
-                                <input
-                                    type="file"
-                                    accept="image/*"
-                                    id="image"
-                                    name="product_image"
-                                    class="form-control @error('product_image') is-invalid @enderror"
-                                    onchange="previewImage();"
-                                >
-
-                                @error('product_image')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-header">
@@ -111,6 +79,58 @@
 
                                     <div class="col-sm-6 col-md-6">
                                         <div class="mb-3">
+                                            <label for="producttype_id" class="form-label">
+                                                Product Type
+                                                <span class="text-danger">*</span>
+                                            </label>
+
+                                            @if ($producttypes->count() === 1)
+                                                <select name="category_id" id="category_id"
+                                                        class="form-select @error('category_id') is-invalid @enderror"
+                                                        readonly
+                                                >
+                                                    @foreach ($producttypes as $producttype)
+                                                        <option value="{{ $producttype->id }}" selected>
+                                                            {{ $producttype->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            @else
+                                                <select name="producttype_id" id="producttype_id"
+                                                        class="form-select @error('producttype_id') is-invalid @enderror"
+                                                >
+                                                    <option selected="" disabled="">
+                                                        Select a Product Type:
+                                                    </option>
+
+                                                    @foreach ($producttypes as $producttype)
+                                                        <option value="{{ $producttype->id }}" @if(old('producttype_id') == $producttype->id) selected="selected" @endif>
+                                                            {{ $producttype->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            @endif
+
+                                            @error('producttype_id')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6">
+                                        <x-input type="number"
+                                                 label="Unit Number"
+                                                 name="unit_number"
+                                                 id="unit_number"
+                                                 placeholder="0"
+                                                 value="{{ old('unit_number') }}"
+                                        />
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="mb-3">
                                             <label class="form-label" for="unit_id">
                                                 {{ __('Unit') }}
                                                 <span class="text-danger">*</span>
@@ -151,16 +171,6 @@
 
                                     <div class="col-sm-6 col-md-6">
                                         <x-input type="number"
-                                                 label="Buying Price"
-                                                 name="buying_price"
-                                                 id="buying_price"
-                                                 placeholder="0"
-                                                 value="{{ old('buying_price') }}"
-                                        />
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <x-input type="number"
                                                  label="Selling Price"
                                                  name="selling_price"
                                                  id="selling_price"
@@ -187,48 +197,6 @@
                                                  placeholder="0"
                                                  value="{{ old('quantity_alert') }}"
                                         />
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <div class="mb-3">
-                                            <label for="producttype_id" class="form-label">
-                                                Product Type
-                                                <span class="text-danger">*</span>
-                                            </label>
-
-                                            @if ($producttypes->count() === 1)
-                                                <select name="category_id" id="category_id"
-                                                        class="form-select @error('category_id') is-invalid @enderror"
-                                                        readonly
-                                                >
-                                                    @foreach ($producttypes as $producttype)
-                                                        <option value="{{ $producttype->id }}" selected>
-                                                            {{ $producttype->name }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            @else
-                                                <select name="producttype_id" id="producttype_id"
-                                                        class="form-select @error('producttype_id') is-invalid @enderror"
-                                                >
-                                                    <option selected="" disabled="">
-                                                        Select a Product Type:
-                                                    </option>
-
-                                                    @foreach ($producttypes as $producttype)
-                                                        <option value="{{ $producttype->id }}" @if(old('producttype_id') == $producttype->id) selected="selected" @endif>
-                                                            {{ $producttype->name }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            @endif
-
-                                            @error('producttype_id')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
-                                        </div>
                                     </div>
 
                                     <div class="col-md-12">

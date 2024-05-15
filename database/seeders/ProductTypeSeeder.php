@@ -34,36 +34,30 @@ class ProductTypeSeeder extends Seeder
             ],
             [
                 'id'    => 4,
-                'name' => 'Lozenge',
-                'slug' => 'lozenge',
-                'user_id'=>1
-            ],
-            [
-                'id'    => 5,
                 'name' => 'Ointment',
                 'slug' => 'ointment',
                 'user_id'=>1
             ],
             [
-                'id'    => 6,
+                'id'    => 5,
                 'name' => 'Powder Suspension',
                 'slug' => 'powder suspension',
                 'user_id'=>1
             ],
             [
-                'id'    => 7,
+                'id'    => 6,
                 'name' => 'Syrup',
                 'slug' => 'syrup',
                 'user_id'=>1
             ],
             [
-                'id'    => 8,
+                'id'    => 7,
                 'name' => 'Tablet',
                 'slug' => 'tablet',
                 'user_id'=>1
             ],
             [
-                'id'    => 9,
+                'id'    => 8,
                 'name' => 'Others',
                 'slug' => 'others',
                 'user_id'=>1

@@ -23,7 +23,25 @@ class UnitSeeder extends Seeder
             [
                 'name' => 'Milligram',
                 'slug' => 'milligram',
-                'short_code' => 'cm',
+                'short_code' => 'mg',
+                'user_id'=>1
+            ],
+            [
+                'name' => 'Gram',
+                'slug' => 'gram',
+                'short_code' => 'g',
+                'user_id'=>1
+            ],
+            [
+                'name' => 'Microgram',
+                'slug' => 'microgram',
+                'short_code' => 'mcg',
+                'user_id'=>1
+            ],
+            [
+                'name' => 'Milliequivalent',
+                'slug' => 'milliequivalent',
+                'short_code' => 'mEq',
                 'user_id'=>1
             ]
         ]);
