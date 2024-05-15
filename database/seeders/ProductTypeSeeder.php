@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\ProductType;
 
 class ProductTypeSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class ProductTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        $producttype = collect([
+        $producttypes = collect([
             [
                 'id'    => 1,
                 'name' => 'Capsule',
@@ -27,26 +28,44 @@ class ProductTypeSeeder extends Seeder
             ],
             [
                 'id'    => 3,
-                'name' => 'Powder',
-                'slug' => 'powder',
+                'name' => 'Lozenge',
+                'slug' => 'lozenge',
                 'user_id'=>1
             ],
             [
                 'id'    => 4,
-                'name' => 'Suspension',
-                'slug' => 'suspension',
+                'name' => 'Lozenge',
+                'slug' => 'lozenge',
                 'user_id'=>1
             ],
             [
                 'id'    => 5,
+                'name' => 'Ointment',
+                'slug' => 'ointment',
+                'user_id'=>1
+            ],
+            [
+                'id'    => 6,
+                'name' => 'Powder Suspension',
+                'slug' => 'powder suspension',
+                'user_id'=>1
+            ],
+            [
+                'id'    => 7,
                 'name' => 'Syrup',
                 'slug' => 'syrup',
                 'user_id'=>1
             ],
             [
-                'id'    => 6,
+                'id'    => 8,
                 'name' => 'Tablet',
                 'slug' => 'tablet',
+                'user_id'=>1
+            ],
+            [
+                'id'    => 9,
+                'name' => 'Others',
+                'slug' => 'others',
                 'user_id'=>1
             ]
         ]);

@@ -1,6 +1,12 @@
 @extends('layouts.tabler')
 
 @section('content')
+
+@if(count($alert_twentyfive) > 0)
+<div class="alert alert-danger" role="alert">
+  A simple danger alert—check it out!
+</div>
+@endif
     <div class="page-header d-print-none">
         <div class="container-xl">
             <div class="row g-2 align-items-center">

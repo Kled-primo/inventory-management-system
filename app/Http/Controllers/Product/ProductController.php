@@ -30,6 +30,8 @@ class ProductController extends Controller
         $categories = Category::where("user_id", auth()->id())->get(['id', 'name']);
         $units = Unit::where("user_id", auth()->id())->get(['id', 'name']);
 
+        $producttypes = ProductType::where("user_id", auth()->id())->select(['id', 'name', 'slug'])->get();
+
         if ($request->has('category')) {
             $categories = Category::where("user_id", auth()->id())->whereSlug($request->get('category'))->get();
         }
@@ -41,6 +43,7 @@ class ProductController extends Controller
         return view('products.create', [
             'categories' => $categories,
             'units' => $units,
+            'producttypes' => $producttypes
         ]);
     }
 

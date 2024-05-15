@@ -28,6 +28,8 @@ class ProductType extends Model
         'updated_at' => 'datetime',
     ];
 
+    protected $table = 'producttypes';
+
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
