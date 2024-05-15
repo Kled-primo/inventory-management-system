@@ -196,7 +196,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
 
-                                            @if ($producttype->count() === 1)
+                                            @if ($producttypes->count() === 1)
                                                 <select name="category_id" id="category_id"
                                                         class="form-select @error('category_id') is-invalid @enderror"
                                                         readonly
