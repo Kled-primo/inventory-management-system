@@ -65,7 +65,6 @@ class ProductController extends Controller
                 'prefix' => 'PC'
             ]),
 
-            'product_image'     => $image,
             'name'              => $request->name,
             'category_id'       => $request->category_id,
             'unit_id'           => $request->unit_id,

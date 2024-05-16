@@ -42,7 +42,9 @@ class ProductImportController extends Controller
                     "quantity_alert" => $sheet->getCell('G' . $row)->getValue(),
                     'unit_number'  => $sheet->getCell('H' . $row)->getValue(),
                     'selling_price' => $sheet->getCell('I' . $row)->getValue(),
+                    'user_id'      => $sheet->getCell('J' . $row)->getValue(),
                     'notes' => $sheet->getCell('K' . $row)->getValue(),
+
                 ];
                 $startcount++;
             }
@@ -52,6 +54,7 @@ class ProductImportController extends Controller
                 Product::firstOrCreate([
                     "slug" => $product["slug"],
                     "code" => $product["code"],
+                    "user_id" => $product["user_id"],
                 ], $product);
             }
         } catch (Exception $e) {
