@@ -129,6 +129,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('test/', function (){
+Route::get('test/', function () {
     return view('test');
 });
