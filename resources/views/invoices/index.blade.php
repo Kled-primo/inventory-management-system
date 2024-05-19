@@ -48,22 +48,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-6 mb-50">
-                                <h4 class="inv-title-1">Customer</h4>
-                                <p class="inv-from-1">{{ $customer->name }}</p>
-                                <p class="inv-from-1">{{ $customer->phone }}</p>
-                                <p class="inv-from-1">{{ $customer->email }}</p>
-                                <p class="inv-from-2">{{ $customer->address }}</p>
-                            </div>
-                            <div class="col-sm-6 text-end mb-50">
-                                <h4 class="inv-title-1">Store</h4>
-                                <p class="inv-from-1">Name Store</p>
-                                <p class="inv-from-1">(+62) 123 123 123</p>
-                                <p class="inv-from-1">email@example.com</p>
-                                <p class="inv-from-2">Cirebon, Jawa Barat, Indonesia</p>
-                            </div>
-                        </div>
                     </div>
                     <div class="order-summary">
                         <div class="table-outer">

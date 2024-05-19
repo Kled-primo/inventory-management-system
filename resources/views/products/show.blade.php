@@ -94,6 +94,15 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td>Product Type</td>
+                                            <td>
+                                                <a href="{{ route('producttype.show', $product->producttype) }}"
+                                                    class="badge bg-blue-lt">
+                                                    {{ $product->producttype->id }}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td>Unit</td>
                                             <td>
                                                 <a href="{{ route('units.show', $product->unit) }}"

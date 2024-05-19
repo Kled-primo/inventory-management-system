@@ -47,20 +47,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6 mb-50">
-                                        <h4 class="inv-title-1">Customer</h4>
-                                        <p class="inv-from-1">{{ $customer->name }}</p>
-                                        <p class="inv-from-1">{{ $customer->phone }}</p>
-                                        <p class="inv-from-1">{{ $customer->email }}</p>
-                                        <p class="inv-from-2">{{ $customer->address }}</p>
-                                    </div>
-                                    <div class="col-sm-6 text-end mb-50">
-                                        <h4 class="inv-title-1">Store</h4>
-                                        <p class="inv-from-1">{{ $user->store_name }}</p>
-                                        <p class="inv-from-1">{{ $user->store_phone }}</p>
-                                        <p class="inv-from-1">{{ $user->store_email }}</p>
-                                        <p class="inv-from-2">{{ $user->store_address }}</p>
-                                    </div>
                                 </div>
                             </div>
                             <div class="order-summary">
@@ -142,13 +128,6 @@
                         @csrf
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <input type="hidden" name="customer_id" value="{{ $customer->id }}">
-
-                                        <x-input.index label="Customer" name="customer" value="{{ $customer->name }}" disabled/>
-                                    </div>
-                                </div>
 
                                 <div class="col-lg-6">
                                     <div class="mb-3">

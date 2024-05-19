@@ -37,13 +37,14 @@ class ProductImportController extends Controller
                     'slug'          => $sheet->getCell('B' . $row)->getValue(),
                     'category_id'   => $sheet->getCell('C' . $row)->getValue(),
                     'unit_id'       => $sheet->getCell('D' . $row)->getValue(),
-                    'code'          => $sheet->getCell('E' . $row)->getValue(),
-                    'quantity'      => $sheet->getCell('F' . $row)->getValue(),
-                    "quantity_alert" => $sheet->getCell('G' . $row)->getValue(),
-                    'unit_number'  => $sheet->getCell('H' . $row)->getValue(),
-                    'selling_price' => $sheet->getCell('I' . $row)->getValue(),
-                    'user_id'      => $sheet->getCell('J' . $row)->getValue(),
-                    'notes' => $sheet->getCell('K' . $row)->getValue(),
+                    'producttype'       => $sheet->getCell('E' . $row)->getValue(),
+                    'code'          => $sheet->getCell('F' . $row)->getValue(),
+                    'quantity'      => $sheet->getCell('G' . $row)->getValue(),
+                    "quantity_alert" => $sheet->getCell('H' . $row)->getValue(),
+                    'unit_number'  => $sheet->getCell('I' . $row)->getValue(),
+                    'selling_price' => $sheet->getCell('J' . $row)->getValue(),
+                    'user_id'      => $sheet->getCell('K' . $row)->getValue(),
+                    'notes' => $sheet->getCell('L' . $row)->getValue(),
 
                 ];
                 $startcount++;

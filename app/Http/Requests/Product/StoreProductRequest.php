@@ -27,6 +27,7 @@ class StoreProductRequest extends FormRequest
             'name'              => 'required|char',
             'category_id'       => 'required|integer',
             'unit_id'           => 'required|integer',
+            'producttype'           => 'required|integer',
             'quantity'          => 'required|integer',
             'unit_number'      => 'required|float',
             'selling_price'     => 'required|float',

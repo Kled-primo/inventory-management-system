@@ -35,13 +35,11 @@ class OrderController extends Controller
     {
         $products = Product::where('user_id', auth()->id())->with(['category', 'unit'])->get();
 
-        $customers = Customer::where('user_id', auth()->id())->get(['id', 'name']);
 
         $carts = Cart::content();
 
         return view('orders.create', [
             'products' => $products,
-            'customers' => $customers,
             'carts' => $carts,
         ]);
     }
@@ -49,7 +47,6 @@ class OrderController extends Controller
     public function store(OrderStoreRequest $request)
     {
         $order = Order::create([
-            'customer_id' => $request->customer_id,
             'payment_type' => $request->payment_type,
             'pay' => $request->pay,
             'order_date' => Carbon::now()->format('Y-m-d'),
@@ -95,7 +92,6 @@ class OrderController extends Controller
     public function show($uuid)
     {
         $order = Order::where('uuid', $uuid)->firstOrFail();
-        $order->loadMissing(['customer', 'details'])->get();
         return view('orders.show', [
             'order' => $order
         ]);
@@ -146,14 +142,6 @@ class OrderController extends Controller
 
     public function downloadInvoice($uuid)
     {
-        $order = Order::with(['customer', 'details'])->where('uuid', $uuid)->firstOrFail();
-        // TODO: Need refactor
-        //dd($order);
-
-        //$order = Order::with('customer')->where('id', $order_id)->first();
-        // $order = Order::
-        //     ->where('id', $order)
-        //     ->first();
 
         return view('orders.print-invoice', [
             'order' => $order,

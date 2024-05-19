@@ -51,12 +51,6 @@
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
-                        <a wire:click.prevent="sortBy('customer_id')" href="#" role="button">
-                            {{ __('Customer') }}
-                            @include('inclues._sort-icon', ['field' => 'customer_id'])
-                        </a>
-                    </th>
-                    <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('order_date')" href="#" role="button">
                             {{ __('Date') }}
                             @include('inclues._sort-icon', ['field' => 'order_date'])
@@ -64,7 +58,7 @@
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('payment_type')" href="#" role="button">
-                            {{ __('Paymet') }}
+                            {{ __('Payment') }}
                             @include('inclues._sort-icon', ['field' => 'payment_type'])
                         </a>
                     </th>
@@ -93,9 +87,6 @@
                         </td>
                         <td class="align-middle text-center">
                             {{ $order->invoice_no }}
-                        </td>
-                        <td class="align-middle text-center">
-                            {{ $order->customer->name }}
                         </td>
                         <td class="align-middle text-center">
                             {{ $order->order_date->format('d-m-Y') }}

@@ -72,14 +72,6 @@
                         </div>
 
                         <div class="col">
-                            <label for="customer" class="form-label required">
-                                {{ __('Customer') }}
-                            </label>
-                            <input type="text" id="customer" class="form-control" value="{{ $order->customer->name }}"
-                                disabled>
-                        </div>
-
-                        <div class="col">
                             <label for="payment_type" class="form-label required">
                                 {{ __('Payment Type') }}
                             </label>

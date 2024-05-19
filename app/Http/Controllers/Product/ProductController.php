@@ -20,9 +20,13 @@ class ProductController extends Controller
     {
         $products = Product::where("user_id", auth()->id())->count();
 
+
+
         return view('products.index', [
             'products' => $products,
         ]);
+
+        
     }
 
     public function create(Request $request)
@@ -68,6 +72,7 @@ class ProductController extends Controller
             'name'              => $request->name,
             'category_id'       => $request->category_id,
             'unit_id'           => $request->unit_id,
+            'producttype'       => $request->producttype,
             'quantity'          => $request->quantity,
             'unit_number'      => $request->unit_number,
             'selling_price'     => $request->selling_price,

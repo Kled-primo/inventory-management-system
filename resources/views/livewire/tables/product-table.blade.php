@@ -87,6 +87,12 @@
                             @include('inclues._sort-icon', ['field' => 'unit_id'])
                         </a>
                     </th>
+                        <th scope="col" class="align-middle text-center">
+                            <a wire:click.prevent="sortBy('producttype')" href="#" role="button">
+                                {{ __('Product Type') }}
+                                @include('inclues._sort-icon', ['field' => 'producttype'])
+                            </a>
+                        </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('category_id')" href="#" role="button">
                             {{ __('Category') }}
@@ -128,6 +134,9 @@
                         </td>
                         <td class="align-middle text-center">
                             {{ $product->unit ? $product->unit->name : '--' }}
+                        </td>
+                        <td class="align-middle text-center">
+                            {{ $product->product_type->name ?? "==" }}
                         </td>
                         <td class="align-middle text-center">
                             {{ $product->category ? $product->category->name : '--' }}

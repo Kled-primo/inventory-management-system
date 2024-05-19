@@ -52,9 +52,10 @@ class Product extends Model
         return 'slug';
     }
 
-    public function producttype(): BelongsTo
+    public function product_type(): BelongsTo
     {
-        return $this->belongsTo(ProductType::class);
+        return $this->belongsTo(ProductType::class,'producttype','id');
+        
     }
 
     public function category(): BelongsTo

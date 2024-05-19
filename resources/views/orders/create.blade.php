@@ -4,7 +4,7 @@
 <div class="page-body">
     <div class="container-xl">
         <div class="row row-cards">
-            <div class="col-lg-7">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">
                         <div>
@@ -34,31 +34,6 @@
                                     >
 
                                     @error('purchase_date')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="small mb-1" for="customer_id">
-                                        {{ __('Customer') }}
-                                        <span class="text-danger">*</span>
-                                    </label>
-
-                                    <select class="form-select form-control-solid @error('customer_id') is-invalid @enderror" id="customer_id" name="customer_id">
-                                        <option selected="" disabled="">
-                                            Select a customer:
-                                        </option>
-
-                                        @foreach ($customers as $customer)
-                                            <option value="{{ $customer->id }}" @selected( old('customer_id') == $customer->id)>
-                                                {{ $customer->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-
-                                    @error('customer_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -157,12 +132,6 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="4" class="text-end">Tax</td>
-                                            <td class="text-center">
-                                                {{ Cart::tax() }}
-                                            </td>
-                                        </tr>
-                                        <tr>
                                             <td colspan="4" class="text-end">Total</td>
                                             <td class="text-center">
                                                 {{ Cart::total() }}
@@ -183,10 +152,17 @@
             </div>
 
 
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 <div class="card mb-4 mb-xl-0">
                     <div class="card-header">
                         List Product
+                        <div class="ms-auto text-secondary">
+                Search:
+                <div class="ms-2 d-inline-block">
+                    <input type="text" wire:model.live="search" class="form-control form-control-sm"
+                        aria-label="Search invoice">
+                </div>
+            </div>
                     </div>
                     <div class="card-body">
                         <div class="col-lg-12">
@@ -197,6 +173,7 @@
                                             {{--- <th scope="col">No.</th> ---}}
                                             <th scope="col">Name</th>
                                             <th scope="col">Quantity</th>
+                                            <th scope="col">Unit Number</th>
                                             <th scope="col">Unit</th>
                                             <th scope="col">Price</th>
                                             <th scope="col">Action</th>
@@ -205,7 +182,7 @@
                                     <tbody>
                                         @forelse ($products as $product)
                                         <tr>
-                                            {{---
+                                        {{---
                                             <td>
                                                 <div style="max-height: 80px; max-width: 80px;">
                                                     <img class="img-fluid"  src="{{ $product->product_image ? asset('storage/products/'.$product->product_image) : asset('assets/img/products/default.webp') }}">
@@ -217,6 +194,9 @@
                                             </td>
                                             <td class="text-center">
                                                 {{ $product->quantity }}
+                                            </td>
+                                            <td class="text-center">
+                                                {{ $product->unit_number }}
                                             </td>
                                             <td class="text-center">
                                                 {{ $product->unit->name }}

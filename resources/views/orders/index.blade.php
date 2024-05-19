@@ -23,7 +23,6 @@
                 <x-slot:th>
                     <x-table.th>{{ __('No.') }}</x-table.th>
                     <x-table.th>{{ __('Invoice No.') }}</x-table.th>
-                    <x-table.th>{{ __('Customer') }}</x-table.th>
                     <x-table.th>{{ __('Date') }}</x-table.th>
                     <x-table.th>{{ __('Payment') }}</x-table.th>
                     <x-table.th>{{ __('Total') }}</x-table.th>

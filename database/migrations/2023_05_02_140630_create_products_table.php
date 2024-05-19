@@ -18,6 +18,8 @@ return new class extends Migration
             $table->char('name');
             $table->char('slug');
             $table->char('code');
+            $table->integer('unit_id');
+            $table->integer('producttype');
             //$table->string('product_barcode_symbology')->nullable();
             $table->integer('quantity');
             $table->integer('unit_number')->comment('Unit Number');
