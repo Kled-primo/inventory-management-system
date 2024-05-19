@@ -143,6 +143,9 @@ class OrderController extends Controller
     public function downloadInvoice($uuid)
     {
 
+        $order = Order::with(['customer', 'details'])->where('uuid', $uuid)->firstOrFail();
+
+
         return view('orders.print-invoice', [
             'order' => $order,
         ]);
@@ -153,7 +156,7 @@ class OrderController extends Controller
         $order->update([
             'order_status' => 2
         ]);
-        $orders = Order::where('user_id',auth()->id())->count();
+        $orders = Order::where('user_id', auth()->id())->count();
 
         return redirect()
             ->route('orders.index', [
