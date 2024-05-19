@@ -8,15 +8,15 @@ use App\Http\Requests\Invoice\StoreInvoiceRequest;
 
 class InvoiceController extends Controller
 {
-    public function create(StoreInvoiceRequest $request, Customer $customer)
+    public function create(StoreInvoiceRequest $request)
     {
-        $customer = Customer::where('id', $request->get('customer_id'))
-            ->first();
+        // $customer = Customer::where('id', $request->get('customer_id'))
+        //     ->first();
 
         $carts = Cart::content();
 
         return view('invoices.create', [
-            'customer' => $customer,
+            //'customer' => $customer,
             'carts' => $carts
         ]);
     }
