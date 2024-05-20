@@ -16,8 +16,8 @@
                             <x-action.close route="{{ route('orders.index') }}" />
                         </div>
                     </div>
-                    <form action="{{ route('invoice.create') }}" method="POST">
-                        @csrf
+                    <!-- <form action="{{ route('invoice.create') }}" method="POST">
+                        @csrf -->
                         <div class="card-body">
                             <div class="row gx-3 mb-3">
                                 @include('partials.session')
@@ -144,9 +144,9 @@
 
                         </div>
                         <div class="card-footer text-end">
-                            <button type="submit" class="btn btn-success add-list mx-1 {{ Cart::count() > 0 ? '' : 'disabled' }}">
+                            <a  href="{{ route('invoice.create') }}" type="submit" class="btn btn-success add-list mx-1 {{ Cart::count() > 0 ? '' : 'disabled' }}">
                                 {{ __('Create Invoice') }}
-                            </button>
+</a>
                         </div>
                     </form>
                 </div>

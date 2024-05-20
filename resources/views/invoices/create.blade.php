@@ -49,8 +49,16 @@
                                 <div class="row">
                                 </div>
                             </div>
+                            <form action="{{ route('orders.store') }}" method="POST">
+                            @csrf
+                            @error('payment_type')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                             <div class="order-summary">
                                 <div class="table-outer">
+                                        
                                     <table class="default-table invoice-table">
                                         <thead>
                                             <tr>
@@ -124,11 +132,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <form action="{{ route('orders.store') }}" method="POST">
-                        @csrf
+                    
+                    
                         <div class="modal-body">
                             <div class="row">
-
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="payment_type" class="form-label required">
@@ -142,11 +149,7 @@
                                             <option value="Due">Due</option>
                                         </select>
 
-                                        @error('payment_type')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
+                                        
                                     </div>
                                 </div>
 
@@ -169,9 +172,10 @@
                                     </div>
                                     @enderror
                                 </div>
+                                
                             </div>
                         </div>
-
+                        
                         <div class="modal-footer">
                             <button type="button" class="btn me-auto" data-bs-dismiss="modal">
                                 {{ __('Cancel') }}

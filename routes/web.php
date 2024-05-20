@@ -78,7 +78,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/pos/cart/delete/{rowId}', [PosController::class, 'deleteCartItem'])->name('pos.deleteCartItem');
 
     //Route::post('/pos/invoice', [PosController::class, 'createInvoice'])->name('pos.createInvoice');
-    Route::post('invoice/create/', [InvoiceController::class, 'create'])->name('invoice.create');
+    Route::get('invoice/create/', [InvoiceController::class, 'create'])->name('invoice.create'); //changed to get
 
     // Route Orders
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
@@ -123,8 +123,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Route Quotations
     // Route::get('/quotations/{quotation}/edit', [QuotationController::class, 'edit'])->name('quotations.edit');
-    Route::post('/quotations/complete/{quotation}', [QuotationController::class, 'update'])->name('quotations.update');
-    Route::delete('/quotations/delete/{quotation}', [QuotationController::class, 'destroy'])->name('quotations.delete');
+    //Route::post('/quotations/complete/{quotation}', [QuotationController::class, 'update'])->name('quotations.update');
+    //Route::delete('/quotations/delete/{quotation}', [QuotationController::class, 'destroy'])->name('quotations.delete');
 });
 
 require __DIR__.'/auth.php';

@@ -46,6 +46,7 @@ class OrderController extends Controller
 
     public function store(OrderStoreRequest $request)
     {
+        
         $order = Order::create([
             'payment_type' => $request->payment_type,
             'pay' => $request->pay,

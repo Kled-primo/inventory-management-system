@@ -8,7 +8,7 @@ use App\Http\Requests\Invoice\StoreInvoiceRequest;
 
 class InvoiceController extends Controller
 {
-    public function create(StoreInvoiceRequest $request)
+    public function create()
     {
         // $customer = Customer::where('id', $request->get('customer_id'))
         //     ->first();
