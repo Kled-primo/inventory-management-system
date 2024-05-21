@@ -65,7 +65,6 @@
                                                 <th class="text-center">Item</th>
                                                 <th class="text-center">Price</th>
                                                 <th class="text-center">Quantity</th>
-                                                <th class="text-center">Subtotal</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -74,21 +73,8 @@
                                                 <td class="text-center">{{ $item->name }}</td>
                                                 <td class="text-center">{{ $item->price }}</td>
                                                 <td class="text-center">{{ $item->qty }}</td>
-                                                <td class="text-center">{{ $item->subtotal }}</td>
                                             </tr>
                                             @endforeach
-                                            <tr>
-                                                <td colspan="3" class="text-end"><strong>Subtotal</strong></td>
-                                                <td class="text-center">
-                                                    <strong>{{ Cart::subtotal() }}</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3" class="text-end"><strong>Tax</strong></td>
-                                                <td class="text-center">
-                                                    <strong>{{ Cart::tax() }}</strong>
-                                                </td>
-                                            </tr>
                                             <tr>
                                                 <td colspan="3" class="text-end"><strong>Total</strong></td>
                                                 <td class="text-center">

@@ -14,12 +14,9 @@ class Order extends Model
     ];
 
     protected $fillable = [
-        'customer_id',
         'order_date',
         'order_status',
         'total_products',
-        'sub_total',
-        'vat',
         'total',
         'invoice_no',
         'payment_type',

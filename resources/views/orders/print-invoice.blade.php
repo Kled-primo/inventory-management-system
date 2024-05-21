@@ -63,7 +63,6 @@
                                             <th class="align-middle">Item</th>
                                             <th class="align-middle text-center">Price</th>
                                             <th class="align-middle text-center">Quantity</th>
-                                            <th class="align-middle text-center">Subtotal</th>
                                         </tr>
                                     </thead>
 
@@ -75,46 +74,24 @@
                                                     {{ $item->product->name }}
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    {{ Number::currency($item->unitcost, 'EUR') }}
+                                                    {{ Number::currency($item->unitcost, 'PHP') }}
                                                 </td>
                                                 <td class="align-middle text-center">
                                                     {{ $item->quantity }}
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    {{ Number::currency($item->total, 'EUR') }}
+                                                    {{ Number::currency($item->total, 'PHP') }}
                                                 </td>
                                             </tr>
                                         @endforeach
 
                                         <tr>
                                             <td colspan="3" class="text-end">
-                                                <strong>
-                                                    Subtotal
-                                                </strong>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <strong>
-                                                    {{ Number::currency($order->sub_total, 'EUR') }}
-                                                </strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3" class="text-end">
-                                                <strong>Tax</strong>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <strong>
-                                                    {{ Number::currency($order->vat, 'EUR') }}
-                                                </strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3" class="text-end">
                                                 <strong>Total</strong>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <strong>
-                                                    {{ Number::currency($order->total, 'EUR') }}
+                                                    {{ Number::currency($order->total, 'PHP') }}
                                                 </strong>
                                             </td>
                                         </tr>

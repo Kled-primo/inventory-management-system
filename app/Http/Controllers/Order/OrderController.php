@@ -53,8 +53,6 @@ class OrderController extends Controller
             'order_date' => Carbon::now()->format('Y-m-d'),
             'order_status' => OrderStatus::PENDING->value,
             'total_products' => Cart::count(),
-            'sub_total' => Cart::subtotal(),
-            'vat' => Cart::tax(),
             'total' => Cart::total(),
             'invoice_no' => IdGenerator::generate([
                 'table' => 'orders',
