@@ -21,7 +21,7 @@ return new class () extends Migration {
             $table->integer('producttype');
             //$table->string('product_barcode_symbology')->nullable();
             $table->integer('quantity');
-            $table->integer('unit_number')->comment('Unit Number');
+            $table->char('unit_number')->comment('Unit Number')->nullable();
             $table->float('selling_price')->comment('Selling Price');
             $table->integer('quantity_alert');
             $table->text('notes')->nullable();
@@ -32,6 +32,7 @@ return new class () extends Migration {
                 ->nullOnDelete();
 
             $table->foreignIdFor(\App\Models\Unit::class)->constrained()
+                ->nullable()
                 ->cascadeOnDelete();
             $table->timestamps();
         });
