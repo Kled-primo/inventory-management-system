@@ -95,7 +95,7 @@
                             {{ $order->payment_type }}
                         </td>
                         <td class="align-middle text-center">
-                            {{ Number::currency($order->total, 'EUR') }}
+                            {{ Number::currency($order->total, 'PHP') }}
                         </td>
                         <td class="align-middle text-center">
                             <x-status dot
