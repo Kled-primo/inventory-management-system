@@ -1,25 +1,26 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\ProducttypeController;
-use App\Http\Controllers\Dashboards\DashboardController;
-use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\Order\DueOrderController;
-use App\Http\Controllers\Order\OrderCompleteController;
-use App\Http\Controllers\Order\OrderController;
-use App\Http\Controllers\Order\OrderPendingController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PosController;
-use App\Http\Controllers\Product\ProductController;
-use App\Http\Controllers\Product\ProductExportController;
-use App\Http\Controllers\Product\ProductImportController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Purchase\PurchaseController;
-use App\Http\Controllers\Quotation\QuotationController;
-use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\Order\OrderController;
+use App\Http\Controllers\ProducttypeController;
+use App\Http\Controllers\Order\DueOrderController;
+use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Purchase\PurchaseController;
+use App\Http\Controllers\Order\OrderPendingController;
+use App\Http\Controllers\Order\OrderCompleteController;
+use App\Http\Controllers\Quotation\QuotationController;
+use App\Http\Controllers\Dashboards\DashboardController;
+use App\Http\Controllers\Product\ProductExportController;
+use App\Http\Controllers\Product\ProductImportController;
+use App\Http\Controllers\Product\ProductForecastController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/categories', CategoryController::class);
     Route::resource('/producttype', ProductType::class);
     Route::resource('/units', UnitController::class);
+
+    //Route Product Forecast
+    Route::post('productsforecast/{id}/product', [ProductForecastController::class,'product'])->name('forecast.product');
 
     // Route Products
     Route::get('products/import/', [ProductImportController::class, 'create'])->name('products.import.view');
