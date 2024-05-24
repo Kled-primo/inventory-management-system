@@ -5,6 +5,7 @@ namespace App\Livewire\Tables;
 use Livewire\Component;
 use App\Models\Purchase;
 use Livewire\WithPagination;
+use Auth;
 
 class PurchaseTable extends Component
 {
@@ -20,8 +21,7 @@ class PurchaseTable extends Component
 
     public function sortBy($field): void
     {
-        if($this->sortField === $field)
-        {
+        if($this->sortField === $field) {
             $this->sortAsc = ! $this->sortAsc;
 
         } else {
@@ -33,12 +33,27 @@ class PurchaseTable extends Component
 
     public function render()
     {
-        return view('livewire.tables.purchase-table', [
-            'purchases' => Purchase::where("user_id",auth()->id())
+
+        if (isset(Auth::user()->supplier->id)) {
+            // Supplier
+            Purchase::where("supplier_id", Auth::user()->supplier->id)
                 ->with('supplier')
                 ->search($this->search)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                ->paginate($this->perPage)
+                ->paginate($this->perPage);
+        } else {
+            // Admin or Employee
+            $purchases = Purchase::search($this->search)
+                ->with('supplier')
+                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                ->paginate($this->perPage);
+
+        }
+
+
+
+        return view('livewire.tables.purchase-table', [
+            'purchases' => $purchases
         ]);
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\Order\OrderController;
@@ -134,6 +135,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/permissions', [PermissionController::class,'index'])->name('permissions.index');
     Route::post('/permissions', [PermissionController::class,'create'])->name('permissions.create');
     Route::post('/permissions/user/{userid}/remove-role', [PermissionController::class,'userremove'])->name('permissions.user.remove');
+
+
 });
 
 require __DIR__.'/auth.php';

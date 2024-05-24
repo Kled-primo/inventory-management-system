@@ -71,6 +71,7 @@
                         - --}}
 
                         <div class="nav-item dropdown d-none d-md-flex me-3">
+                            @hasanyrole('Super-Admin|Employee')
                             <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -121,6 +122,7 @@
                                         {{-- @endforeach --}}
                                         {{-- </div> --}}
                                     {{-- </div> --}}
+
                                 @if (isset($notify_products))
                                 <span class="dropdown-header">Low Stocks</span>
                                 @foreach($notify_products as $nprod)
@@ -130,7 +132,9 @@
                                 @endforeach
                                 @endif
 
+
                             </div>
+                            @endhasanyrole
                         </div>
 
                         {{-- -

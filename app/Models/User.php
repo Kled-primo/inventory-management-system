@@ -11,7 +11,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+    use HasRoles;
 
     protected $fillable = [
         'uuid',
@@ -46,5 +49,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getRouteKeyName(): string
     {
         return 'name';
+    }
+
+    public function supplier()
+    {
+        return $this->hasOne(Supplier::class, 'user_id', 'id');
     }
 }

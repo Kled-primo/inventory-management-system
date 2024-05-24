@@ -18,7 +18,7 @@ class OrderSeeder extends Seeder
     public function run(): void
     {
 
-
+        $inv_counter = 1;
         $orderStatuses = [1, 0];
         $products = Product::all(); // Assuming you have a products table with some products
 
@@ -34,10 +34,10 @@ class OrderSeeder extends Seeder
                     'uuid' => fake()->uuid(),
                     'user_id' => $userId,
                     'order_date' => $orderDate,
-                    'order_status' => $orderStatus,
+                    'order_status' => 1,
                     'total_products' => 0, // Will be updated later
                     'total' => 0, // Will be updated later
-                    'invoice_no' => fake()->randomDigitNotZero(),
+                    'invoice_no' => 'INV-'. $inv_counter++,
                     'payment_type' => 'cash',
                     'pay' => 0,
                     'due' => 0,
