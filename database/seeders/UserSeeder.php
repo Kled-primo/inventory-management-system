@@ -25,6 +25,24 @@ class UserSeeder extends Seeder
                 'photo' => 'admin.jpg'
             ],
             [
+                'name' => 'employee',
+                'email' => 'employee@employee.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('password'),
+                'created_at' => now(),
+                'uuid' => Str::uuid(),
+                'photo' => 'admin.jpg'
+            ],
+            [
+                'name' => 'supplier',
+                'email' => 'supplier@supplier.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('password'),
+                'created_at' => now(),
+                'uuid' => Str::uuid(),
+                'photo' => 'admin.jpg'
+            ],
+            [
                 'name' => 'quest',
                 'email' => 'quest@quest.com',
                 'email_verified_at' => now(),

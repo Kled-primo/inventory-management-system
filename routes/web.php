@@ -18,6 +18,7 @@ use App\Http\Controllers\Order\OrderPendingController;
 use App\Http\Controllers\Order\OrderCompleteController;
 use App\Http\Controllers\Quotation\QuotationController;
 use App\Http\Controllers\Dashboards\DashboardController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\Product\ProductExportController;
 use App\Http\Controllers\Product\ProductImportController;
 use App\Http\Controllers\Product\ProductForecastController;
@@ -129,6 +130,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/quotations/{quotation}/edit', [QuotationController::class, 'edit'])->name('quotations.edit');
     //Route::post('/quotations/complete/{quotation}', [QuotationController::class, 'update'])->name('quotations.update');
     //Route::delete('/quotations/delete/{quotation}', [QuotationController::class, 'destroy'])->name('quotations.delete');
+
+    Route::get('/permissions', [PermissionController::class,'index'])->name('permissions.index');
+    Route::post('/permissions', [PermissionController::class,'create'])->name('permissions.create');
+    Route::post('/permissions/user/{userid}/remove-role', [PermissionController::class,'userremove'])->name('permissions.user.remove');
 });
 
 require __DIR__.'/auth.php';
