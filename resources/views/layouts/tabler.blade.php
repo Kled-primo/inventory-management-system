@@ -475,6 +475,7 @@
     {{-- - Page Scripts - --}}
     @stack('page-scripts')
 
+
     @livewireScripts
 </body>
 

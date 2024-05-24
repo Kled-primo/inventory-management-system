@@ -33,7 +33,9 @@ class OrderController extends Controller
 
     public function create()
     {
-        $products = Product::where('user_id', auth()->id())->with(['category', 'unit'])->get();
+        //$products = Product::where('user_id', auth()->id())->with(['category', 'unit'])->get();
+
+        $products = Product::with(['category', 'unit'])->get();
 
 
         $carts = Cart::content();
@@ -46,7 +48,7 @@ class OrderController extends Controller
 
     public function store(OrderStoreRequest $request)
     {
-        
+
         $order = Order::create([
             'payment_type' => $request->payment_type,
             'pay' => $request->pay,
