@@ -29,7 +29,19 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Customer::factory(15)->create();
-        Supplier::factory(15)->create();
+        Supplier::factory()->create([
+            'user_id' => '3'
+        ]);
+
+        Supplier::factory()->create([
+                    'user_id' => '4'
+                ]);
+
+
+        Supplier::factory()->create([
+                    'user_id' => '5'
+                ]);
+
 
         $this->call(ProductsTableSeeder::class);
         $this->call(OrderSeeder::class);

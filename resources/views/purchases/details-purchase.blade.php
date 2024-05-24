@@ -1,5 +1,5 @@
 @extends('layouts.tabler')
-<?php dd(11); ?>
+
 @section('content')
 <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
     <div class="container-xl px-4">
@@ -7,7 +7,10 @@
             <div class="row align-items-center justify-content-between pt-3">
                 <div class="col-auto mb-3">
                     <h1 class="page-header-title">
-                        <div class="page-header-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg></div>
+                        <div class="page-header-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg></div>
                         Purchase Details
                     </h1>
                 </div>
@@ -64,7 +67,7 @@
                     <div class="row gx-3 mb-3">
                         <div class="col-md-6">
                             <label class="small mb-1">Created By</label>
-                            <div class="form-control form-control-solid">{{ $purchase->user_created->name }}</div>
+                            <div class="form-control form-control-solid">{{ $purchase->createdBy->name }}</div>
                         </div>
                         <div class="col-md-6">
                             <label class="small mb-1">Updated By</label>
@@ -73,12 +76,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label  class="small mb-1">Address</label>
+                        <label class="small mb-1">Address</label>
                         <div class="form-control form-control-solid">{{ $purchase->supplier->address }}</div>
                     </div>
 
                     @if ($purchase->purchase_status == 0)
-                    <form action="{{ route('purchases.updatePurchase') }}" method="POST">
+                    <form action="{{ route('purchases.update',$purchase->uuid) }}" method="POST">
                         @csrf
                         @method('put')
                         <input type="hidden" name="id" value="{{ $purchase->id }}">
@@ -116,12 +119,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($purchaseDetails as $item)
+                                    @foreach ($purchase->details as $item)
                                     <tr>
-                                        <td scope="row">{{ $loop->iteration  }}</td>
+                                        <td scope="row">{{ $loop->iteration }}</td>
                                         <td scope="row">
                                             <div style="max-height: 80px; max-width: 80px;">
-                                                <img class="img-fluid"  src="{{ $item->product->product_image ? asset('storage/products/'.$item->product->product_image) : asset('assets/img/products/default.webp') }}">
+                                                <img class="img-fluid" src="{{ $item->product->product_image ? asset('storage/products/'.$item->product->product_image) : asset('assets/img/products/default.webp') }}">
                                             </div>
                                         </td>
                                         <td scope="row">{{ $item->product->product_name }}</td>
@@ -130,7 +133,7 @@
                                         <td scope="row"><span class="btn btn-success">{{ $item->quantity }}</span></td>
                                         <td scope="row">{{ $item->unitcost }}</td>
                                         <td scope="row">
-                                            <span  class="btn btn-primary">{{ $item->total }}</span>
+                                            <span class="btn btn-primary">{{ $item->total }}</span>
                                         </td>
                                     </tr>
                                     @endforeach

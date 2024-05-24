@@ -23,6 +23,7 @@ return new class () extends Migration {
             $table->integer('quantity');
             $table->char('unit_number')->comment('Unit Number')->nullable();
             $table->float('selling_price')->comment('Selling Price');
+            $table->float('purchase_price')->comment('Purchase Price');
             $table->integer('quantity_alert');
             $table->text('notes')->nullable();
 

@@ -116,7 +116,7 @@
                     <td class="align-middle text-center" style="width: 10%">
                         <x-button.show class="btn-icon" route="{{ route('purchases.edit', $purchase->uuid) }}" />
                         {{-- <x-button.complete class="btn-icon" onclick="return confirm('Are you sure to approve purchase no. {{ $purchase->purchase_no }}!') route=" {{ route('purchases.update', $purchase->uuid) }}"/> --}}
-                            @hasrole('supplier')
+                            @hasrole('Supplier')
                             <x-button.complete class="btn-icon" route="{{ route('purchases.update', $purchase->uuid) }}" onclick="return confirm('Are you sure to approve purchase no. {{ $purchase->purchase_no }}?')" />
                             @endhasrole
                             <x-button.delete class="btn-icon" onclick="return confirm('Are you sure!')" route="{{ route('purchases.delete', $purchase->uuid) }}" />

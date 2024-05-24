@@ -36,7 +36,7 @@ class PurchaseTable extends Component
 
         if (isset(Auth::user()->supplier->id)) {
             // Supplier
-            Purchase::where("supplier_id", Auth::user()->supplier->id)
+            $purchases = Purchase::where("supplier_id", Auth::user()->supplier->id)
                 ->with('supplier')
                 ->search($this->search)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')

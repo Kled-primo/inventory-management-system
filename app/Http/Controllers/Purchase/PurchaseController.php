@@ -49,11 +49,11 @@ class PurchaseController extends Controller
 
     public function show($uuid)
     {
-        $purchase = Purchase::where('id', $uuid)->firstOrFail();
+        $purchase = Purchase::with('supplier')->where('id', $uuid)->firstOrFail();
         // N+1 Problem if load 'createdBy', 'updatedBy',
-        $purchase->loadMissing(['supplier', 'details'])->get();
+        //$purchase->loadMissing(['supplier', 'details'])->get();
 
-        $purchase->with(['supplier', 'details'])->get();
+        //$purchase->with(['supplier', 'details'])->get();
         $products = PurchaseDetails::where('purchase_id', $purchase->id)->get();
 
         return view('purchases.details-purchase', [
