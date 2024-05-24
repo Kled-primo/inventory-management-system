@@ -27,8 +27,7 @@ class DashboardController extends Controller
         $categories = Category::where("user_id", auth()->id())->count();
         $quotations = Quotation::where("user_id", auth()->id())->count();
 
-        $alert_twentyfive = ['1'];
-        //alert_fifty = [];
+
 
         //computation
 
@@ -41,8 +40,7 @@ class DashboardController extends Controller
             'todayQuotations' => $todayQuotations,
             'todayOrders' => $todayOrders,
             'categories' => $categories,
-            'quotations' => $quotations,
-            'alert_twentyfive' => $alert_twentyfive
+            'quotations' => $quotations
         ]);
     }
 }

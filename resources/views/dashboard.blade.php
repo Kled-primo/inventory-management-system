@@ -266,18 +266,73 @@
                             </div>
                         </div>
                     </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row row-cards">
                     <div class="col-sm-6 col-lg-3">
                         <div class="card card-sm">
                             <div class="card-body">
                                 <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <span class="bg-danger text-white avatar">
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-package-off">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M8.812 4.793l3.188 -1.793l8 4.5v8.5m-2.282 1.784l-5.718 3.216l-8 -4.5v-9l2.223 -1.25" />
+                                                <path d="M14.543 10.57l5.457 -3.07" />
+                                                <path d="M12 12v9" />
+                                                <path d="M12 12l-8 -4.5" />
+                                                <path d="M16 5.25l-4.35 2.447m-2.564 1.442l-1.086 .611" />
+                                                <path d="M3 3l18 18" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="font-weight-medium">
+                                            {{ $twentyfive_products }} Product/s
+                                        </div>
+                                        <div class="text-muted">
+                                            25% Alert Level
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-sm">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <span class="bg-danger text-white avatar">
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-alert-triangle">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M12 9v4" />
+                                                <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
+                                                <path d="M12 16h.01" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="font-weight-medium">
+                                            {{ $fifty_products }} Product/s
+                                        </div>
+                                        <div class="text-muted">
+                                            50% Alert Level
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             {{-- -
             <div class="col-lg-6">
                 <div class="card">

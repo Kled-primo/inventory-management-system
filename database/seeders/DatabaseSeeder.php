@@ -24,27 +24,17 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CategorySeeder::class,
             UnitSeeder::class,
-            ProductSeeder::class,
             ProductTypeSeeder::class,
-            OrderSeeder::class,
             PermissionSeeder::class
         ]);
 
         Customer::factory(15)->create();
         Supplier::factory(15)->create();
 
-        /*
-        for ($i=0; $i < 10; $i++) {
-            Product::factory()->create([
-                'product_code' => IdGenerator::generate([
-                    'table' => 'products',
-                    'field' => 'product_code',
-                    'length' => 4,
-                    'prefix' => 'PC'
-                ]),
-            ]);
-        }
-        */
+        $this->call(ProductsTableSeeder::class);
+        $this->call(OrderSeeder::class);
+
+
 
     }
 }

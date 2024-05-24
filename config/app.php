@@ -170,6 +170,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Html\HtmlServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
         /*
         * Third Party Service Providers...

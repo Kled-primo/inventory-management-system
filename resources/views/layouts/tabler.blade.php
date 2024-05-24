@@ -77,7 +77,9 @@
                                     <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
                                     <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
                                 </svg>
-
+                                @if (isset($notify_products))
+                                <span class="badge bg-red text-white">{{ count($notify_products) }}</span>
+                                @endif
                                 @if (auth()->user()->unreadNotifications->count() !== 0)
                                 <span class="badge bg-red"></span>
                                 @endif
@@ -119,13 +121,15 @@
                                         {{-- @endforeach --}}
                                         {{-- </div> --}}
                                     {{-- </div> --}}
-                                <span class="dropdown-header">Dropdown header</span>
+                                @if (isset($notify_products))
+                                <span class="dropdown-header">Low Stocks</span>
+                                @foreach($notify_products as $nprod)
                                 <a class="dropdown-item" href="#">
-                                    Action
+                                    {{ $nprod->name }} ({{ $nprod->quantity }})
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Another action
-                                </a>
+                                @endforeach
+                                @endif
+
                             </div>
                         </div>
 

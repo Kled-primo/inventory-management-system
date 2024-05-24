@@ -60,13 +60,32 @@ class ProductForecastController extends Controller
 
             $counter++;
 
-            $product_forecasts->push(['year' => $details->year,'month' => $details->month,'sales' => $details->total_quantity,'forecast' => $ave]);
+            $product_forecasts->push([
+                'year' => $details->year,
+                'month' => $details->month,
+                'sales' => $details->total_quantity,
+                'forecast' => $ave]);
 
             $fcgraph->addRow([$details->year .'-'.$details->month, $details->total_quantity, $ave]);
 
         }
 
-        \Lava::LineChart('Forcasts', $fcgraph, ['title' => 'Sales Forecast - ' . $product->name]);
+        $options = [
+            'title' => 'Sales Forecast - ' . $product->name,
+            'hAxis' => [
+                'title' => 'Month Year',
+            ],
+            'vAxis' => [
+                'title' => 'Sales Total',
+            ],
+            'pointSize' => 5,
+            'legend' => [
+                'position' => 'bottom',
+            ]
+
+        ];
+
+        \Lava::LineChart('Forecasts', $fcgraph, $options);
 
         return view('products.forecast')
             ->with('product_forecasts', $product_forecasts)
