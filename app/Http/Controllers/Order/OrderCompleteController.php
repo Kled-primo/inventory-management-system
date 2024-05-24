@@ -11,10 +11,16 @@ class OrderCompleteController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $orders = Order::where('order_status', OrderStatus::COMPLETE)
+        $orders = collect();
+
+        Order::where('order_status', OrderStatus::COMPLETE)
             ->latest()
             ->with('customer')
-            ->get();
+            ->chunk(100, function ($chunkedOrders) use ($orders) {
+
+                $orders->push($chunkedOrders);
+
+            });
 
         return view('orders.complete-orders', [
             'orders' => $orders
