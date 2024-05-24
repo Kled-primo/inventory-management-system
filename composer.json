@@ -20,7 +20,7 @@
         "picqer/php-barcode-generator": "^2.2",
         "power-components/livewire-powergrid": "^5.1",
         "rappasoft/laravel-livewire-tables": "^3.1",
-        "khill/lavacharts": "^3.1"
+        "khill/lavacharts": "^3.1",
         "spatie/laravel-html": "^3.9",
         "spatie/laravel-permission": "^6.7"
     },
