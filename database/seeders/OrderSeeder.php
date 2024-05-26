@@ -17,16 +17,19 @@ class OrderSeeder extends Seeder
      */
     public function run(): void
     {
-
         $inv_counter = 1;
         $orderStatuses = [1, 0];
         $products = Product::all(); // Assuming you have a products table with some products
 
-        for ($day = 0; $day < 365; $day++) {
-            $date = Carbon::now()->subDays(365 - $day);
+        $startDate = Carbon::create(2023, 1, 1);
+        $endDate = Carbon::create(2024, 4, 30);
+        $days = $endDate->diffInDays($startDate);
+
+        for ($day = 0; $day <= $days; $day++) {
+            $date = $startDate->copy()->addDays($day);
             for ($orderCount = 0; $orderCount < 75; $orderCount++) {
                 $orderDate = $date->timestamp;
-                $orderStatus = fake()->randomElement($orderStatuses);
+
 
                 $userId = User::inRandomOrder()->first()->id;
 
@@ -71,12 +74,11 @@ class OrderSeeder extends Seeder
 
                 // Update order with the total amount and quantity
                 $order->update([
-                    'total_products' => $totalAmount,
-                    'total' => $totalQuantity,
+                    'total_products' => $totalQuantity,
+                    'total' => $totalAmount,
                     'pay' => $totalAmount
                 ]);
             }
         }
-
     }
 }

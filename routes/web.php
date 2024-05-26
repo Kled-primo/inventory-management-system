@@ -69,7 +69,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/units', UnitController::class);
 
     //Route Product Forecast
-    Route::post('productsforecast/{id}/product', [ProductForecastController::class,'product'])->name('forecast.product');
+    Route::get('productsforecast/{id}/product', [ProductForecastController::class,'product'])->name('forecast.product');
 
     // Route Products
     Route::get('products/import/', [ProductImportController::class, 'create'])->name('products.import.view');

@@ -4,13 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Unit;
-use App\Models\User;
-use App\Models\Product;
-use App\Models\Category;
+
 use App\Models\Customer;
 use App\Models\Supplier;
 use Illuminate\Database\Seeder;
+use Database\Seeders\SettingSeeder;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class DatabaseSeeder extends Seeder
@@ -45,6 +43,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ProductsTableSeeder::class);
         $this->call(OrderSeeder::class);
+        $this->call(SettingSeeder::class);
 
 
 

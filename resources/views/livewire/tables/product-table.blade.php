@@ -146,7 +146,18 @@
                         {{ $product->selling_price }}
                     </td>
                     <td class="align-middle text-center" style="width: 10%">
-                        <x-button.complete class="btn-icon" route="{{ route('forecast.product', $product->id) }}" />
+                        <a href="{{ route('forecast.product', $product->id) }}" class="btn btn-outline-success btn-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chart-dots-2">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M3 3v18h18" />
+                                <path d="M9 15m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M13 5m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M18 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M21 3l-6 1.5" />
+                                <path d="M14.113 6.65l2.771 3.695" />
+                                <path d="M16 12.5l-5 2" />
+                            </svg>
+                        </a>
                         <x-button.show class="btn-icon" route="{{ route('products.show', $product->uuid) }}" />
                         <x-button.edit class="btn-icon" route="{{ route('products.edit', $product->uuid) }}" />
                         <x-button.delete class="btn-icon" route="{{ route('products.destroy', $product->uuid) }}" onclick="return confirm('Are you sure to delete product {{ $product->name }} ?')" />

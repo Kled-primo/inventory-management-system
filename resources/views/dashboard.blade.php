@@ -333,6 +333,150 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div id="q1graph" style="width: 100%; height: 500px"></div>
+                                @columnchart('FirstQuarter', 'q1graph')
+                            </div>
+                            <div class="col-md-4">
+                                <table class="table table-bordered table-sm">
+                                    <tr>
+                                        <th colspan="2">Quarter 1</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Sales</th>
+                                    </tr>
+                                    @foreach ($q1 as $product_id => $productData)
+                                    <tr>
+                                        <td><a href="{{ route('forecast.product', $product_id) }}">{{ $productData['name'] }} </a></td>
+                                        <td>{{ $productData['total_quantity'] }}</td>
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div id="q2graph" style="width: 100%; height: 500px"></div>
+                                @columnchart('SecondQuarter', 'q2graph')
+                            </div>
+                            <div class="col-md-4">
+                                <table class="table table-bordered table-sm">
+                                    <tr>
+                                        <th colspan="2">Quarter 2</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Sales</th>
+                                    </tr>
+                                    @foreach ($q2 as $product_id => $productData)
+                                    <tr>
+                                        <td><a href="{{ route('forecast.product', $product_id) }}">{{ $productData['name'] }}</a></td>
+                                        <td>{{ $productData['total_quantity'] }}</td>
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div id="q3graph" style="width: 100%; height: 500px"></div>
+                                @columnchart('ThirdQuarter', 'q3graph')
+                            </div>
+                            <div class="col-md-4">
+                                <table class="table table-bordered table-sm">
+                                    <tr>
+                                        <th colspan="2">Quarter 3</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Sales</th>
+                                    </tr>
+                                    @foreach ($q3 as $product_id => $productData)
+                                    <tr>
+                                        <td><a href="{{ route('forecast.product', $product_id) }}">{{ $productData['name'] }}</a></td>
+                                        <td>{{ $productData['total_quantity'] }}</td>
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div id="q4graph" style="width: 100%; height: 500px"></div>
+                                @columnchart('ForthQuarter', 'q4graph')
+                            </div>
+                            <div class="col-md-4">
+                                <table class="table table-bordered table-sm">
+                                    <tr>
+                                        <th colspan="2">Quarter 4</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Sales</th>
+                                    </tr>
+                                    @foreach ($q4 as $product_id => $productData)
+                                    <tr>
+                                        <td><a href="{{ route('forecast.product', $product_id) }}">{{ $productData['name'] }}</a></td>
+                                        <td>{{ $productData['total_quantity'] }}</td>
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             {{-- -
             <div class="col-lg-6">
                 <div class="card">
