@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Product;
 
+use Str;
+use App\Models\Unit;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\ProductType;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Picqer\Barcode\BarcodeGeneratorHTML;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Unit;
-use App\Models\ProductType;
-use Haruncpi\LaravelIdGenerator\IdGenerator;
-use Illuminate\Http\Request;
-use Picqer\Barcode\BarcodeGeneratorHTML;
-use Str;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,7 @@ class ProductController extends Controller
             'products' => $products,
         ]);
 
-        
+
     }
 
     public function create(Request $request)
@@ -76,9 +77,12 @@ class ProductController extends Controller
             'quantity'          => $request->quantity,
             'unit_number'      => $request->unit_number,
             'selling_price'     => $request->selling_price,
+            'purchase_price'     => $request->purchase_price,
             'quantity_alert'    => $request->quantity_alert,
             'notes'             => $request->notes,
-            "user_id" => auth()->id(),
+            'manufacturing_date' => $request->manufacturing_date,
+            'expiry_date' => $request->expiry_date,
+            "user_id" => $request->user_id,
             "slug" => Str::slug($request->name, '-'),
             "uuid" => Str::uuid()
         ]);
@@ -133,8 +137,11 @@ class ProductController extends Controller
         $product->quantity = $request->quantity;
         $product->unit_number = $request->unit_number;
         $product->selling_price = $request->selling_price;
+        $product->purchase_price = $request->purchase_price;
         $product->quantity_alert = $request->quantity_alert;
         $product->notes = $request->notes;
+        $product->manufacturing_date = $request->manufacturing_date;
+        $product->expiry_date = $request->expiry_date;
         $product->save();
 
 

@@ -31,7 +31,7 @@ class DashboardController extends Controller
 
         //computation
 
-        $forecast_year = Setting::where('id', 1)->first(); // Get the current year set
+        $forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
 
         $order_details = OrderDetails::selectRaw('
                         order_details.product_id,
@@ -54,6 +54,8 @@ class DashboardController extends Controller
         $q3 = collect();
         $q4 = collect();
 
+
+
         // Define a mapping of months to quarters
         $monthToQuarter = [
             1 => 1, 2 => 1, 3 => 1, // Q1
@@ -61,6 +63,8 @@ class DashboardController extends Controller
             7 => 3, 8 => 3, 9 => 3, // Q3
             10 => 4, 11 => 4, 12 => 4, // Q4
         ];
+
+        $currentQuarter = $monthToQuarter[date("n")];
 
         foreach ($order_details as $detail) {
             $quarter = $monthToQuarter[$detail->month];
@@ -82,6 +86,7 @@ class DashboardController extends Controller
             // Initialize the product's total_quantity in the quarter if it doesn't exist
             if (!$collection->has($detail->product_id)) {
                 $collection->put($detail->product_id, [
+                    'pid' => $detail->product_id,
                     'name' => $detail->product_name,
                     'total_quantity' => 0
                 ]);
@@ -91,7 +96,7 @@ class DashboardController extends Controller
             $productData = $collection->get($detail->product_id);
             $productData['total_quantity'] += $detail->total_quantity;
             $collection->put($detail->product_id, $productData);
-        }
+        } // loop over product
 
 
         // Sort each quarter by total_quantity in descending order
@@ -99,7 +104,6 @@ class DashboardController extends Controller
         $q2 = $q2->sortByDesc('total_quantity')->take(20);
         $q3 = $q3->sortByDesc('total_quantity')->take(20);
         $q4 = $q4->sortByDesc('total_quantity')->take(20);
-
 
         //Display the results for each quarter
         $quarters = [
@@ -109,7 +113,7 @@ class DashboardController extends Controller
             4 => $q4,
         ];
 
-
+        //dd($q1->last());
 
         $q1_graph = \Lava::DataTable();
         $q1_graph->addStringColumn('Product');

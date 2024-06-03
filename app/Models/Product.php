@@ -23,6 +23,7 @@ class Product extends Model
         'quantity_alert',
         'unit_number',
         'selling_price',
+        'purchase_price',
         'producttype',
         'notes',
         'category_id',
@@ -30,17 +31,19 @@ class Product extends Model
         'created_at',
         'updated_at',
         "user_id",
-        "uuid"
+        "uuid",
+        "manufacturing_date",
+        "expiry_date"
     ];
 
     public static function boot()
-{
-    parent::boot();
-    
-    static::creating(function ($model) {
-        $model->uuid = Str::uuid();
-    });
-}
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->uuid = Str::uuid();
+        });
+    }
 
     protected $casts = [
         'created_at' => 'datetime',
@@ -54,8 +57,8 @@ class Product extends Model
 
     public function product_type(): BelongsTo
     {
-        return $this->belongsTo(ProductType::class,'producttype','id');
-        
+        return $this->belongsTo(ProductType::class, 'producttype', 'id');
+
     }
 
     public function category(): BelongsTo
@@ -81,11 +84,11 @@ class Product extends Model
         $query->where('name', 'like', "%{$value}%")
             ->orWhere('code', 'like', "%{$value}%");
     }
-     /**
-     * Get the user that owns the Category
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
+    /**
+    * Get the user that owns the Category
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

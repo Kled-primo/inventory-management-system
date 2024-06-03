@@ -129,25 +129,30 @@ class PurchaseController extends Controller
             ->with('success', 'Purchase has been created!');
     }
 
-    public function update($uuid)
+    public function update(Request $request, $uuid)
     {
+
         $purchase = Purchase::where('uuid', $uuid)->firstOrFail();
+
         $products = PurchaseDetails::where('purchase_id', $purchase->id)->get();
 
-        foreach ($products as $product) {
-            Product::where('id', $product->product_id)
-                    ->update(['quantity' => DB::raw('quantity+'.$product->quantity)]);
+        if ($request->status == 3) {
+
+            foreach ($products as $product) {
+                Product::where('id', $product->product_id)
+                ->update(['quantity' => DB::raw('quantity+'.$product->quantity)]);
+            }
+
         }
 
         Purchase::findOrFail($purchase->id)
             ->update([
-                'status' => PurchaseStatus::APPROVED,
+                'status' => $request->status,
                 'updated_by' => auth()->user()->id
             ]);
 
         return redirect()
-            ->back()
-            ->with('success', 'Purchase has been approved!');
+            ->back();
     }
 
     public function destroy($uuid)

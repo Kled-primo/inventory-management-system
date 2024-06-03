@@ -156,15 +156,32 @@
                                         Status
                                     </td>
                                     <td class="align-middle text-center">
-                                        @if ($purchase->status->value == 1)
-                                        <span class="badge bg-success-lt">
-                                            Approve
-                                        </span>
-                                        @elseif ($purchase->status->value == 0)
-                                        <span class="badge bg-warning-lt">
+
+
+                                        @switch($purchase->status)
+                                        @case(0) {{-- Pending --}}
+                                        <span class="badge bg-danger-lt">
                                             Pending
                                         </span>
-                                        @endif
+                                        @break
+                                        @case(1) {{-- In Process --}}
+                                        <span class="badge bg-pending-lt">
+                                            In Process
+                                        </span>
+                                        @break
+
+                                        @case(2) {{-- In transit --}}
+                                        <span class="badge bg-info-lt">
+                                            In transit
+                                        </span>
+                                        @break
+                                        @case(3) {{-- Completed --}}
+                                        <span class="badge bg-success-lt">
+                                            Completed
+                                        </span>
+                                        @break
+                                        @endswitch
+
                                     </td>
                                 </tr>
                             </tbody>
@@ -174,14 +191,29 @@
             </div>
 
             <div class="card-footer text-end">
-                @if ($purchase->status === \App\Enums\PurchaseStatus::PENDING)
+
+                @if ($purchase->status != 3)
                 <form action="{{ route('purchases.update', $purchase->uuid) }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{ $purchase->id }}">
                     @hasrole('Supplier')
-                    <button type="submit" class="btn btn-success" onclick="return confirm('Are you sure you want to approve this purchase?')">
-                        {{ __('Approve Purchase') }}
+                    @switch($purchase->status)
+                    @case(0)
+                    <button type="submit" name="status" value="1" class="btn btn-warning" onclick="return confirm('Are you sure you want to process this purchase?')">
+                        {{ __('Set Process Purchase') }}
                     </button>
+                    @break
+                    @case(1)
+                    <button type="submit" name="status" value="2" class="btn btn-info" onclick="return confirm('Are you sure you want to ship this purchase?')">
+                        {{ __('Set In Transit') }}
+                    </button>
+                    @break
+                    @case(2)
+                    <button type="submit" name="status" value="3" class="btn btn-success" onclick="return confirm('Are you sure you want to approve this purchase?')">
+                        {{ __('Set Complete Purchase') }}
+                    </button>
+                    @break
+                    @endswitch
                     @endhasrole
                 </form>
                 @endif

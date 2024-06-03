@@ -96,30 +96,42 @@
                     </td>
                     <td class="align-middle text-center">
                         {{ Number::currency($purchase->total_amount, 'PHP') }}
+                        {{ $purchase->status }}
                     </td>
 
-                    @if ($purchase->status === \App\Enums\PurchaseStatus::APPROVED)
+                    @if ($purchase->status == 3)
                     <td class="align-middle text-center">
                         <span class="badge bg-green text-white text-uppercase">
-                            {{ __('APPROVED') }}
+                            {{ __('Completed') }}
                         </span>
                     </td>
                     <td class="align-middle text-center">
                         <x-button.show class="btn-icon" route="{{ route('purchases.edit', $purchase->uuid) }}" />
                     </td>
-                    @else
+                    @elseif ($purchase->status == 2)
                     <td class="align-middle text-center">
                         <span class="badge bg-orange text-white text-uppercase">
-                            {{ __('PENDING') }}
+                            {{ __('In Transit') }}
                         </span>
                     </td>
+                    @elseif ($purchase->status == 1)
+                    <td class="align-middle text-center">
+                        <span class="badge bg-orange text-white text-uppercase">
+                            {{ __('In Process') }}
+                        </span>
+                    </td>
+                    @elseif ($purchase->status == 0)
+                    <td class="align-middle text-center">
+                        <span class="badge bg-orange text-white text-uppercase">
+                            {{ __('Pending') }}
+                        </span>
+                    </td>
+                    @endif
+                    @if($purchase->status != 3)
                     <td class="align-middle text-center" style="width: 10%">
                         <x-button.show class="btn-icon" route="{{ route('purchases.edit', $purchase->uuid) }}" />
-                        {{-- <x-button.complete class="btn-icon" onclick="return confirm('Are you sure to approve purchase no. {{ $purchase->purchase_no }}!') route=" {{ route('purchases.update', $purchase->uuid) }}"/> --}}
-                            @hasrole('Supplier')
-                            <x-button.complete class="btn-icon" route="{{ route('purchases.update', $purchase->uuid) }}" onclick="return confirm('Are you sure to approve purchase no. {{ $purchase->purchase_no }}?')" />
-                            @endhasrole
-                            <x-button.delete class="btn-icon" onclick="return confirm('Are you sure!')" route="{{ route('purchases.delete', $purchase->uuid) }}" />
+
+                        <x-button.delete class="btn-icon" onclick="return confirm('Are you sure!')" route="{{ route('purchases.delete', $purchase->uuid) }}" />
                     </td>
                     @endif
                 </tr>

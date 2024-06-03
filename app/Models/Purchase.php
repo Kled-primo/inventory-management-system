@@ -32,7 +32,7 @@ class Purchase extends Model
         'date'       => 'date',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'status'     => PurchaseStatus::class
+        //'status'     => PurchaseStatus::class
     ];
 
     public function supplier(): BelongsTo
@@ -61,11 +61,11 @@ class Purchase extends Model
             ->orWhere('status', 'like', "%{$value}%")
         ;
     }
-     /**
-     * Get the user that owns the Category
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
+    /**
+    * Get the user that owns the Category
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

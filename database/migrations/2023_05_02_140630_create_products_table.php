@@ -26,7 +26,8 @@ return new class () extends Migration {
             $table->float('purchase_price')->comment('Purchase Price');
             $table->integer('quantity_alert');
             $table->text('notes')->nullable();
-
+            $table->timestamp('manufacturing_date');
+            $table->timestamp('expiry_date');
             $table->foreignIdFor(\App\Models\Category::class)
                 ->nullable()
                 ->constrained()
