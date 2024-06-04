@@ -109,6 +109,18 @@
                             @include('inclues._sort-icon', ['field' => 'selling_price'])
                         </a>
                     </th>
+                    <th scope="col" class="align-middle text-center">
+                        <a wire:click.prevent="sortBy('manufacturing_date')" href="#" role="button">
+                            {{ __('Manufacturing Date') }}
+                            @include('inclues._sort-icon', ['field' => 'manufacturing_date'])
+                        </a>
+                    </th>
+                    <th scope="col" class="align-middle text-center">
+                        <a wire:click.prevent="sortBy('expiry_date')" href="#" role="button">
+                            {{ __('Expiry Date') }}
+                            @include('inclues._sort-icon', ['field' => 'expiry_date'])
+                        </a>
+                    </th>
 
                     <th scope="col" class="align-middle text-center">
                         {{ __('Action') }}
@@ -144,6 +156,12 @@
                     </td>
                     <td class="align-middle text-center">
                         {{ $product->selling_price }}
+                    </td>
+                    <td class="align-middle text-center">
+                        {{ $product->manufacturing_date }}
+                    </td>
+                    <td class="align-middle text-center">
+                        {{ $product->expiry_date }}
                     </td>
                     <td class="align-middle text-center" style="width: 10%">
                         <a href="{{ route('forecast.product', $product->id) }}" class="btn btn-outline-success btn-icon">

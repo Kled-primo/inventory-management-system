@@ -64,7 +64,7 @@ class DashboardController extends Controller
             10 => 4, 11 => 4, 12 => 4, // Q4
         ];
 
-        $currentQuarter = $monthToQuarter[date("n")];
+        //$currentQuarter = $monthToQuarter[date("n")];
 
         foreach ($order_details as $detail) {
             $quarter = $monthToQuarter[$detail->month];
@@ -99,21 +99,257 @@ class DashboardController extends Controller
         } // loop over product
 
 
+
         // Sort each quarter by total_quantity in descending order
-        $q1 = $q1->sortByDesc('total_quantity')->take(20);
-        $q2 = $q2->sortByDesc('total_quantity')->take(20);
-        $q3 = $q3->sortByDesc('total_quantity')->take(20);
-        $q4 = $q4->sortByDesc('total_quantity')->take(20);
+        $qbs1 = $q1->sortByDesc('total_quantity')->take(10);
+        $qbs2 = $q2->sortByDesc('total_quantity')->take(10);
+        $qbs3 = $q3->sortByDesc('total_quantity')->take(10);
+        $qbs4 = $q4->sortByDesc('total_quantity')->take(10);
+
+        $qls1 = $q1->sortBy('total_quantity')->take(10);
+        $qls2 = $q2->sortBy('total_quantity')->take(10);
+        $qls3 = $q3->sortBy('total_quantity')->take(10);
+        $qls4 = $q4->sortBy('total_quantity')->take(10);
+
+        $q1 = $qbs1->merge($qls1);
+        $q2 = $qbs2->merge($qls2);
+        $q3 = $qbs3->merge($qls3);
+        $q4 = $qbs4->merge($qls4);
+
 
         //Display the results for each quarter
         $quarters = [
-            1 => $q1,
-            2 => $q2,
-            3 => $q3,
-            4 => $q4,
+            1 => $q1->sortByDesc('total_quantity'),
+            2 => $q2->sortByDesc('total_quantity'),
+            3 => $q3->sortByDesc('total_quantity'),
+            4 => $q4->sortByDesc('total_quantity'),
         ];
 
-        //dd($q1->last());
+        $best_sellers = collect();
+        $low_sellers = collect();
+
+
+        // Best Sellers
+        if (count($qbs1) > 0) {
+            $q1top_products = $qbs1;
+
+            foreach($q1top_products as $tp) {
+                $best_sellers->put($tp['pid'], [
+                    'pid' => $tp['pid'],
+                    'name' => $tp['name'],
+                    'total_quantity' => $tp['total_quantity'],
+                    'quarter' => '1',
+                    'count' => 1
+                ]);
+            }
+
+        }
+
+        if (count($qbs2) > 0) {
+
+            $q2top_products = $qbs2;
+
+            if (count($q2top_products) > 0) {
+                foreach($q2top_products as $tp) {
+
+                    if (!$best_sellers->has($tp['pid'])) {
+
+                        $best_sellers->put($tp['pid'], [
+                                            'pid' => $tp['pid'],
+                                            'name' => $tp['name'],
+                                            'total_quantity' => $tp['total_quantity'],
+                                            'quarter' => '2',
+                                            'count' => 1
+                                        ]);
+                    } else {
+                        $best_seller_data = $best_sellers->get($tp['pid']);
+                        $best_seller_data['quarter'] .= ',2';
+                        $best_seller_data['count'] += 1;
+                        $best_sellers->put($tp['pid'], $best_seller_data);
+                    }
+                }
+
+            }
+        }
+
+
+        if (count($qbs3) > 0) {
+
+            $q3top_products = $qbs3;
+
+            if (count($q3top_products) > 0) {
+                foreach($q3top_products as $tp) {
+
+                    if (!$best_sellers->has($tp['pid'])) {
+
+                        $best_sellers->put($tp['pid'], [
+                                            'pid' => $tp['pid'],
+                                            'name' => $tp['name'],
+                                            'total_quantity' => $tp['total_quantity'],
+                                            'quarter' => '4',
+                                            'count' => 1
+                                        ]);
+                    } else {
+
+                        $best_seller_data = $best_sellers->get($tp['pid']);
+                        $best_seller_data['quarter'] .= ',3';
+                        $best_seller_data['count'] += 1;
+                        $best_sellers->put($tp['pid'], $best_seller_data);
+                    }
+                }
+
+            }
+        }
+
+
+        if (count($qbs4) > 0) {
+
+            $q4top_products = $qbs4;
+
+            if (count($q4top_products) > 0) {
+                foreach($q4top_products as $tp) {
+
+                    if (!$best_sellers->has($tp['pid'])) {
+
+                        $best_sellers->put($tp['pid'], [
+                                            'pid' => $tp['pid'],
+                                            'name' => $tp['name'],
+                                            'total_quantity' => $tp['total_quantity'],
+                                            'quarter' => '4',
+                                            'count' => 1
+                                        ]);
+                    } else {
+
+                        $best_seller_data = $best_sellers->get($tp['pid']);
+                        $best_seller_data['quarter'] .= ',4';
+                        $best_seller_data['count'] += 1;
+                        $best_sellers->put($tp['pid'], $best_seller_data);
+                    }
+
+                }
+
+            }
+        }
+
+        // Low Sellers
+
+
+        if (count($qls1) > 0) {
+            $q1low_products = $qls1;
+
+            foreach($q1low_products as $lp) {
+                $low_sellers->put($lp['pid'], [
+                    'pid' => $lp['pid'],
+                    'name' => $lp['name'],
+                    'total_quantity' => $lp['total_quantity'],
+                    'quarter' => '1',
+                    'count' => 1
+                ]);
+            }
+
+        }
+
+        if (count($qls2) > 0) {
+
+            $q2low_products = $qls2;
+
+            if (count($q2low_products) > 0) {
+                foreach($q2low_products as $lp) {
+
+                    if (!$low_sellers->has($lp['pid'])) {
+
+                        $low_sellers->put($lp['pid'], [
+                                            'pid' => $lp['pid'],
+                                            'name' => $lp['name'],
+                                            'total_quantity' => $lp['total_quantity'],
+                                            'quarter' => '2',
+                                            'count' => 1
+                                        ]);
+                    } else {
+                        $low_seller_data = $low_sellers->get($lp['pid']);
+                        $low_seller_data['quarter'] .= ',2';
+                        $low_seller_data['count'] += 1;
+                        $low_sellers->put($lp['pid'], $low_seller_data);
+                    }
+
+                }
+
+            }
+        }
+
+
+        if (count($qls3) > 0) {
+
+            $q3low_products = $qls3;
+
+            if (count($q3low_products) > 0) {
+                foreach($q3low_products as $lp) {
+
+                    if (!$low_sellers->has($lp['pid'])) {
+
+                        $low_sellers->put($lp['pid'], [
+                                            'pid' => $lp['pid'],
+                                            'name' => $lp['name'],
+                                            'total_quantity' => $lp['total_quantity'],
+                                            'quarter' => '3',
+                                            'count' => 1
+                                        ]);
+                    } else {
+
+                        $low_seller_data = $low_sellers->get($lp['pid']);
+                        $low_seller_data['quarter'] .= ',3';
+                        $low_seller_data['count'] += 1;
+                        $low_sellers->put($lp['pid'], $low_seller_data);
+                    }
+
+                }
+
+            }
+        }
+
+
+        if (count($qls4) > 0) {
+
+            $q4low_products = $qls4;
+
+            if (count($q4low_products) > 0) {
+                foreach($q4low_products as $lp) {
+
+                    if (!$low_sellers->has($lp['pid'])) {
+
+                        $low_sellers->put($lp['pid'], [
+                                            'pid' => $lp['pid'],
+                                            'name' => $lp['name'],
+                                            'total_quantity' => $lp['total_quantity'],
+                                            'quarter' => '4',
+                                            'count' => 1
+                                        ]);
+                    } else {
+
+                        $low_seller_data = $low_sellers->get($lp['pid']);
+                        $low_seller_data['quarter'] .= ',4';
+                        $low_seller_data['count'] += 1;
+                        $low_sellers->put($lp['pid'], $low_seller_data);
+                    }
+
+                }
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         $q1_graph = \Lava::DataTable();
         $q1_graph->addStringColumn('Product');
@@ -130,7 +366,6 @@ class DashboardController extends Controller
         $q4_graph = \Lava::DataTable();
         $q4_graph->addStringColumn('Product');
         $q4_graph->addNumberColumn('Sales');
-
 
 
         foreach ($quarters as $quarter => $quarter_products) {
@@ -225,7 +460,9 @@ class DashboardController extends Controller
             'q1_graph' => $q1_graph,
             'q2_graph' => $q2_graph,
             'q3_graph' => $q3_graph,
-            'q4_graph' => $q4_graph
+            'q4_graph' => $q4_graph,
+            'best_sellers' => $best_sellers,
+            'low_sellers' => $low_sellers
         ]);
     }
 }

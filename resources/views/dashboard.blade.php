@@ -2,11 +2,6 @@
 
 @section('content')
 
-{{-- @if(count($alert_twentyfive) > 0)
-<div class="alert alert-danger" role="alert">
-    A simple danger alert—check it out!
-</div>
-@endif --}}
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
@@ -124,13 +119,7 @@
                             </div>
                         </div>
                     </div>
-
-
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="row row-cards">
+                    @if($twentyfive_products_count > 0)
                     <div class="col-sm-6 col-lg-3">
                         <div class="card card-sm">
                             <div class="card-body">
@@ -151,17 +140,21 @@
                                     </div>
                                     <div class="col">
                                         <div class="font-weight-medium">
-                                            {{ $twentyfive_products }} Product/s
+                                            {{ $twentyfive_products_count }} Product/s
                                         </div>
                                         <div class="text-muted">
-                                            25% Alert Level
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#twentyfive-modal">
+                                                25% Alert Level
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endif
 
+                    @if($fifty_products_count > 0)
                     <div class="col-sm-6 col-lg-3">
                         <div class="card card-sm">
                             <div class="card-body">
@@ -179,16 +172,82 @@
                                     </div>
                                     <div class="col">
                                         <div class="font-weight-medium">
-                                            {{ $fifty_products }} Product/s
+                                            {{ $fifty_products_count }} Product/s
                                         </div>
                                         <div class="text-muted">
-                                            50% Alert Level
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#fifty-modal">50% Alert Level</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endif
+
+                    @if (count($expiring_products)>0)
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-sm">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <span class="bg-danger text-white avatar">
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-alert-triangle">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M12 9v4" />
+                                                <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
+                                                <path d="M12 16h.01" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="font-weight-medium">
+                                            {{ count($expiring_products) }} Product/s
+                                        </div>
+                                        <div class="text-muted">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#expiring-modal">Expiring Products</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                    @if (count($expired_products) > 0)
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-sm">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <span class="bg-danger text-white avatar">
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-alert-triangle">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M12 9v4" />
+                                                <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
+                                                <path d="M12 16h.01" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="font-weight-medium">
+                                            {{ count($expired_products) }} Product/s
+                                        </div>
+                                        <div class="text-muted">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#expired-modal">Expired Products</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row row-cards">
+
                 </div>
             </div>
 
@@ -197,11 +256,29 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h3>Best Sellers</h3>
-                                @php
-                                $first_quarter = $q1->first()
-                                @endphp
-                                Based on the past forecast you should stock up on {{ $first_quarter['name'] }} . It consecutively appeared on the best selling products for the following quarters
+                                <div class="accordion" id="best-seller-accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading-1">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#best-seller-collapse" aria-expanded="false">
+                                                Best Sellers
+                                            </button>
+                                        </h2>
+                                        <div id="best-seller-collapse" class="accordion-collapse collapse" data-bs-parent="#best-seller-accordion" style="">
+                                            <div class="accordion-body pt-0">
+                                                <ul>
+                                                    @foreach($best_sellers as $best_seller)
+                                                    @if($best_seller['count'] > 1)
+                                                    <li>
+
+                                                        Based on the past forecast you should stock up on {{ $best_seller['name'] }} . It consecutively appeared on the best selling products for the following quarters {{ $best_seller['quarter'] }}.
+                                                    </li>
+                                                    @endif
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -209,7 +286,28 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h3>Low Sellers</h3>
+                                <div class="accordion" id="low-seller-accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading-1">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lowseller_collapse" aria-expanded="false">
+                                                Low Sellers
+                                            </button>
+                                        </h2>
+                                        <div id="lowseller_collapse" class="accordion-collapse collapse" data-bs-parent="#low-seller-accordion" style="">
+                                            <div class="accordion-body pt-0">
+                                                <ul>
+                                                    @foreach($low_sellers as $low_seller)
+                                                    @if($low_seller['count'] > 1)
+                                                    <li>
+                                                        Based on the past forecast you should halt stocking up for {{ $low_seller['name'] }} . It has been forecasted to be one of the low selling products for following quarters {{ $low_seller['quarter'] }}.
+                                                    </li>
+                                                    @endif
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -234,9 +332,9 @@
                                         <th>Product</th>
                                         <th>Sales</th>
                                     </tr>
-                                    @foreach ($q1 as $product_id => $productData)
+                                    @foreach ($q1->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr>
-                                        <td><a href="{{ route('forecast.product', $product_id) }}">{{ $productData['name'] }} </a></td>
+                                        <td><a href="{{ route('forecast.product', $productData['pid']) }}">{{ $productData['name'] }} </a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -266,9 +364,9 @@
                                         <th>Product</th>
                                         <th>Sales</th>
                                     </tr>
-                                    @foreach ($q2 as $product_id => $productData)
+                                    @foreach ($q2->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr>
-                                        <td><a href="{{ route('forecast.product', $product_id) }}">{{ $productData['name'] }}</a></td>
+                                        <td><a href="{{ route('forecast.product', $productData['pid']) }}">{{ $productData['name'] }}</a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -298,9 +396,9 @@
                                         <th>Product</th>
                                         <th>Sales</th>
                                     </tr>
-                                    @foreach ($q3 as $product_id => $productData)
+                                    @foreach ($q3->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr>
-                                        <td><a href="{{ route('forecast.product', $product_id) }}">{{ $productData['name'] }}</a></td>
+                                        <td><a href="{{ route('forecast.product', $productData['pid']) }}">{{ $productData['name'] }}</a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -329,9 +427,9 @@
                                         <th>Product</th>
                                         <th>Sales</th>
                                     </tr>
-                                    @foreach ($q4 as $product_id => $productData)
+                                    @foreach ($q4->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr>
-                                        <td><a href="{{ route('forecast.product', $product_id) }}">{{ $productData['name'] }}</a></td>
+                                        <td><a href="{{ route('forecast.product', $productData['pid']) }}">{{ $productData['name'] }}</a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -357,6 +455,130 @@
         </div>
     </div>
 </div>
+<div class="modal modal-blur fade" id="fifty-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">50% Alert Level Product/s</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Remaining Quantity</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    @foreach($fifty_products as $f_product)
+                    <tr>
+                        <td>{{ $f_product->name }}</td>
+                        <td>{{ $f_product->quantity }}</td>
+                        <td><a href="{{ route('purchases.create') }}" class="btn btn-success">Purchase</a></td>
+                    </tr>
+                    @endforeach
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-blur fade" id="twentyfive-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">25% Alert Level Product/s</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Remaining Quantity</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    @foreach($twentyfive_products as $tf_product)
+                    <tr>
+                        <td>{{ $tf_product->name }}</td>
+                        <td>{{ $tf_product->quantity }}</td>
+                        <td><a href="{{ route('purchases.create') }}" class="btn btn-success">Purchase</a></td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-blur fade" id="expiring-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Expiring Products</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Manufacturing Date</th>
+                        <th>Expiry Date</th>
+
+                    </tr>
+                    @foreach($expiring_products as $expiring_product)
+                    <tr>
+                        <td>{{ $expiring_product->name }}</td>
+                        <td>{{ \Carbon\Carbon::parse($expiring_product->manufacturing_date)->format('M d, Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($expiring_product->expiry_date)->format('M d, Y') }} <br /> ( {{ \Carbon\Carbon::parse($expiring_product->expiry_date)->diffforHumans() }} )</td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-blur fade" id="expired-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Expired Products</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Manufacturing Date</th>
+                        <th>Expiry Date</th>
+
+                    </tr>
+                    @foreach($expired_products as $expired_product)
+                    <tr>
+                        <td>{{ $expired_product->name }}</td>
+                        <td>{{ \Carbon\Carbon::parse($expired_product->manufacturing_date)->format('M d, Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($expired_product->expiry_date)->format('M d, Y') }} <br /> (
+                            {{ \Carbon\Carbon::parse($expired_product->expiry_date)->diffforHumans(['options'=>0]) }} )</td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @push('page-libraries')
