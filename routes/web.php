@@ -66,7 +66,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/customers', CustomerController::class);
     Route::resource('/suppliers', SupplierController::class);
     Route::resource('/categories', CategoryController::class);
-    //Route::resource('/producttype', ProductType::class);
+    Route::resource('/producttype', ProductType::class);
     Route::resource('/units', UnitController::class);
 
     //Route Product Forecast
