@@ -23,6 +23,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\Product\ProductExportController;
 use App\Http\Controllers\Product\ProductImportController;
 use App\Http\Controllers\Product\ProductForecastController;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -143,6 +144,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/permissions', [PermissionController::class,'index'])->name('permissions.index');
     Route::post('/permissions', [PermissionController::class,'create'])->name('permissions.create');
     Route::post('/permissions/user/{userid}/remove-role', [PermissionController::class,'userremove'])->name('permissions.user.remove');
+
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::post('/settings', [SettingController::class, 'save'])->name('settings.save');
 
 
 });

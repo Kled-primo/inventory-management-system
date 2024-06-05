@@ -33,9 +33,10 @@ class DashboardController extends Controller
 
         //computation
 
-        $forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
+        //$forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
+        $forecast_year = now()->format('Y');
 
-        $this->general($forecast_year->value);
+        $this->general($forecast_year);
 
         // $forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
 
@@ -459,7 +460,7 @@ class DashboardController extends Controller
             'q4_graph' => $q4_graph,
             'best_sellers' => $best_sellers,
             'low_sellers' => $low_sellers,
-            'year' => $forecast_year->value
+            'year' => $forecast_year
         ]);
     }
 }

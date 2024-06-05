@@ -2,8 +2,9 @@
 
 namespace App\Livewire\Tables;
 
-use Livewire\Component;
 use App\Models\Product;
+use App\Models\Setting;
+use Livewire\Component;
 use Livewire\WithPagination;
 
 class ProductTable extends Component
@@ -18,10 +19,16 @@ class ProductTable extends Component
 
     public $sortAsc = false;
 
+    public $setting;
+
+    public function mount()
+    {
+        $this->year = now()->format('Y');
+    }
+
     public function sortBy($field): void
     {
-        if($this->sortField === $field)
-        {
+        if($this->sortField === $field) {
             $this->sortAsc = ! $this->sortAsc;
 
         } else {
@@ -34,7 +41,7 @@ class ProductTable extends Component
     public function render()
     {
         return view('livewire.tables.product-table', [
-            'products' => Product::where("user_id",auth()->id())
+            'products' => Product::where("user_id", auth()->id())
                 ->with(['category', 'unit','product_type'])
                 ->search($this->search)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')

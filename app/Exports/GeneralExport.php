@@ -28,7 +28,7 @@ class GeneralExport implements FromView
 
     public function view(): View
     {
-        return view('forecasts._generaltable', [
+        return view('forecasts._generaltableexcel', [
             'q1' => $this->q1,
             'q2' => $this->q2,
             'q3' => $this->q3,

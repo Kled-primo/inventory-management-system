@@ -404,6 +404,9 @@
                                             <a class="dropdown-item" href="{{ route('permissions.index') }}">
                                                 {{ __('Permission') }}
                                             </a>
+                                            <a href="{{ route('settings.index') }}" class="dropdown-item">
+                                                Year Settings
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
