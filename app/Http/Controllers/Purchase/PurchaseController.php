@@ -40,7 +40,7 @@ class PurchaseController extends Controller
     public function approvedPurchases()
     {
         $purchases = Purchase::with(['supplier'])
-            ->where('status', PurchaseStatus::APPROVED)->get(); // 1 = approved
+            ->where('status', 3)->get(); // 1 = approved
 
         return view('purchases.approved-purchases', [
             'purchases' => $purchases
