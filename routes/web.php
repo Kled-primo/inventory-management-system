@@ -69,7 +69,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/units', UnitController::class);
 
     //Route Product Forecast
-    Route::get('productsforecast/{id}/product', [ProductForecastController::class,'product'])->name('forecast.product');
+    Route::get('productsforecast/{id}/{year}/product', [ProductForecastController::class,'product'])->name('forecast.product');
+    Route::get('productsforecast/history', [ProductForecastController::class, 'history'])->name('forecast.history');
+    Route::post('productsforecast/history', [ProductForecastController::class, 'showhistory'])->name('forecast.showhistory');
+    Route::post('productsforecast/export/general', [ProductForecastController::class, 'exportgeneral'])->name('forecast.exportgeneral');
+    Route::post('productsforecast/individual', [ProductForecastController::class,'historyindividual'])->name('forecast.historyindividual');
+    Route::post('productsforecast/exportindividualmonthly', [ProductForecastController::class,'exportindividualmonthly'])->name('forecast.exportindividualmonthly');
+    Route::post('productsforecast/exportindividualquarterly', [ProductForecastController::class,'exportindividualquarterly'])->name('forecast.exportindividualquarterly');
+
+
 
     // Route Products
     Route::get('products/import/', [ProductImportController::class, 'create'])->name('products.import.view');

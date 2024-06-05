@@ -11,10 +11,12 @@ use App\Models\Purchase;
 use App\Models\Quotation;
 use App\Models\OrderDetails;
 use Illuminate\Http\Request;
+use App\Traits\ForecastTrait;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
+    use ForecastTrait;
     public function index()
     {
         $orders = Order::where("user_id", auth()->id())->count();
@@ -33,105 +35,111 @@ class DashboardController extends Controller
 
         $forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
 
-        $order_details = OrderDetails::selectRaw('
-                        order_details.product_id,
-                        products.name AS product_name,
-                        YEAR(order_details.created_at) AS year,
-                        MONTH(order_details.created_at) AS month,
-                        SUM(order_details.quantity) AS total_quantity
-                    ')
-                            ->join('products', 'order_details.product_id', '=', 'products.id')
-                            ->whereYear('order_details.created_at', $forecast_year->value)
-                            ->groupBy('order_details.product_id', 'products.name', 'year', 'month')
-                            ->orderBy('order_details.product_id')
-                            ->orderBy('year')
-                            ->orderBy('month')
-                            ->get();
+        $this->general($forecast_year->value);
+
+        // $forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
+
+        // $order_details = OrderDetails::selectRaw('
+        //                 order_details.product_id,
+        //                 products.name AS product_name,
+        //                 YEAR(order_details.created_at) AS year,
+        //                 MONTH(order_details.created_at) AS month,
+        //                 SUM(order_details.quantity) AS total_quantity
+        //             ')
+        //                     ->join('products', 'order_details.product_id', '=', 'products.id')
+        //                     ->whereYear('order_details.created_at', $forecast_year->value)
+        //                     ->groupBy('order_details.product_id', 'products.name', 'year', 'month')
+        //                     ->orderBy('order_details.product_id')
+        //                     ->orderBy('year')
+        //                     ->orderBy('month')
+        //                     ->get();
 
         // Initialize separate collections for each quarter
-        $q1 = collect();
-        $q2 = collect();
-        $q3 = collect();
-        $q4 = collect();
+        // $q1 = collect();
+        // $q2 = collect();
+        // $q3 = collect();
+        // $q4 = collect();
 
 
 
         // Define a mapping of months to quarters
-        $monthToQuarter = [
-            1 => 1, 2 => 1, 3 => 1, // Q1
-            4 => 2, 5 => 2, 6 => 2, // Q2
-            7 => 3, 8 => 3, 9 => 3, // Q3
-            10 => 4, 11 => 4, 12 => 4, // Q4
-        ];
+        // $monthToQuarter = [
+        //     1 => 1, 2 => 1, 3 => 1, // Q1
+        //     4 => 2, 5 => 2, 6 => 2, // Q2
+        //     7 => 3, 8 => 3, 9 => 3, // Q3
+        //     10 => 4, 11 => 4, 12 => 4, // Q4
+        // ];
 
         //$currentQuarter = $monthToQuarter[date("n")];
 
-        foreach ($order_details as $detail) {
-            $quarter = $monthToQuarter[$detail->month];
-            switch ($quarter) {
-                case 1:
-                    $collection = $q1;
-                    break;
-                case 2:
-                    $collection = $q2;
-                    break;
-                case 3:
-                    $collection = $q3;
-                    break;
-                case 4:
-                    $collection = $q4;
-                    break;
-            }
+        // foreach ($order_details as $detail) {
+        //     $quarter = $monthToQuarter[$detail->month];
+        //     switch ($quarter) {
+        //         case 1:
+        //             $collection = $q1;
+        //             break;
+        //         case 2:
+        //             $collection = $q2;
+        //             break;
+        //         case 3:
+        //             $collection = $q3;
+        //             break;
+        //         case 4:
+        //             $collection = $q4;
+        //             break;
+        //     }
 
-            // Initialize the product's total_quantity in the quarter if it doesn't exist
-            if (!$collection->has($detail->product_id)) {
-                $collection->put($detail->product_id, [
-                    'pid' => $detail->product_id,
-                    'name' => $detail->product_name,
-                    'total_quantity' => 0
-                ]);
-            }
+        // Initialize the product's total_quantity in the quarter if it doesn't exist
+        //     if (!$collection->has($detail->product_id)) {
+        //         $collection->put($detail->product_id, [
+        //             'pid' => $detail->product_id,
+        //             'name' => $detail->product_name,
+        //             'total_quantity' => 0
+        //         ]);
+        //     }
 
-            // Add the total_quantity to the product's total in the quarter
-            $productData = $collection->get($detail->product_id);
-            $productData['total_quantity'] += $detail->total_quantity;
-            $collection->put($detail->product_id, $productData);
-        } // loop over product
+        // Add the total_quantity to the product's total in the quarter
+        //     $productData = $collection->get($detail->product_id);
+        //     $productData['total_quantity'] += $detail->total_quantity;
+        //     $collection->put($detail->product_id, $productData);
+        // } // loop over product
 
 
 
         // Sort each quarter by total_quantity in descending order
-        $qbs1 = $q1->sortByDesc('total_quantity')->take(10);
-        $qbs2 = $q2->sortByDesc('total_quantity')->take(10);
-        $qbs3 = $q3->sortByDesc('total_quantity')->take(10);
-        $qbs4 = $q4->sortByDesc('total_quantity')->take(10);
+        // $qbs1 = $q1->sortByDesc('total_quantity')->take(10);
+        // $qbs2 = $q2->sortByDesc('total_quantity')->take(10);
+        // $qbs3 = $q3->sortByDesc('total_quantity')->take(10);
+        // $qbs4 = $q4->sortByDesc('total_quantity')->take(10);
 
-        $qls1 = $q1->sortBy('total_quantity')->take(10);
-        $qls2 = $q2->sortBy('total_quantity')->take(10);
-        $qls3 = $q3->sortBy('total_quantity')->take(10);
-        $qls4 = $q4->sortBy('total_quantity')->take(10);
+        // $qls1 = $q1->sortBy('total_quantity')->take(10);
+        // $qls2 = $q2->sortBy('total_quantity')->take(10);
+        // $qls3 = $q3->sortBy('total_quantity')->take(10);
+        // $qls4 = $q4->sortBy('total_quantity')->take(10);
 
-        $q1 = $qbs1->merge($qls1);
-        $q2 = $qbs2->merge($qls2);
-        $q3 = $qbs3->merge($qls3);
-        $q4 = $qbs4->merge($qls4);
+        // $q1 = $qbs1->merge($qls1);
+        // $q2 = $qbs2->merge($qls2);
+        // $q3 = $qbs3->merge($qls3);
+        // $q4 = $qbs4->merge($qls4);
 
 
         //Display the results for each quarter
-        $quarters = [
-            1 => $q1->sortByDesc('total_quantity'),
-            2 => $q2->sortByDesc('total_quantity'),
-            3 => $q3->sortByDesc('total_quantity'),
-            4 => $q4->sortByDesc('total_quantity'),
-        ];
+        // $quarters = [
+        //     1 => $q1->sortByDesc('total_quantity'),
+        //     2 => $q2->sortByDesc('total_quantity'),
+        //     3 => $q3->sortByDesc('total_quantity'),
+        //     4 => $q4->sortByDesc('total_quantity'),
+        // ];
 
+
+        // Best Sellers and Low Sellers
         $best_sellers = collect();
         $low_sellers = collect();
 
 
         // Best Sellers
-        if (count($qbs1) > 0) {
-            $q1top_products = $qbs1;
+        if (count($this->qbs1) > 0) {
+            $q1top_products = $this->qbs1;
 
             foreach($q1top_products as $tp) {
                 $best_sellers->put($tp['pid'], [
@@ -145,9 +153,9 @@ class DashboardController extends Controller
 
         }
 
-        if (count($qbs2) > 0) {
+        if (count($this->qbs2) > 0) {
 
-            $q2top_products = $qbs2;
+            $q2top_products = $this->qbs2;
 
             if (count($q2top_products) > 0) {
                 foreach($q2top_products as $tp) {
@@ -173,9 +181,9 @@ class DashboardController extends Controller
         }
 
 
-        if (count($qbs3) > 0) {
+        if (count($this->qbs3) > 0) {
 
-            $q3top_products = $qbs3;
+            $q3top_products = $this->qbs3;
 
             if (count($q3top_products) > 0) {
                 foreach($q3top_products as $tp) {
@@ -202,9 +210,9 @@ class DashboardController extends Controller
         }
 
 
-        if (count($qbs4) > 0) {
+        if (count($this->qbs4) > 0) {
 
-            $q4top_products = $qbs4;
+            $q4top_products = $this->qbs4;
 
             if (count($q4top_products) > 0) {
                 foreach($q4top_products as $tp) {
@@ -234,8 +242,8 @@ class DashboardController extends Controller
         // Low Sellers
 
 
-        if (count($qls1) > 0) {
-            $q1low_products = $qls1;
+        if (count($this->qls1) > 0) {
+            $q1low_products = $this->qls1;
 
             foreach($q1low_products as $lp) {
                 $low_sellers->put($lp['pid'], [
@@ -249,9 +257,9 @@ class DashboardController extends Controller
 
         }
 
-        if (count($qls2) > 0) {
+        if (count($this->qls2) > 0) {
 
-            $q2low_products = $qls2;
+            $q2low_products = $this->qls2;
 
             if (count($q2low_products) > 0) {
                 foreach($q2low_products as $lp) {
@@ -278,9 +286,9 @@ class DashboardController extends Controller
         }
 
 
-        if (count($qls3) > 0) {
+        if (count($this->qls3) > 0) {
 
-            $q3low_products = $qls3;
+            $q3low_products = $this->qls3;
 
             if (count($q3low_products) > 0) {
                 foreach($q3low_products as $lp) {
@@ -308,9 +316,9 @@ class DashboardController extends Controller
         }
 
 
-        if (count($qls4) > 0) {
+        if (count($this->qls4) > 0) {
 
-            $q4low_products = $qls4;
+            $q4low_products = $this->qls4;
 
             if (count($q4low_products) > 0) {
                 foreach($q4low_products as $lp) {
@@ -339,18 +347,6 @@ class DashboardController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         $q1_graph = \Lava::DataTable();
         $q1_graph->addStringColumn('Product');
         $q1_graph->addNumberColumn('Sales');
@@ -368,7 +364,7 @@ class DashboardController extends Controller
         $q4_graph->addNumberColumn('Sales');
 
 
-        foreach ($quarters as $quarter => $quarter_products) {
+        foreach ($this->quarters as $quarter => $quarter_products) {
 
             foreach ($quarter_products as $product_id => $productData) {
 
@@ -453,16 +449,17 @@ class DashboardController extends Controller
             'todayOrders' => $todayOrders,
             'categories' => $categories,
             'quotations' => $quotations,
-            'q1' => $q1,
-            'q2' => $q2,
-            'q3' => $q3,
-            'q4' => $q4,
+            'q1' => $this->q1,
+            'q2' => $this->q2,
+            'q3' => $this->q3,
+            'q4' => $this->q4,
             'q1_graph' => $q1_graph,
             'q2_graph' => $q2_graph,
             'q3_graph' => $q3_graph,
             'q4_graph' => $q4_graph,
             'best_sellers' => $best_sellers,
-            'low_sellers' => $low_sellers
+            'low_sellers' => $low_sellers,
+            'year' => $forecast_year->value
         ]);
     }
 }

@@ -6,32 +6,55 @@ use App\Models\Product;
 use App\Models\Setting;
 use App\Models\OrderDetails;
 use Illuminate\Http\Request;
+use App\Traits\ForecastTrait;
+use App\Exports\GeneralExport;
+use App\Exports\IndividualMonthly;
+use App\Exports\IndividualQuarterly;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductForecastController extends Controller
 {
-    public function product($id)
+    use ForecastTrait;
+    public function product($id, $year)
     {
         // Get the current year set from settings table
-        $forecast_year = Setting::where('id', 1)->first();
+        //$forecast_year = Setting::where('id', 1)->first();
 
-        $order_details = OrderDetails::selectRaw('
+        $this->computeproduct($id, $year);
+
+
+        \Lava::LineChart('Forecasts', $this->fcgraph, $this->options);
+
+        return view('products.forecast')
+            ->with('product_forecasts', $this->product_forecasts)
+            ->with('fcgraph', $this->fcgraph)
+            ->with('product', $this->product)
+            ->with('quarters', $this->quarters);
+
+    }
+
+    public function computeproduct($id, $year)
+    {
+
+        $this->order_details = OrderDetails::selectRaw('
                         product_id,
                         YEAR(created_at) AS year,
                         MONTH(created_at) AS month,
                         SUM(quantity) AS total_quantity
                     ')
-                    ->where('product_id', '=', $id) // product id
-                    ->whereYear('created_at', $forecast_year->value)
-                    ->groupBy('product_id', 'year', 'month')
-                    ->orderBy('year')
-                    ->orderBy('month')
-                    ->orderBy('product_id')
-                    ->get();
+                            ->where('product_id', '=', $id) // product id
+                            ->whereYear('created_at', $year)
+                            ->groupBy('product_id', 'year', 'month')
+                            ->orderBy('year')
+                            ->orderBy('month')
+                            ->orderBy('product_id')
+                            ->get();
 
-        $product = Product::find($id);
 
-        $product_forecasts = collect();
+        $this->product = Product::find($id);
+
+        $this->product_forecasts = collect();
 
         $counter = 0;
 
@@ -39,13 +62,7 @@ class ProductForecastController extends Controller
 
         $ave = 0;
 
-        $fcgraph = \Lava::DataTable();
-
-        $fcgraph->addDateColumn('Date')
-                ->addNumberColumn('Actual')
-                ->addNumberColumn('Forecast');
-
-        $quarters = collect([
+        $this->quarters = collect([
             '1' => '0',
             '2' => '0',
             '3' => '0',
@@ -60,12 +77,18 @@ class ProductForecastController extends Controller
             10 => 4, 11 => 4, 12 => 4, // Q4
         ];
 
+        $this->fcgraph = \Lava::DataTable();
 
-        foreach($order_details as $details) {
+        $this->fcgraph->addDateColumn('Date')
+        ->addNumberColumn('Actual')
+        ->addNumberColumn('Forecast');
+
+
+        foreach($this->order_details as $details) {
 
             $quarter = $monthToQuarter[$details->month];
 
-            $quarters->put($quarter, $quarters->get($quarter) + $details->total_quantity);
+            $this->quarters->put($quarter, $this->quarters->get($quarter) + $details->total_quantity);
 
             $prev_container->push($details->total_quantity);
 
@@ -80,18 +103,18 @@ class ProductForecastController extends Controller
 
             $counter++;
 
-            $product_forecasts->push([
+            $this->product_forecasts->push([
                 'year' => $details->year,
                 'month' => $details->month,
                 'sales' => $details->total_quantity,
                 'forecast' => $ave]);
 
-            $fcgraph->addRow([$details->year .'-'.$details->month, $details->total_quantity, $ave]);
+            $this->fcgraph->addRow([$details->year .'-'.$details->month, $details->total_quantity, $ave]);
 
         }
 
-        $options = [
-            'title' => 'Sales Forecast - ' . $product->name,
+        $this->options = [
+            'title' => 'Sales Forecast - ' . $this->product->name,
             'hAxis' => [
                 'title' => 'Month Year',
             ],
@@ -102,13 +125,67 @@ class ProductForecastController extends Controller
 
         ];
 
-        \Lava::LineChart('Forecasts', $fcgraph, $options);
 
-        return view('products.forecast')
-            ->with('product_forecasts', $product_forecasts)
-            ->with('fcgraph', $fcgraph)
-            ->with('product', $product)
-            ->with('quarters', $quarters);
+    }
+
+    public function history()
+    {
+        $settings = Setting::all();
+
+        $products = Product::with(['product_type','unit'])->get();
+
+
+        return view('forecasts.history')
+        ->with('products', $products)
+        ->with('settings', $settings);
+    }
+
+    public function showhistory(Request $request)
+    {
+        $this->general($request->year);
+
+        return view('forecasts.general')
+            ->with('q1', $this->q1)
+            ->with('q2', $this->q2)
+            ->with('q3', $this->q3)
+            ->with('q4', $this->q4)
+            ->with('year', $request->year);
+    }
+
+    public function exportgeneral(Request $request)
+    {
+        $this->general($request->year);
+
+        return Excel::download(new GeneralExport($this->q1, $this->q2, $this->q3, $this->q4, $request->year), 'general_forecast.xlsx');
+    }
+
+    public function historyindividual(Request $request)
+    {
+
+        $this->computeproduct($request->product_id, $request->year);
+
+        return view('forecasts.historyindividual')
+            ->with('product_forecasts', $this->product_forecasts)
+            ->with('product', $this->product)
+            ->with('quarters', $this->quarters)
+            ->with('year', $request->year);
+    }
+
+    public function exportindividualmonthly(Request $request)
+    {
+
+        $this->computeproduct($request->product_id, $request->year);
+
+        return Excel::download(new IndividualMonthly($this->product, $this->product_forecasts), 'individualmonthly.xlsx');
+
+    }
+
+    public function exportindividualquarterly(Request $request)
+    {
+
+        $this->computeproduct($request->product_id, $request->year);
+
+        return Excel::download(new IndividualQuarterly($this->product, $this->quarters), 'individualquarterly.xlsx');
 
     }
 }

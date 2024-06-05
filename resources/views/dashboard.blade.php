@@ -334,7 +334,7 @@
                                     </tr>
                                     @foreach ($q1->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr>
-                                        <td><a href="{{ route('forecast.product', $productData['pid']) }}">{{ $productData['name'] }} </a></td>
+                                        <td><a href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }} </a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -366,7 +366,7 @@
                                     </tr>
                                     @foreach ($q2->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr>
-                                        <td><a href="{{ route('forecast.product', $productData['pid']) }}">{{ $productData['name'] }}</a></td>
+                                        <td><a href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -398,7 +398,7 @@
                                     </tr>
                                     @foreach ($q3->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr>
-                                        <td><a href="{{ route('forecast.product', $productData['pid']) }}">{{ $productData['name'] }}</a></td>
+                                        <td><a href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -429,7 +429,7 @@
                                     </tr>
                                     @foreach ($q4->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr>
-                                        <td><a href="{{ route('forecast.product', $productData['pid']) }}">{{ $productData['name'] }}</a></td>
+                                        <td><a href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -442,28 +442,18 @@
 
             @endif
 
-
-
-
-
-
-
-
-
-
-
         </div>
     </div>
 </div>
 <div class="modal modal-blur fade" id="fifty-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">50% Alert Level Product/s</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-sm">
                     <tr>
                         <th>Product Name</th>
                         <th>Remaining Quantity</th>
@@ -473,7 +463,7 @@
                     <tr>
                         <td>{{ $f_product->name }}</td>
                         <td>{{ $f_product->quantity }}</td>
-                        <td><a href="{{ route('purchases.create') }}" class="btn btn-success">Purchase</a></td>
+                        <td><a href="{{ route('purchases.create') }}" class="btn btn-success btn-sm">Purchase</a></td>
                     </tr>
                     @endforeach
                 </table>
@@ -487,14 +477,14 @@
 </div>
 
 <div class="modal modal-blur fade" id="twentyfive-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">25% Alert Level Product/s</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-sm">
                     <tr>
                         <th>Product Name</th>
                         <th>Remaining Quantity</th>
@@ -504,7 +494,7 @@
                     <tr>
                         <td>{{ $tf_product->name }}</td>
                         <td>{{ $tf_product->quantity }}</td>
-                        <td><a href="{{ route('purchases.create') }}" class="btn btn-success">Purchase</a></td>
+                        <td><a href="{{ route('purchases.create') }}" class="btn btn-success btn-sm">Purchase</a></td>
                     </tr>
                     @endforeach
                 </table>
@@ -517,25 +507,25 @@
 </div>
 
 <div class="modal modal-blur fade" id="expiring-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Expiring Products</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-sm">
                     <tr>
-                        <th>Product Name</th>
-                        <th>Manufacturing Date</th>
-                        <th>Expiry Date</th>
+                        <th class="col-md-4">Product Name</th>
+                        <th class="col-md-4">Manufacturing Date</th>
+                        <th class="col-md-4">Expiry Date</th>
 
                     </tr>
                     @foreach($expiring_products as $expiring_product)
                     <tr>
                         <td>{{ $expiring_product->name }}</td>
                         <td>{{ \Carbon\Carbon::parse($expiring_product->manufacturing_date)->format('M d, Y') }}</td>
-                        <td>{{ \Carbon\Carbon::parse($expiring_product->expiry_date)->format('M d, Y') }} <br /> ( {{ \Carbon\Carbon::parse($expiring_product->expiry_date)->diffforHumans() }} )</td>
+                        <td>{{ \Carbon\Carbon::parse($expiring_product->expiry_date)->format('M d, Y') }} ( {{ \Carbon\Carbon::parse($expiring_product->expiry_date)->diffforHumans() }} )</td>
                     </tr>
                     @endforeach
                 </table>
@@ -548,14 +538,21 @@
 </div>
 
 <div class="modal modal-blur fade" id="expired-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Expired Products</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table class="table table-bordered">
+
+                <div class="alert alert-danger" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                    </svg>
+                    WARNING the following products already expired. Please properly dispose the product/s immediately.
+                </div>
+                <table class="table table-bordered table-sm">
                     <tr>
                         <th>Product Name</th>
                         <th>Manufacturing Date</th>
@@ -566,7 +563,7 @@
                     <tr>
                         <td>{{ $expired_product->name }}</td>
                         <td>{{ \Carbon\Carbon::parse($expired_product->manufacturing_date)->format('M d, Y') }}</td>
-                        <td>{{ \Carbon\Carbon::parse($expired_product->expiry_date)->format('M d, Y') }} <br /> (
+                        <td>{{ \Carbon\Carbon::parse($expired_product->expiry_date)->format('M d, Y') }} (
                             {{ \Carbon\Carbon::parse($expired_product->expiry_date)->diffforHumans(['options'=>0]) }} )</td>
                     </tr>
                     @endforeach
