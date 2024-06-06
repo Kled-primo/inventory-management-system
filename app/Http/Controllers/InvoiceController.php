@@ -14,7 +14,7 @@ class InvoiceController extends Controller
         //     ->first();
 
         $carts = Cart::content();
-
+        //dd($carts);
         return view('invoices.create', [
             //'customer' => $customer,
             'carts' => $carts
