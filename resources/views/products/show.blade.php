@@ -19,14 +19,7 @@
     <div class="container-xl">
         <div class="row row-cards">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
 
-                            <img style="width: 90px;" id="image-preview" src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/img/products/default.webp') }}" alt="" class="img-account-profile mb-2">
-                        </div>
-                    </div>
-                </div>
                 <!---
                     <div class="col-lg-8">
                         <div class="card">

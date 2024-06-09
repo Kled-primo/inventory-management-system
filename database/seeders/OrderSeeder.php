@@ -41,7 +41,7 @@ class OrderSeeder extends Seeder
                     'total_products' => 0, // Will be updated later
                     'total' => 0, // Will be updated later
                     'invoice_no' => 'INV-'. $inv_counter++,
-                    'payment_type' => 'cash',
+                    'payment_type' => 'HandCash',
                     'pay' => 0,
                     'due' => 0,
                     'created_at' => $orderDate,

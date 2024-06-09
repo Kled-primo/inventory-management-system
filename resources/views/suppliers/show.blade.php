@@ -17,21 +17,6 @@
 <div class="page-body">
     <div class="container-xl">
         <div class="row row-cards">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">
-                            {{ __('Profile Image') }}
-                        </h3>
-
-                        <img id="image-preview"
-                             class="img-account-profile mb-2"
-                             src="{{ $supplier->photo ? asset('storage/' . $supplier->photo) : asset('assets/img/demo/user-placeholder.svg') }}"
-                             alt=""
-                        >
-                    </div>
-                </div>
-            </div>
 
             <div class="col-lg-8">
                 <div class="card">
@@ -68,22 +53,6 @@
                                 <tr>
                                     <td>Shop name</td>
                                     <td>{{ $supplier->shopname }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Type</td>
-                                    <td>{{ $supplier->type->label() }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Account holder</td>
-                                    <td>{{ $supplier->account_holder }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Account number</td>
-                                    <td>{{ $supplier->account_number }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Bank name</td>
-                                    <td>{{ $supplier->bank_name }}</td>
                                 </tr>
                             </tbody>
                         </table>

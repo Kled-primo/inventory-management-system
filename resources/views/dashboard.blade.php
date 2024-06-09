@@ -83,9 +83,6 @@
                                         <div class="font-weight-medium">
                                             {{ $orders }} Orders
                                         </div>
-                                        <div class="text-muted">
-                                            {{ $todayOrders }} shipped
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -110,9 +107,6 @@
                                     <div class="col">
                                         <div class="font-weight-medium">
                                             {{ $purchases }} Purchases
-                                        </div>
-                                        <div class="text-muted">
-                                            {{ $todayPurchases }} today
                                         </div>
                                     </div>
                                 </div>

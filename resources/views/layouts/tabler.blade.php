@@ -48,7 +48,7 @@
                 </button>
                 <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                     <a href=".">
-                        <img src="{{ asset('favicon.png') }}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                        <img src="{{ asset('favicon.png') }}" style="width: 250px; height: 75px" alt="Tabler" class="navbar-brand-image">
                     </a>
                 </h1>
                 <div class="navbar-nav flex-row order-md-last">
@@ -294,9 +294,6 @@
                                             <a class="dropdown-item" href="{{ route('orders.pending') }}">
                                                 {{ __('Pending') }}
                                             </a>
-                                            <a class="dropdown-item" href="{{ route('due.index') }}">
-                                                {{ __('Due') }}
-                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -328,9 +325,6 @@
                                             </a>
                                             <a class="dropdown-item" href="{{ route('purchases.approvedPurchases') }}">
                                                 {{ __('Approval') }}
-                                            </a>
-                                            <a class="dropdown-item" href="{{ route('purchases.purchaseReport') }}">
-                                                {{ __('Daily Purchase Report') }}
                                             </a>
                                         </div>
                                     </div>
