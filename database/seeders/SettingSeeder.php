@@ -15,5 +15,7 @@ class SettingSeeder extends Seeder
     {
         \DB::table('settings')->delete();
         Setting::create(['name' => 'Forecast Year','value' => '2023','is_active' => '1']);
+        Setting::create(['name' => 'Forecast Year','value' => '2024','is_active' => '0']);
+
     }
 }

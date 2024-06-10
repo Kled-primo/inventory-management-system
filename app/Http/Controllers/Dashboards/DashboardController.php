@@ -33,10 +33,10 @@ class DashboardController extends Controller
 
         //computation
 
-        //$forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
-        $forecast_year = now()->format('Y');
+        $forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
+        //$forecast_year = now()->format('Y');
 
-        $this->general($forecast_year);
+        $this->general($forecast_year->value);
 
         // $forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
 
