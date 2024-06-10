@@ -77,15 +77,39 @@ trait ForecastTrait
 
 
         // Sort each quarter by total_quantity in descending order
-        $this->qbs1 = $this->q1->sortByDesc('total_quantity')->take(10);
-        $this->qbs2 = $this->q2->sortByDesc('total_quantity')->take(10);
-        $this->qbs3 = $this->q3->sortByDesc('total_quantity')->take(10);
-        $this->qbs4 = $this->q4->sortByDesc('total_quantity')->take(10);
+        $this->qbs1 = $this->q1->sortByDesc('total_quantity')->take(10)->map(function ($item) {
+            $item['stype'] = '1';
+            return $item;
+        });
+        $this->qbs2 = $this->q2->sortByDesc('total_quantity')->take(10)->map(function ($item) {
+            $item['stype'] = '1';
+            return $item;
+        });
+        $this->qbs3 = $this->q3->sortByDesc('total_quantity')->take(10)->map(function ($item) {
+            $item['stype'] = '1';
+            return $item;
+        });
+        $this->qbs4 = $this->q4->sortByDesc('total_quantity')->take(10)->map(function ($item) {
+            $item['stype'] = '1';
+            return $item;
+        });
 
-        $this->qls1 = $this->q1->sortBy('total_quantity')->take(10);
-        $this->qls2 = $this->q2->sortBy('total_quantity')->take(10);
-        $this->qls3 = $this->q3->sortBy('total_quantity')->take(10);
-        $this->qls4 = $this->q4->sortBy('total_quantity')->take(10);
+        $this->qls1 = $this->q1->sortBy('total_quantity')->take(10)->map(function ($item) {
+            $item['stype'] = '2';
+            return $item;
+        });
+        $this->qls2 = $this->q2->sortBy('total_quantity')->take(10)->map(function ($item) {
+            $item['stype'] = '2';
+            return $item;
+        });
+        $this->qls3 = $this->q3->sortBy('total_quantity')->take(10)->map(function ($item) {
+            $item['stype'] = '2';
+            return $item;
+        });
+        $this->qls4 = $this->q4->sortBy('total_quantity')->take(10)->map(function ($item) {
+            $item['stype'] = '2';
+            return $item;
+        });
 
         $this->q1 = $this->qbs1->merge($this->qls1);
         $this->q2 = $this->qbs2->merge($this->qls2);

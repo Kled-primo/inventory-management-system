@@ -249,12 +249,13 @@
                 <div class="row row-cards">
                     <div class="col-md-6">
                         <div class="card">
+                            <div class="card-status-top bg-lime"></div>
                             <div class="card-body">
                                 <div class="accordion" id="best-seller-accordion">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="heading-1">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#best-seller-collapse" aria-expanded="false">
-                                                Best Sellers
+                                                Best Sellers ( {{ $year }} )
                                             </button>
                                         </h2>
                                         <div id="best-seller-collapse" class="accordion-collapse collapse" data-bs-parent="#best-seller-accordion" style="">
@@ -279,12 +280,13 @@
 
                     <div class="col-md-6">
                         <div class="card">
+                            <div class="card-status-top bg-danger"></div>
                             <div class="card-body">
                                 <div class="accordion" id="low-seller-accordion">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="heading-1">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lowseller_collapse" aria-expanded="false">
-                                                Low Sellers
+                                                Low Sellers ( {{ $year }} )
                                             </button>
                                         </h2>
                                         <div id="lowseller_collapse" class="accordion-collapse collapse" data-bs-parent="#low-seller-accordion" style="">
@@ -307,6 +309,13 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="text-center">{{ $year }}</h3>
+                    </div>
+                </div>
+            </div>
 
             @if (count($q1) > 0)
             <div class="col-12">
@@ -320,15 +329,15 @@
                             <div class="col-md-4">
                                 <table class="table table-bordered table-sm">
                                     <tr>
-                                        <th colspan="2">Quarter 1</th>
+                                        <th colspan="2">Quarter 1 (January - March)</th>
                                     </tr>
                                     <tr>
                                         <th>Product</th>
                                         <th>Sales</th>
                                     </tr>
                                     @foreach ($q1->sortByDesc('total_quantity') as $product_id => $productData)
-                                    <tr>
-                                        <td><a href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }} </a></td>
+                                    <tr @if($productData['stype']==1) class="bg-lime text-white" @else class="bg-red text-white" @endif>
+                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }} </a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -352,15 +361,15 @@
                             <div class="col-md-4">
                                 <table class="table table-bordered table-sm">
                                     <tr>
-                                        <th colspan="2">Quarter 2</th>
+                                        <th colspan="2">Quarter 2 (April - June)</th>
                                     </tr>
                                     <tr>
                                         <th>Product</th>
                                         <th>Sales</th>
                                     </tr>
                                     @foreach ($q2->sortByDesc('total_quantity') as $product_id => $productData)
-                                    <tr>
-                                        <td><a href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
+                                    <tr @if($productData['stype']==1) class="bg-lime text-white" @else class="bg-red text-white" @endif>
+                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -384,15 +393,15 @@
                             <div class="col-md-4">
                                 <table class="table table-bordered table-sm">
                                     <tr>
-                                        <th colspan="2">Quarter 3</th>
+                                        <th colspan="2">Quarter 3 (July - September)</th>
                                     </tr>
                                     <tr>
                                         <th>Product</th>
                                         <th>Sales</th>
                                     </tr>
                                     @foreach ($q3->sortByDesc('total_quantity') as $product_id => $productData)
-                                    <tr>
-                                        <td><a href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
+                                    <tr @if($productData['stype']==1) class="bg-lime text-white" @else class="bg-red text-white" @endif>
+                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -415,15 +424,15 @@
                             <div class="col-md-4">
                                 <table class="table table-bordered table-sm">
                                     <tr>
-                                        <th colspan="2">Quarter 4</th>
+                                        <th colspan="2">Quarter 4 (October - December)</th>
                                     </tr>
                                     <tr>
                                         <th>Product</th>
                                         <th>Sales</th>
                                     </tr>
                                     @foreach ($q4->sortByDesc('total_quantity') as $product_id => $productData)
-                                    <tr>
-                                        <td><a href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
+                                    <tr @if($productData['stype']==1) class="bg-lime text-white" @else class="bg-red text-white" @endif>
+                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach

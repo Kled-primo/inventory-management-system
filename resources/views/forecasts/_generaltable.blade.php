@@ -8,38 +8,43 @@
     </thead>
     <tbody>
         @foreach ($q1->sortByDesc('total_quantity') as $product_id => $productData)
-        <tr>
+        <tr class="text-success">
             <td>Quarter 1</td>
             <td>
-                <a href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})">{{ $productData['name'] }}</a>
+                <a href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})" class="text-success">{{ $productData['name'] }}</a>
             </td>
             <td>{{ $productData['total_quantity'] }}</td>
         </tr>
         @endforeach
         @foreach ($q2->sortByDesc('total_quantity') as $product_id => $productData)
-        <tr>
+        <tr class="text-info">
             <td>Quarter 2</td>
             <td>
-                {{ $productData['name'] }}
+                <a href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})" class="text-info">
+                    {{ $productData['name'] }}
+                </a>
             </td>
             <td>{{ $productData['total_quantity'] }}</td>
         </tr>
         @endforeach
         @foreach ($q3->sortByDesc('total_quantity') as $product_id => $productData)
-        <tr>
+        <tr class="text-warning">
             <td>Quarter 3</td>
             <td>
-                {{ $productData['name'] }}
+                <a href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})" class="text-warning">
+                    {{ $productData['name'] }}
+                </a>
             </td>
             <td>{{ $productData['total_quantity'] }}</td>
         </tr>
         @endforeach
         @foreach ($q4->sortByDesc('total_quantity') as $product_id => $productData)
-        <tr>
+        <tr class="text-primary">
             <td>Quarter 4</td>
             <td>
-                {{ $productData['name'] }}
-
+                <a href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})" class="text-primary">
+                    {{ $productData['name'] }}
+                </a>
             </td>
             <td>{{ $productData['total_quantity'] }}</td>
         </tr>

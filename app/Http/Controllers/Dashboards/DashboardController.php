@@ -38,101 +38,6 @@ class DashboardController extends Controller
 
         $this->general($forecast_year->value);
 
-        // $forecast_year = Setting::where('is_active', 1)->first(); // Get the current year set
-
-        // $order_details = OrderDetails::selectRaw('
-        //                 order_details.product_id,
-        //                 products.name AS product_name,
-        //                 YEAR(order_details.created_at) AS year,
-        //                 MONTH(order_details.created_at) AS month,
-        //                 SUM(order_details.quantity) AS total_quantity
-        //             ')
-        //                     ->join('products', 'order_details.product_id', '=', 'products.id')
-        //                     ->whereYear('order_details.created_at', $forecast_year->value)
-        //                     ->groupBy('order_details.product_id', 'products.name', 'year', 'month')
-        //                     ->orderBy('order_details.product_id')
-        //                     ->orderBy('year')
-        //                     ->orderBy('month')
-        //                     ->get();
-
-        // Initialize separate collections for each quarter
-        // $q1 = collect();
-        // $q2 = collect();
-        // $q3 = collect();
-        // $q4 = collect();
-
-
-
-        // Define a mapping of months to quarters
-        // $monthToQuarter = [
-        //     1 => 1, 2 => 1, 3 => 1, // Q1
-        //     4 => 2, 5 => 2, 6 => 2, // Q2
-        //     7 => 3, 8 => 3, 9 => 3, // Q3
-        //     10 => 4, 11 => 4, 12 => 4, // Q4
-        // ];
-
-        //$currentQuarter = $monthToQuarter[date("n")];
-
-        // foreach ($order_details as $detail) {
-        //     $quarter = $monthToQuarter[$detail->month];
-        //     switch ($quarter) {
-        //         case 1:
-        //             $collection = $q1;
-        //             break;
-        //         case 2:
-        //             $collection = $q2;
-        //             break;
-        //         case 3:
-        //             $collection = $q3;
-        //             break;
-        //         case 4:
-        //             $collection = $q4;
-        //             break;
-        //     }
-
-        // Initialize the product's total_quantity in the quarter if it doesn't exist
-        //     if (!$collection->has($detail->product_id)) {
-        //         $collection->put($detail->product_id, [
-        //             'pid' => $detail->product_id,
-        //             'name' => $detail->product_name,
-        //             'total_quantity' => 0
-        //         ]);
-        //     }
-
-        // Add the total_quantity to the product's total in the quarter
-        //     $productData = $collection->get($detail->product_id);
-        //     $productData['total_quantity'] += $detail->total_quantity;
-        //     $collection->put($detail->product_id, $productData);
-        // } // loop over product
-
-
-
-        // Sort each quarter by total_quantity in descending order
-        // $qbs1 = $q1->sortByDesc('total_quantity')->take(10);
-        // $qbs2 = $q2->sortByDesc('total_quantity')->take(10);
-        // $qbs3 = $q3->sortByDesc('total_quantity')->take(10);
-        // $qbs4 = $q4->sortByDesc('total_quantity')->take(10);
-
-        // $qls1 = $q1->sortBy('total_quantity')->take(10);
-        // $qls2 = $q2->sortBy('total_quantity')->take(10);
-        // $qls3 = $q3->sortBy('total_quantity')->take(10);
-        // $qls4 = $q4->sortBy('total_quantity')->take(10);
-
-        // $q1 = $qbs1->merge($qls1);
-        // $q2 = $qbs2->merge($qls2);
-        // $q3 = $qbs3->merge($qls3);
-        // $q4 = $qbs4->merge($qls4);
-
-
-        //Display the results for each quarter
-        // $quarters = [
-        //     1 => $q1->sortByDesc('total_quantity'),
-        //     2 => $q2->sortByDesc('total_quantity'),
-        //     3 => $q3->sortByDesc('total_quantity'),
-        //     4 => $q4->sortByDesc('total_quantity'),
-        // ];
-
-
         // Best Sellers and Low Sellers
         $best_sellers = collect();
         $low_sellers = collect();
@@ -351,18 +256,24 @@ class DashboardController extends Controller
         $q1_graph = \Lava::DataTable();
         $q1_graph->addStringColumn('Product');
         $q1_graph->addNumberColumn('Sales');
+        $q1_graph->addRoleColumn('string', 'style');
 
         $q2_graph = \Lava::DataTable();
         $q2_graph->addStringColumn('Product');
         $q2_graph->addNumberColumn('Sales');
+        $q2_graph->addRoleColumn('string', 'style');
 
         $q3_graph = \Lava::DataTable();
         $q3_graph->addStringColumn('Product');
         $q3_graph->addNumberColumn('Sales');
+        $q3_graph->addRoleColumn('string', 'style');
+
 
         $q4_graph = \Lava::DataTable();
         $q4_graph->addStringColumn('Product');
         $q4_graph->addNumberColumn('Sales');
+        $q4_graph->addRoleColumn('string', 'style');
+
 
 
         foreach ($this->quarters as $quarter => $quarter_products) {
@@ -371,23 +282,40 @@ class DashboardController extends Controller
 
                 switch ($quarter) {
                     case 1:
+                        if ($productData['stype'] == '1') {
 
-                        $q1_graph->addRow([$productData['name'],$productData['total_quantity']]);
+                            $q1_graph->addRow([$productData['name'],$productData['total_quantity'],'color: #74b816']);
+
+                        } else {
+
+                            $q1_graph->addRow([$productData['name'],$productData['total_quantity'],'color: #d63939']);
+                        }
 
                         break;
                     case 2:
-
-                        $q2_graph->addRow([$productData['name'],$productData['total_quantity']]);
-
+                        if ($productData['stype'] == '1') {
+                            $q2_graph->addRow([$productData['name'],$productData['total_quantity'],'color: #74b816']);
+                        } else {
+                            $q2_graph->addRow([$productData['name'],$productData['total_quantity'],'color: #d63939']);
+                        }
                         break;
                     case 3:
+                        if ($productData['stype'] == '1') {
+                            $q3_graph->addRow([$productData['name'],$productData['total_quantity'],'color: #74b816']);
+                        } else {
 
-                        $q3_graph->addRow([$productData['name'],$productData['total_quantity']]);
+                            $q3_graph->addRow([$productData['name'],$productData['total_quantity'],'color: #d63939']);
 
+                        }
                         break;
                     case 4:
+                        if ($productData['stype'] == '1') {
+                            $q4_graph->addRow([$productData['name'],$productData['total_quantity'],'color: #74b816']);
+                        } else {
 
-                        $q4_graph->addRow([$productData['name'],$productData['total_quantity']]);
+                            $q4_graph->addRow([$productData['name'],$productData['total_quantity'],'color: #d63939']);
+
+                        }
 
                         break;
                 }
@@ -396,14 +324,25 @@ class DashboardController extends Controller
             }
         }
 
+        // $q1_options = [
+        //     'title' => 'First Quarter',
+        //     'titleTextStyle' => [
+        //         'color'    => '#eb6b2c',
+        //         'fontSize' => 14
+        //     ],
+        //     'colors' => ['#e0440e'],
+        // ];
+
         $q1_options = [
             'title' => 'First Quarter',
             'titleTextStyle' => [
                 'color'    => '#eb6b2c',
                 'fontSize' => 14
             ],
-            'colors' => ['#e0440e'],
+            'legend' => ['position' => 'none'], // No legend as colors are row-specific
+            'bar' => ['groupWidth' => '75%']
         ];
+
 
         \Lava::ColumnChart('FirstQuarter', $q1_graph, $q1_options);
 
@@ -460,7 +399,7 @@ class DashboardController extends Controller
             'q4_graph' => $q4_graph,
             'best_sellers' => $best_sellers,
             'low_sellers' => $low_sellers,
-            'year' => $forecast_year
+            'year' => $forecast_year->value
         ]);
     }
 }

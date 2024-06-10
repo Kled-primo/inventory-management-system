@@ -14,12 +14,12 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('products')->delete();
-        
+
         \DB::table('products')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'uuid' => 'db31b791-314f-4f87-9605-879472d3079e',
@@ -28,7 +28,7 @@ class ProductsTableSeeder extends Seeder
                 'slug' => 'acetylcysteine',
                 'code' => 'PC02',
                 'producttype' => 5,
-                'quantity' => 20,
+                'quantity' => 40,
                 'unit_number' => '200',
                 'selling_price' => 1725.0,
                 'purchase_price' => 1380.0,
@@ -41,7 +41,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 03:28:08',
                 'updated_at' => '2024-05-24 03:28:08',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'uuid' => '9475a312-cae5-478a-8094-0667d14ed1f6',
@@ -50,7 +50,7 @@ class ProductsTableSeeder extends Seeder
                 'slug' => 'acetylcysteine',
                 'code' => 'PC03',
                 'producttype' => 5,
-                'quantity' => 20,
+                'quantity' => 40,
                 'unit_number' => '600',
                 'selling_price' => 1725.0,
                 'purchase_price' => 1380.0,
@@ -63,7 +63,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 03:28:08',
                 'updated_at' => '2024-05-24 03:28:08',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'uuid' => '0642cdd2-1278-46fc-8b67-92ff68694d5c',
@@ -85,7 +85,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-06-03 09:14:41',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'uuid' => '828cec56-16d1-4ad4-acde-140f63e43660',
@@ -107,7 +107,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'uuid' => '151a92fb-d4b8-4b94-80f5-5b18034b235f',
@@ -116,7 +116,7 @@ class ProductsTableSeeder extends Seeder
                 'slug' => 'aciclovir',
                 'code' => 'PC05',
                 'producttype' => 7,
-                'quantity' => 3,
+                'quantity' => 55,
                 'unit_number' => '400',
                 'selling_price' => 12725.0,
                 'purchase_price' => 10180.0,
@@ -129,7 +129,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'uuid' => '78e24133-295d-4af2-b8b0-3bc8f4f99e4c',
@@ -151,7 +151,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'uuid' => 'a32a3cf1-8d96-4d61-a203-ccd1f7757afb',
@@ -173,7 +173,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'uuid' => 'dfed39a3-5dc0-456e-b354-b4698936bd9a',
@@ -195,7 +195,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'uuid' => 'df8c3f93-0ba5-4cae-ba78-30a2c79f58a1',
@@ -217,7 +217,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'uuid' => '60f39f91-41e8-4826-89c4-cc0317c18559',
@@ -239,7 +239,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 11,
                 'uuid' => '03eee1ab-2270-49f9-b66e-5ffda50b113e',
@@ -261,7 +261,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 12,
                 'uuid' => 'aeb07437-454f-4ba6-9cd2-f5b9109b1e33',
@@ -283,7 +283,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 13,
                 'uuid' => '3b42a72e-1499-4314-abc6-6f4b908e206a',
@@ -305,7 +305,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 14,
                 'uuid' => '22d37cec-6b8f-4acf-aac1-f4f93957a27b',
@@ -327,7 +327,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 15,
                 'uuid' => 'ef3f5106-a63f-455c-872c-35be34fb7016',
@@ -349,7 +349,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-06-03 09:30:41',
             ),
-            15 => 
+            15 =>
             array (
                 'id' => 16,
                 'uuid' => '6ffe0332-f510-4c9c-b8c3-1e6f3f6a3c3c',
@@ -371,7 +371,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            16 => 
+            16 =>
             array (
                 'id' => 17,
                 'uuid' => '336466fe-d5b2-417b-90fb-73ff9266fa6c',
@@ -393,7 +393,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            17 => 
+            17 =>
             array (
                 'id' => 18,
                 'uuid' => '51d62b02-beff-4968-bc02-7c0cd5797381',
@@ -415,7 +415,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            18 => 
+            18 =>
             array (
                 'id' => 19,
                 'uuid' => '6c3c4b81-28aa-4301-9060-0b9142727f36',
@@ -437,7 +437,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            19 => 
+            19 =>
             array (
                 'id' => 20,
                 'uuid' => 'f868a38b-f612-43bb-ad5d-42a5765e685d',
@@ -446,7 +446,7 @@ class ProductsTableSeeder extends Seeder
             'slug' => 'amlodipine (norvatrol)',
                 'code' => 'PC21',
                 'producttype' => 7,
-                'quantity' => 68,
+                'quantity' => 50,
                 'unit_number' => '10',
                 'selling_price' => 500.0,
                 'purchase_price' => 400.0,
@@ -459,7 +459,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            20 => 
+            20 =>
             array (
                 'id' => 21,
                 'uuid' => '6beb67e7-3ce2-444e-bbc7-616da790f94e',
@@ -481,7 +481,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            21 => 
+            21 =>
             array (
                 'id' => 22,
                 'uuid' => '13b1599f-1b71-4131-8407-5b49816227a1',
@@ -503,7 +503,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            22 => 
+            22 =>
             array (
                 'id' => 23,
                 'uuid' => '4f38acc2-3e3d-4474-9a7a-f62bf5fe9f56',
@@ -525,7 +525,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            23 => 
+            23 =>
             array (
                 'id' => 24,
                 'uuid' => '46183392-d941-46ab-a151-8a660f88ebf4',
@@ -547,7 +547,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            24 => 
+            24 =>
             array (
                 'id' => 25,
                 'uuid' => '66744421-7dcd-4204-93e3-283151488869',
@@ -569,7 +569,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            25 => 
+            25 =>
             array (
                 'id' => 26,
                 'uuid' => 'd52670cc-6679-4450-82bf-1d017ba5190e',
@@ -591,7 +591,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            26 => 
+            26 =>
             array (
                 'id' => 27,
                 'uuid' => 'af635010-1c60-4398-b94c-dc226a7e7573',
@@ -613,7 +613,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            27 => 
+            27 =>
             array (
                 'id' => 28,
                 'uuid' => '1e512483-a1cf-40d2-b36c-702635ccf56c',
@@ -635,7 +635,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            28 => 
+            28 =>
             array (
                 'id' => 29,
                 'uuid' => '239f44b6-b8b4-4aa4-a5ba-a92f68f05761',
@@ -657,7 +657,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            29 => 
+            29 =>
             array (
                 'id' => 30,
                 'uuid' => 'e20ceb37-19fa-4d67-82ae-dc16e3c6d6c7',
@@ -679,7 +679,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            30 => 
+            30 =>
             array (
                 'id' => 31,
                 'uuid' => '6cfaaefd-ac27-4446-83c2-295928a37932',
@@ -701,7 +701,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            31 => 
+            31 =>
             array (
                 'id' => 32,
                 'uuid' => '69f846ad-6337-4f91-ba59-9cf06c4ed268',
@@ -723,7 +723,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            32 => 
+            32 =>
             array (
                 'id' => 33,
                 'uuid' => '2c4b8871-856f-4e8c-a5a1-bf5ed5e8672b',
@@ -745,7 +745,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            33 => 
+            33 =>
             array (
                 'id' => 34,
                 'uuid' => '1f873599-79a1-4896-8a66-9f8fa4062ea7',
@@ -767,7 +767,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            34 => 
+            34 =>
             array (
                 'id' => 35,
                 'uuid' => 'be4b8b65-d634-4920-bb34-bc752fe02c6a',
@@ -789,7 +789,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            35 => 
+            35 =>
             array (
                 'id' => 36,
                 'uuid' => 'b4ea8aa3-4756-44ac-9b3c-8f593fc229e6',
@@ -811,7 +811,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            36 => 
+            36 =>
             array (
                 'id' => 37,
                 'uuid' => '58a10d37-00bd-4de2-aa0d-bdcd2a00aafc',
@@ -833,7 +833,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            37 => 
+            37 =>
             array (
                 'id' => 38,
                 'uuid' => 'f9be8bae-6b17-45fb-bb62-dc4edf12ef0a',
@@ -855,7 +855,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            38 => 
+            38 =>
             array (
                 'id' => 39,
                 'uuid' => 'cc7d11c9-3edf-4cea-95b6-4d2c41e0f0f1',
@@ -877,7 +877,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            39 => 
+            39 =>
             array (
                 'id' => 40,
                 'uuid' => 'c069278c-d837-4ad5-a8b0-22345ae4f24a',
@@ -899,7 +899,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            40 => 
+            40 =>
             array (
                 'id' => 41,
                 'uuid' => '16c81d61-4b18-466f-ab19-1f290fc09e80',
@@ -921,7 +921,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            41 => 
+            41 =>
             array (
                 'id' => 42,
                 'uuid' => '2e6d06e5-a705-469e-9aaa-162faf9f20b8',
@@ -943,7 +943,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            42 => 
+            42 =>
             array (
                 'id' => 43,
                 'uuid' => '520b336a-f509-4447-ab35-3c109c236b71',
@@ -965,7 +965,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            43 => 
+            43 =>
             array (
                 'id' => 44,
                 'uuid' => '4d588284-dd6c-4efe-83e7-018dab6c467d',
@@ -987,7 +987,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            44 => 
+            44 =>
             array (
                 'id' => 45,
                 'uuid' => '16a5e126-9305-4009-bb97-17d75723a42a',
@@ -1009,7 +1009,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            45 => 
+            45 =>
             array (
                 'id' => 46,
                 'uuid' => '1df5fb15-d43c-456b-a513-3925eaa3487e',
@@ -1031,7 +1031,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            46 => 
+            46 =>
             array (
                 'id' => 47,
                 'uuid' => 'bb46f0e9-6aa2-4eea-be35-2e1001566f7a',
@@ -1053,7 +1053,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            47 => 
+            47 =>
             array (
                 'id' => 48,
                 'uuid' => '063c65d3-7ff9-4b72-9cbf-2a0ea81357dd',
@@ -1075,7 +1075,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            48 => 
+            48 =>
             array (
                 'id' => 49,
                 'uuid' => '627b950c-6706-4715-b703-2a8324771d1c',
@@ -1097,7 +1097,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            49 => 
+            49 =>
             array (
                 'id' => 50,
                 'uuid' => '6a1abae9-ac9a-4c91-94d1-1f12d9383764',
@@ -1119,7 +1119,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            50 => 
+            50 =>
             array (
                 'id' => 51,
                 'uuid' => '36b53d3d-931d-466c-8de2-2ad203991b10',
@@ -1141,7 +1141,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            51 => 
+            51 =>
             array (
                 'id' => 52,
                 'uuid' => '5545d84d-0af5-435f-b088-35d287124d28',
@@ -1163,7 +1163,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            52 => 
+            52 =>
             array (
                 'id' => 53,
                 'uuid' => 'cd969f28-5d85-4a5d-b9e8-b6c15b8a30bb',
@@ -1185,7 +1185,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            53 => 
+            53 =>
             array (
                 'id' => 54,
                 'uuid' => '86118d0e-0ea6-46b2-99fd-ce5c393f54e3',
@@ -1207,7 +1207,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            54 => 
+            54 =>
             array (
                 'id' => 55,
                 'uuid' => '3c5f78f5-a941-45f6-9cce-46a8819412db',
@@ -1229,7 +1229,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            55 => 
+            55 =>
             array (
                 'id' => 56,
                 'uuid' => 'fe62047c-de81-45b8-89df-a4b3e0081c9b',
@@ -1251,7 +1251,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            56 => 
+            56 =>
             array (
                 'id' => 57,
                 'uuid' => '143a0a04-c285-45f1-918f-e6f843445ae2',
@@ -1273,7 +1273,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            57 => 
+            57 =>
             array (
                 'id' => 58,
                 'uuid' => '77dfdee6-d10a-4bcd-8710-0eb34883db61',
@@ -1295,7 +1295,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            58 => 
+            58 =>
             array (
                 'id' => 59,
                 'uuid' => '8920e0ed-f129-4b4e-8c23-240af09e289d',
@@ -1317,7 +1317,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            59 => 
+            59 =>
             array (
                 'id' => 60,
                 'uuid' => 'ba3cfe80-faa4-4b45-add3-93748a1de687',
@@ -1339,7 +1339,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            60 => 
+            60 =>
             array (
                 'id' => 61,
                 'uuid' => '172c2a4b-d5f2-419a-9b52-db16e5121d3a',
@@ -1361,7 +1361,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            61 => 
+            61 =>
             array (
                 'id' => 62,
                 'uuid' => 'c502afed-7959-49f4-bb64-ce2f73c2d30d',
@@ -1383,7 +1383,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            62 => 
+            62 =>
             array (
                 'id' => 63,
                 'uuid' => '18635b0e-5800-4046-aee7-a4f72cd3bbae',
@@ -1405,7 +1405,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            63 => 
+            63 =>
             array (
                 'id' => 64,
                 'uuid' => '0fd0b1be-7e49-4169-a2cf-6ad7cdb16a48',
@@ -1427,7 +1427,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            64 => 
+            64 =>
             array (
                 'id' => 65,
                 'uuid' => 'f1d07047-6f39-44f3-a442-dc10f089e35d',
@@ -1449,7 +1449,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            65 => 
+            65 =>
             array (
                 'id' => 66,
                 'uuid' => '70ca21c1-9ac7-4d96-b7ad-bf1e157c64c2',
@@ -1471,7 +1471,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            66 => 
+            66 =>
             array (
                 'id' => 67,
                 'uuid' => '461b530f-9149-48aa-9622-2cc42b4d9c2e',
@@ -1493,7 +1493,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            67 => 
+            67 =>
             array (
                 'id' => 68,
                 'uuid' => '0d5ff271-6b95-4a14-af1c-f2e5a3fe8372',
@@ -1515,7 +1515,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            68 => 
+            68 =>
             array (
                 'id' => 69,
                 'uuid' => '49412735-9a29-4793-929b-53ead704314b',
@@ -1537,7 +1537,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            69 => 
+            69 =>
             array (
                 'id' => 70,
                 'uuid' => '68b5d011-ca45-4e14-9c3d-eb5befc7498d',
@@ -1559,7 +1559,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            70 => 
+            70 =>
             array (
                 'id' => 71,
                 'uuid' => 'd5a494dc-2953-4703-8cff-dfe15e7c4b4b',
@@ -1581,7 +1581,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            71 => 
+            71 =>
             array (
                 'id' => 72,
                 'uuid' => 'fc160cb6-9ecf-4988-9940-57dc25d60972',
@@ -1603,7 +1603,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            72 => 
+            72 =>
             array (
                 'id' => 73,
                 'uuid' => 'd6d80462-c386-4079-b212-6efdbd501765',
@@ -1625,7 +1625,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            73 => 
+            73 =>
             array (
                 'id' => 74,
                 'uuid' => '0f5b256f-3b2a-4ada-9b4f-0d9b19cb673e',
@@ -1647,7 +1647,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            74 => 
+            74 =>
             array (
                 'id' => 75,
                 'uuid' => '6efc9a05-3edd-4a42-b058-54627e790576',
@@ -1669,7 +1669,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            75 => 
+            75 =>
             array (
                 'id' => 76,
                 'uuid' => 'e2700496-2e24-4079-86e6-9395b9d03700',
@@ -1691,7 +1691,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            76 => 
+            76 =>
             array (
                 'id' => 77,
                 'uuid' => '987a9cbe-ef05-45bf-a298-cb7e80bbf8ca',
@@ -1713,7 +1713,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            77 => 
+            77 =>
             array (
                 'id' => 78,
                 'uuid' => '5731b772-9e4c-4fcd-a6ce-51d6cbfe7aee',
@@ -1735,7 +1735,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            78 => 
+            78 =>
             array (
                 'id' => 79,
                 'uuid' => 'efde9f1f-767d-4653-9886-a3b4141bef22',
@@ -1757,7 +1757,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            79 => 
+            79 =>
             array (
                 'id' => 80,
                 'uuid' => '960e3567-330e-4b67-bdce-275dc856a029',
@@ -1779,7 +1779,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            80 => 
+            80 =>
             array (
                 'id' => 81,
                 'uuid' => 'ee2ad6a6-9f4d-43e0-93ea-3dc6abe4a38c',
@@ -1801,7 +1801,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            81 => 
+            81 =>
             array (
                 'id' => 82,
                 'uuid' => '59e93b37-b85f-40b3-95c9-c7b63b8fa198',
@@ -1823,7 +1823,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            82 => 
+            82 =>
             array (
                 'id' => 83,
                 'uuid' => '7ea59a37-ec84-4ad2-997d-cfce87fb1b68',
@@ -1845,7 +1845,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            83 => 
+            83 =>
             array (
                 'id' => 84,
                 'uuid' => '6b34d9d0-1129-4a75-b02c-e4d0883fce71',
@@ -1867,7 +1867,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            84 => 
+            84 =>
             array (
                 'id' => 85,
                 'uuid' => 'cd82e2fe-31f3-4e51-8b1c-53ea81a2b454',
@@ -1889,7 +1889,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            85 => 
+            85 =>
             array (
                 'id' => 86,
                 'uuid' => '249b1157-7b99-4b96-9284-0869f84347be',
@@ -1911,7 +1911,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            86 => 
+            86 =>
             array (
                 'id' => 87,
                 'uuid' => '1e8083d1-04b5-43e5-bf61-6a9fd37c9dae',
@@ -1933,7 +1933,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            87 => 
+            87 =>
             array (
                 'id' => 88,
                 'uuid' => '9a928340-1a0a-4404-997e-8d30ffd71462',
@@ -1955,7 +1955,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            88 => 
+            88 =>
             array (
                 'id' => 89,
                 'uuid' => '718d1c0d-3a0d-46f8-953c-716b060352b3',
@@ -1977,7 +1977,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            89 => 
+            89 =>
             array (
                 'id' => 90,
                 'uuid' => 'fbf6f621-6cd0-42eb-97e8-bc1f13c6c7c6',
@@ -1999,7 +1999,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            90 => 
+            90 =>
             array (
                 'id' => 91,
                 'uuid' => 'f95ff7f2-df58-4a38-a106-d2c4a2bc2db4',
@@ -2021,7 +2021,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            91 => 
+            91 =>
             array (
                 'id' => 92,
                 'uuid' => 'ae19d195-61b5-4e00-a03b-2c5e9a0fe29e',
@@ -2043,7 +2043,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            92 => 
+            92 =>
             array (
                 'id' => 93,
                 'uuid' => '623aa922-1848-4484-8c6f-1065214efe35',
@@ -2065,7 +2065,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            93 => 
+            93 =>
             array (
                 'id' => 94,
                 'uuid' => '4a3f7fd3-52ef-4ca5-927b-5ca4aea56ef1',
@@ -2087,7 +2087,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            94 => 
+            94 =>
             array (
                 'id' => 95,
                 'uuid' => 'fc12e512-523f-4462-aded-56a476f8a515',
@@ -2109,7 +2109,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            95 => 
+            95 =>
             array (
                 'id' => 96,
                 'uuid' => '6b51aefa-368e-4174-97c1-92a69aba2c79',
@@ -2131,7 +2131,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            96 => 
+            96 =>
             array (
                 'id' => 97,
                 'uuid' => '5dbaf7b2-ddd7-4e95-b070-504ea4743735',
@@ -2153,7 +2153,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            97 => 
+            97 =>
             array (
                 'id' => 98,
                 'uuid' => 'e996523b-bc92-4bb3-84c8-912bc51c6c85',
@@ -2175,7 +2175,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            98 => 
+            98 =>
             array (
                 'id' => 99,
                 'uuid' => '3941ef3b-3c5e-4260-83b2-2ba58f42c5d5',
@@ -2197,7 +2197,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            99 => 
+            99 =>
             array (
                 'id' => 100,
                 'uuid' => '50966096-a3f7-4a5a-a11f-d91583559b77',
@@ -2219,7 +2219,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            100 => 
+            100 =>
             array (
                 'id' => 101,
                 'uuid' => '83ca13a0-5aa3-4cb1-be5a-df56b41c8396',
@@ -2241,7 +2241,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            101 => 
+            101 =>
             array (
                 'id' => 102,
                 'uuid' => 'ca1476a8-3d58-4399-ba4a-80a16029781c',
@@ -2263,7 +2263,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            102 => 
+            102 =>
             array (
                 'id' => 103,
                 'uuid' => '06a8fc23-719e-4e63-ba85-03c34c2eaa3c',
@@ -2285,7 +2285,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            103 => 
+            103 =>
             array (
                 'id' => 104,
                 'uuid' => '2aa41953-ccab-42e9-acbf-c253ac1411e0',
@@ -2307,7 +2307,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            104 => 
+            104 =>
             array (
                 'id' => 105,
                 'uuid' => '24d6550b-434c-4e9e-847c-e73d43e6d8d9',
@@ -2329,7 +2329,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            105 => 
+            105 =>
             array (
                 'id' => 106,
                 'uuid' => '5e11958a-7ad1-414f-a131-df36d2008609',
@@ -2351,7 +2351,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            106 => 
+            106 =>
             array (
                 'id' => 107,
                 'uuid' => '12326074-057f-4e44-a39a-76feeb3fb16f',
@@ -2373,7 +2373,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            107 => 
+            107 =>
             array (
                 'id' => 108,
                 'uuid' => 'a51deb8f-4620-4f48-a492-e28f45b700d8',
@@ -2395,7 +2395,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            108 => 
+            108 =>
             array (
                 'id' => 109,
                 'uuid' => '037b5831-230d-4e2a-beea-d7d0e3de41a0',
@@ -2417,7 +2417,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            109 => 
+            109 =>
             array (
                 'id' => 110,
                 'uuid' => '8077308b-f08f-4b73-8072-3fc4c992d81f',
@@ -2439,7 +2439,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            110 => 
+            110 =>
             array (
                 'id' => 111,
                 'uuid' => '29ee5855-bf9f-4078-aaec-6374e2efe34e',
@@ -2461,7 +2461,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            111 => 
+            111 =>
             array (
                 'id' => 112,
                 'uuid' => '839d1eef-2878-4540-a180-3592d61ae0b6',
@@ -2483,7 +2483,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            112 => 
+            112 =>
             array (
                 'id' => 113,
                 'uuid' => 'b690ecba-73c6-4149-912c-574e74c5b05f',
@@ -2505,7 +2505,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            113 => 
+            113 =>
             array (
                 'id' => 114,
                 'uuid' => '17e12565-1b21-4606-b878-11a08133b31f',
@@ -2527,7 +2527,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            114 => 
+            114 =>
             array (
                 'id' => 115,
                 'uuid' => 'f9b92847-6fc8-465a-8ae0-ee4c6e4be015',
@@ -2549,7 +2549,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            115 => 
+            115 =>
             array (
                 'id' => 116,
                 'uuid' => '028dc78d-21ab-480c-9eee-2690b2b728ea',
@@ -2571,7 +2571,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            116 => 
+            116 =>
             array (
                 'id' => 117,
                 'uuid' => '3657e551-599a-43b7-9b90-1e8fa4f7dbb7',
@@ -2593,7 +2593,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            117 => 
+            117 =>
             array (
                 'id' => 118,
                 'uuid' => '8d646b72-0141-4faa-9578-f04676795e6e',
@@ -2615,7 +2615,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            118 => 
+            118 =>
             array (
                 'id' => 119,
                 'uuid' => 'da4b561e-da10-4864-b110-fbfe6d334938',
@@ -2637,7 +2637,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            119 => 
+            119 =>
             array (
                 'id' => 120,
                 'uuid' => '64be507f-7eb0-43f6-bdfd-e5a7cb0623f9',
@@ -2659,7 +2659,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            120 => 
+            120 =>
             array (
                 'id' => 121,
                 'uuid' => '3f174306-e305-456b-b718-bdbece624fdf',
@@ -2681,7 +2681,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            121 => 
+            121 =>
             array (
                 'id' => 122,
                 'uuid' => 'b2e520eb-505a-456b-9d61-ccbbf4da419b',
@@ -2703,7 +2703,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            122 => 
+            122 =>
             array (
                 'id' => 123,
                 'uuid' => '5bb0af66-8e5e-4228-8c42-a389738fb7f6',
@@ -2725,7 +2725,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            123 => 
+            123 =>
             array (
                 'id' => 124,
                 'uuid' => '24cd6922-e0c1-4186-aba3-edb3f7a771b0',
@@ -2747,7 +2747,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            124 => 
+            124 =>
             array (
                 'id' => 125,
                 'uuid' => 'c4b5e583-3524-4587-bda8-c3dff61792af',
@@ -2769,7 +2769,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            125 => 
+            125 =>
             array (
                 'id' => 126,
                 'uuid' => '0d799375-7579-4859-bce0-ada9e94d0065',
@@ -2791,7 +2791,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            126 => 
+            126 =>
             array (
                 'id' => 127,
                 'uuid' => 'e65810ab-963a-4c61-a1f9-6aa43014b5ec',
@@ -2813,7 +2813,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            127 => 
+            127 =>
             array (
                 'id' => 128,
                 'uuid' => '6fc98f01-3abf-4b8d-99d5-ec580681874b',
@@ -2835,7 +2835,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            128 => 
+            128 =>
             array (
                 'id' => 129,
                 'uuid' => 'a866caea-07ef-49b1-a4ba-18e7ad6e5e26',
@@ -2857,7 +2857,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            129 => 
+            129 =>
             array (
                 'id' => 130,
                 'uuid' => '436520bc-95e7-4a78-a660-ad93f02f402d',
@@ -2879,7 +2879,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            130 => 
+            130 =>
             array (
                 'id' => 131,
                 'uuid' => '6e46a141-55ba-4e6b-9568-eccd121da883',
@@ -2901,7 +2901,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            131 => 
+            131 =>
             array (
                 'id' => 132,
                 'uuid' => '0c432bdd-0fd7-41f9-a9d7-91b3bc5ec587',
@@ -2923,7 +2923,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            132 => 
+            132 =>
             array (
                 'id' => 133,
                 'uuid' => '00c53a7e-5d10-473e-a619-62dd235fc8b6',
@@ -2945,7 +2945,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            133 => 
+            133 =>
             array (
                 'id' => 134,
                 'uuid' => '2d464fa1-97c0-4c5c-88e7-a32459fff991',
@@ -2967,7 +2967,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            134 => 
+            134 =>
             array (
                 'id' => 135,
                 'uuid' => 'a9455205-74f5-437e-96ff-fc34aa14beee',
@@ -2989,7 +2989,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            135 => 
+            135 =>
             array (
                 'id' => 136,
                 'uuid' => '567bc3a9-ccab-466f-8bef-450ff7d22443',
@@ -3011,7 +3011,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:28',
                 'updated_at' => '2024-05-24 05:00:28',
             ),
-            136 => 
+            136 =>
             array (
                 'id' => 137,
                 'uuid' => '33c00c5e-ebe1-4d43-a343-09e4eb74076d',
@@ -3033,7 +3033,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            137 => 
+            137 =>
             array (
                 'id' => 138,
                 'uuid' => '160f3256-d8b5-404c-8986-98d918b9ca60',
@@ -3055,7 +3055,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            138 => 
+            138 =>
             array (
                 'id' => 139,
                 'uuid' => 'e9680bbe-461e-4e66-b1b8-48b83d864e7a',
@@ -3077,7 +3077,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            139 => 
+            139 =>
             array (
                 'id' => 140,
                 'uuid' => '2e3fc7f9-e9d2-4bad-8b8e-0a4708a8ba33',
@@ -3099,7 +3099,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            140 => 
+            140 =>
             array (
                 'id' => 141,
                 'uuid' => '853ac813-7423-4d62-8863-0c6183adb412',
@@ -3121,7 +3121,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            141 => 
+            141 =>
             array (
                 'id' => 142,
                 'uuid' => '48d80d91-5ecb-4055-90b5-b3a29f91df91',
@@ -3143,7 +3143,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            142 => 
+            142 =>
             array (
                 'id' => 143,
                 'uuid' => 'b6e7f1c7-4a4d-49e0-a1c7-214665921469',
@@ -3165,7 +3165,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            143 => 
+            143 =>
             array (
                 'id' => 144,
                 'uuid' => 'ca5a5167-5876-494a-ac21-d40ebf79d3b1',
@@ -3187,7 +3187,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            144 => 
+            144 =>
             array (
                 'id' => 145,
                 'uuid' => 'b26a12a6-01d9-49d3-9c3a-63a2c9522e66',
@@ -3209,7 +3209,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            145 => 
+            145 =>
             array (
                 'id' => 146,
                 'uuid' => 'c7712695-4d82-4c60-9ad7-c077c145a787',
@@ -3231,7 +3231,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            146 => 
+            146 =>
             array (
                 'id' => 147,
                 'uuid' => '1077035d-a727-4b88-b861-703eaeb07afe',
@@ -3253,7 +3253,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            147 => 
+            147 =>
             array (
                 'id' => 148,
                 'uuid' => 'af063198-04b7-46fc-b876-328b445cb021',
@@ -3275,7 +3275,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            148 => 
+            148 =>
             array (
                 'id' => 149,
                 'uuid' => '3a85bf05-26ec-41fa-a63f-16a03cf367c0',
@@ -3297,7 +3297,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            149 => 
+            149 =>
             array (
                 'id' => 150,
                 'uuid' => '8c6ef0b7-da18-40b5-bc89-8bd697fba449',
@@ -3319,7 +3319,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            150 => 
+            150 =>
             array (
                 'id' => 151,
                 'uuid' => '35f28446-5468-42e8-8051-d98144dbb373',
@@ -3341,7 +3341,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            151 => 
+            151 =>
             array (
                 'id' => 152,
                 'uuid' => 'c4e87545-943b-4da2-a8f6-4a2ac269adee',
@@ -3363,7 +3363,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            152 => 
+            152 =>
             array (
                 'id' => 153,
                 'uuid' => '446c96ef-abe6-433d-8acc-b1b7f1574240',
@@ -3385,7 +3385,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            153 => 
+            153 =>
             array (
                 'id' => 154,
                 'uuid' => 'f6bd917a-c4aa-416d-b047-4d740d660451',
@@ -3407,7 +3407,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            154 => 
+            154 =>
             array (
                 'id' => 155,
                 'uuid' => 'b08f8b01-f22a-4552-9826-d31f90b49bca',
@@ -3429,7 +3429,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            155 => 
+            155 =>
             array (
                 'id' => 156,
                 'uuid' => 'adde26c9-e8cf-407e-a3b9-8b597f170628',
@@ -3451,7 +3451,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            156 => 
+            156 =>
             array (
                 'id' => 157,
                 'uuid' => '06c7f421-899a-4d98-89ed-a20a911df6a1',
@@ -3473,7 +3473,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            157 => 
+            157 =>
             array (
                 'id' => 158,
                 'uuid' => 'ad19bee4-3fcb-4844-a171-719215aab47e',
@@ -3495,7 +3495,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            158 => 
+            158 =>
             array (
                 'id' => 159,
                 'uuid' => '5069b587-9d67-4b53-8fcf-7eac529ab395',
@@ -3517,7 +3517,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            159 => 
+            159 =>
             array (
                 'id' => 160,
                 'uuid' => 'b5027086-c57e-4f8c-b4de-c893a617bd0a',
@@ -3539,7 +3539,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            160 => 
+            160 =>
             array (
                 'id' => 161,
                 'uuid' => '8370f537-8e66-4591-99ea-66f99a1c2d76',
@@ -3561,7 +3561,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            161 => 
+            161 =>
             array (
                 'id' => 162,
                 'uuid' => '76a9691a-baa8-4894-9c6a-26edfa869205',
@@ -3583,7 +3583,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            162 => 
+            162 =>
             array (
                 'id' => 163,
                 'uuid' => '1f877d99-c42c-4e84-9e82-058d27d50c90',
@@ -3605,7 +3605,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            163 => 
+            163 =>
             array (
                 'id' => 164,
                 'uuid' => 'c0700010-8a11-4e45-b573-edac85341dc7',
@@ -3627,7 +3627,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            164 => 
+            164 =>
             array (
                 'id' => 165,
                 'uuid' => '287a757d-a7d8-4c81-a76c-c13d99d4c5e5',
@@ -3649,7 +3649,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            165 => 
+            165 =>
             array (
                 'id' => 166,
                 'uuid' => 'f1d883a1-3847-4063-806b-6b73fb2a6cac',
@@ -3671,7 +3671,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            166 => 
+            166 =>
             array (
                 'id' => 167,
                 'uuid' => '5d1ecbcf-a10b-4f93-bfbc-8d1dbe77722b',
@@ -3693,7 +3693,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            167 => 
+            167 =>
             array (
                 'id' => 168,
                 'uuid' => 'df2adc24-c26f-4788-8c2c-01c2f328214c',
@@ -3715,7 +3715,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            168 => 
+            168 =>
             array (
                 'id' => 169,
                 'uuid' => '85893caf-9f37-4f5e-bdf0-a8a079282de0',
@@ -3737,7 +3737,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            169 => 
+            169 =>
             array (
                 'id' => 170,
                 'uuid' => 'd3aa8142-78ba-46b8-9afd-197b3e5b0e61',
@@ -3759,7 +3759,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            170 => 
+            170 =>
             array (
                 'id' => 171,
                 'uuid' => '081cedee-930a-41cc-aefb-c6d32c810df1',
@@ -3781,7 +3781,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            171 => 
+            171 =>
             array (
                 'id' => 172,
                 'uuid' => '12bfe5b1-0afc-4bc9-82f0-465732e4c2e9',
@@ -3803,7 +3803,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            172 => 
+            172 =>
             array (
                 'id' => 173,
                 'uuid' => '5114ce92-2ed5-4109-a2a2-42b2c2f422bd',
@@ -3825,7 +3825,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            173 => 
+            173 =>
             array (
                 'id' => 174,
                 'uuid' => '1a3e64bd-404a-48d5-a743-66e1c4aa08d0',
@@ -3847,7 +3847,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            174 => 
+            174 =>
             array (
                 'id' => 175,
                 'uuid' => '9ad92be0-dcc8-465b-9f81-03c031ea7196',
@@ -3869,7 +3869,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            175 => 
+            175 =>
             array (
                 'id' => 176,
                 'uuid' => '44c7ae21-a46d-4830-9d1f-58ae0de18b5b',
@@ -3891,7 +3891,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            176 => 
+            176 =>
             array (
                 'id' => 177,
                 'uuid' => 'baeba039-4a12-4de5-bc25-c4c566710b3f',
@@ -3913,7 +3913,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            177 => 
+            177 =>
             array (
                 'id' => 178,
                 'uuid' => '119829e0-b5b9-4e25-835f-616516ea840e',
@@ -3935,7 +3935,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            178 => 
+            178 =>
             array (
                 'id' => 179,
                 'uuid' => '18f41e1f-6820-4d00-8197-7fa344e6aeae',
@@ -3957,7 +3957,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            179 => 
+            179 =>
             array (
                 'id' => 180,
                 'uuid' => '28acd221-f7c4-45f5-b69a-c5f1659b294b',
@@ -3979,7 +3979,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            180 => 
+            180 =>
             array (
                 'id' => 181,
                 'uuid' => '4017c80d-110e-4921-a248-e820e4c2a002',
@@ -4001,7 +4001,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            181 => 
+            181 =>
             array (
                 'id' => 182,
                 'uuid' => '8f203540-e3ca-4736-b11b-c8bd03620419',
@@ -4023,7 +4023,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            182 => 
+            182 =>
             array (
                 'id' => 183,
                 'uuid' => 'dfd177bc-e47c-4df6-b735-725fedc1077d',
@@ -4045,7 +4045,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            183 => 
+            183 =>
             array (
                 'id' => 184,
                 'uuid' => '6df6935c-9c97-4f91-96ff-a8417038320e',
@@ -4067,7 +4067,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            184 => 
+            184 =>
             array (
                 'id' => 185,
                 'uuid' => 'b18ecf3e-9d45-4eaa-9e97-c8321eda79fd',
@@ -4089,7 +4089,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            185 => 
+            185 =>
             array (
                 'id' => 186,
                 'uuid' => '7eff3de5-8821-4773-8449-e1cff8871b3b',
@@ -4111,7 +4111,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            186 => 
+            186 =>
             array (
                 'id' => 187,
                 'uuid' => '1e98c8c6-4707-4e3c-893c-2c4dd8e542ae',
@@ -4133,7 +4133,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            187 => 
+            187 =>
             array (
                 'id' => 188,
                 'uuid' => '989c8839-4fef-4285-8d53-3533b397b4d6',
@@ -4155,7 +4155,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            188 => 
+            188 =>
             array (
                 'id' => 189,
                 'uuid' => '36dfbe52-f2ee-4860-a74b-03bdedab7da2',
@@ -4177,7 +4177,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            189 => 
+            189 =>
             array (
                 'id' => 190,
                 'uuid' => '3e7e0bfb-fc8b-46df-9b14-a86c0cb6c9cb',
@@ -4199,7 +4199,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            190 => 
+            190 =>
             array (
                 'id' => 191,
                 'uuid' => '17309f57-1f2a-44ec-8db6-d5eea8ba2053',
@@ -4221,7 +4221,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            191 => 
+            191 =>
             array (
                 'id' => 192,
                 'uuid' => '61a1d4f8-bb2a-4658-a566-0254cb14511f',
@@ -4243,7 +4243,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            192 => 
+            192 =>
             array (
                 'id' => 193,
                 'uuid' => 'e08f1090-9e93-40d0-a65d-0ef467be0ff0',
@@ -4265,7 +4265,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            193 => 
+            193 =>
             array (
                 'id' => 194,
                 'uuid' => '1bcb14cf-ed3b-4e70-b6ba-7e13e368dae3',
@@ -4287,7 +4287,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            194 => 
+            194 =>
             array (
                 'id' => 195,
                 'uuid' => '921cae9b-e6aa-4a0d-bf40-321ea19efd00',
@@ -4309,7 +4309,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            195 => 
+            195 =>
             array (
                 'id' => 196,
                 'uuid' => '0ca8dcc4-0822-4b7d-9923-f506830e2a09',
@@ -4331,7 +4331,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            196 => 
+            196 =>
             array (
                 'id' => 197,
                 'uuid' => '34bfc52d-3930-415d-a577-f050f0218793',
@@ -4353,7 +4353,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            197 => 
+            197 =>
             array (
                 'id' => 198,
                 'uuid' => 'ad0d70d2-69fd-45eb-be0e-695491fe57ea',
@@ -4375,7 +4375,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            198 => 
+            198 =>
             array (
                 'id' => 199,
                 'uuid' => '2a60d099-701d-4766-ab12-6423f87202c5',
@@ -4397,7 +4397,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            199 => 
+            199 =>
             array (
                 'id' => 200,
                 'uuid' => 'b581d29d-886c-4857-aace-6fe7febfae16',
@@ -4419,7 +4419,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            200 => 
+            200 =>
             array (
                 'id' => 201,
                 'uuid' => '2e27d470-2a43-40bb-adb2-adaa8f6e2748',
@@ -4441,7 +4441,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            201 => 
+            201 =>
             array (
                 'id' => 202,
                 'uuid' => '96749154-a289-4370-914c-70c1fdf14e18',
@@ -4463,7 +4463,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            202 => 
+            202 =>
             array (
                 'id' => 203,
                 'uuid' => 'c707a284-27b1-4aa3-ae3e-56d5f7dc8a48',
@@ -4485,7 +4485,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            203 => 
+            203 =>
             array (
                 'id' => 204,
                 'uuid' => 'eecd39d8-419b-4f1b-bcbc-043bfa0e1f6a',
@@ -4507,7 +4507,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            204 => 
+            204 =>
             array (
                 'id' => 205,
                 'uuid' => '3d20d9f9-dd3f-4d7b-ac7b-5ee5fe12198f',
@@ -4529,7 +4529,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            205 => 
+            205 =>
             array (
                 'id' => 206,
                 'uuid' => 'b22fbfcd-bb75-4d33-901b-60f79a6646d4',
@@ -4551,7 +4551,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            206 => 
+            206 =>
             array (
                 'id' => 207,
                 'uuid' => '53832313-e68c-4870-8ead-a3a6ecda7752',
@@ -4573,7 +4573,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            207 => 
+            207 =>
             array (
                 'id' => 208,
                 'uuid' => '990a7be8-30de-408f-9f8c-41fa958caed6',
@@ -4595,7 +4595,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            208 => 
+            208 =>
             array (
                 'id' => 209,
                 'uuid' => '1fa38b14-e417-4ae0-ac12-29a9cf89ebee',
@@ -4617,7 +4617,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            209 => 
+            209 =>
             array (
                 'id' => 210,
                 'uuid' => '97d2fea5-be81-49c5-b2c5-6cb9a9beae17',
@@ -4639,7 +4639,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            210 => 
+            210 =>
             array (
                 'id' => 211,
                 'uuid' => '50025934-e945-4092-82ff-eb3d8b665938',
@@ -4661,7 +4661,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            211 => 
+            211 =>
             array (
                 'id' => 212,
                 'uuid' => 'e503c0a6-7dcb-46dc-93bf-2f36ea9ad151',
@@ -4683,7 +4683,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            212 => 
+            212 =>
             array (
                 'id' => 213,
                 'uuid' => 'e71e7daa-e16c-48f2-b33f-09735b80f316',
@@ -4705,7 +4705,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            213 => 
+            213 =>
             array (
                 'id' => 214,
                 'uuid' => 'b3223ea9-814f-4f3b-91b2-6e57d227d846',
@@ -4727,7 +4727,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            214 => 
+            214 =>
             array (
                 'id' => 215,
                 'uuid' => '272c1b7b-800e-4970-a3d0-6d81b94b34a1',
@@ -4749,7 +4749,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            215 => 
+            215 =>
             array (
                 'id' => 216,
                 'uuid' => 'b2c5ddb7-e6b9-42b7-b5f0-dbe1c86ac41f',
@@ -4771,7 +4771,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            216 => 
+            216 =>
             array (
                 'id' => 217,
                 'uuid' => 'eb0000ae-daef-4290-80af-81339d06c153',
@@ -4793,7 +4793,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            217 => 
+            217 =>
             array (
                 'id' => 218,
                 'uuid' => '1a5305af-eff9-4c93-97f7-dd6726ed2ddf',
@@ -4815,7 +4815,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            218 => 
+            218 =>
             array (
                 'id' => 219,
                 'uuid' => 'dc49a26d-85bd-4be9-905c-c346dee9b9cd',
@@ -4837,7 +4837,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            219 => 
+            219 =>
             array (
                 'id' => 220,
                 'uuid' => '44761b02-cf88-4860-993e-49691b598c90',
@@ -4859,7 +4859,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            220 => 
+            220 =>
             array (
                 'id' => 221,
                 'uuid' => 'dced0458-4880-47e7-bafe-eddf773b48b1',
@@ -4881,7 +4881,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            221 => 
+            221 =>
             array (
                 'id' => 222,
                 'uuid' => '61e5891e-e83a-498a-ba10-e24d9a542131',
@@ -4903,7 +4903,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            222 => 
+            222 =>
             array (
                 'id' => 223,
                 'uuid' => 'abb44c3f-86df-416e-a58c-cbf63220e7d4',
@@ -4925,7 +4925,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            223 => 
+            223 =>
             array (
                 'id' => 224,
                 'uuid' => '89d5ba13-477c-4810-b590-2bae00c8a295',
@@ -4947,7 +4947,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            224 => 
+            224 =>
             array (
                 'id' => 225,
                 'uuid' => '3679b57b-7f19-4c03-b444-e0e3807c9de4',
@@ -4969,7 +4969,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            225 => 
+            225 =>
             array (
                 'id' => 226,
                 'uuid' => 'befe13e6-605f-49cc-87ac-41703015a80d',
@@ -4991,7 +4991,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            226 => 
+            226 =>
             array (
                 'id' => 227,
                 'uuid' => 'a3984fe0-5ca8-43ad-b2c0-92f865ce538f',
@@ -5013,7 +5013,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            227 => 
+            227 =>
             array (
                 'id' => 228,
                 'uuid' => 'ba2d7f81-f8f0-4a67-83fe-0249f3b8a440',
@@ -5035,7 +5035,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            228 => 
+            228 =>
             array (
                 'id' => 229,
                 'uuid' => '02b8ed12-572c-41df-82be-b5fcadd08f84',
@@ -5057,7 +5057,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            229 => 
+            229 =>
             array (
                 'id' => 230,
                 'uuid' => 'd948f505-fb02-4e50-b94a-2e0155dc5223',
@@ -5079,7 +5079,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            230 => 
+            230 =>
             array (
                 'id' => 231,
                 'uuid' => '2e94f003-2ee8-4c5e-aa19-91eee61d0ce5',
@@ -5101,7 +5101,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            231 => 
+            231 =>
             array (
                 'id' => 232,
                 'uuid' => '83661638-81eb-474d-b28c-1345417359d0',
@@ -5123,7 +5123,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            232 => 
+            232 =>
             array (
                 'id' => 233,
                 'uuid' => '62056e67-545d-4a80-9e3b-4fdb7cf6bf1b',
@@ -5145,7 +5145,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            233 => 
+            233 =>
             array (
                 'id' => 234,
                 'uuid' => '425d7097-ae57-4a3c-8a9c-9cb407b52942',
@@ -5167,7 +5167,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            234 => 
+            234 =>
             array (
                 'id' => 235,
                 'uuid' => '87460bb9-b52a-4df1-bad0-9235a2274bc5',
@@ -5189,7 +5189,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            235 => 
+            235 =>
             array (
                 'id' => 236,
                 'uuid' => '51a8cc66-1938-446f-a804-2effca1afd2b',
@@ -5211,7 +5211,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            236 => 
+            236 =>
             array (
                 'id' => 237,
                 'uuid' => 'a85e7421-d7b5-4f9b-bb3d-249be4b9c11d',
@@ -5233,7 +5233,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            237 => 
+            237 =>
             array (
                 'id' => 238,
                 'uuid' => '42213668-d13b-434e-8897-6cc18c6722b2',
@@ -5255,7 +5255,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            238 => 
+            238 =>
             array (
                 'id' => 239,
                 'uuid' => '56d7f97a-b9e0-4364-a21f-d174b27f4ec2',
@@ -5277,7 +5277,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            239 => 
+            239 =>
             array (
                 'id' => 240,
                 'uuid' => '5029502c-27ee-426c-8ff4-09aa66eb054a',
@@ -5299,7 +5299,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            240 => 
+            240 =>
             array (
                 'id' => 241,
                 'uuid' => '93b2a124-3862-4db7-a23a-60ed98b2ab0d',
@@ -5321,7 +5321,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            241 => 
+            241 =>
             array (
                 'id' => 242,
                 'uuid' => '832c95eb-b063-4837-9c3c-31aac521d288',
@@ -5343,7 +5343,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            242 => 
+            242 =>
             array (
                 'id' => 243,
                 'uuid' => 'a69545c8-dee3-42e8-952e-b0232c25b859',
@@ -5365,7 +5365,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            243 => 
+            243 =>
             array (
                 'id' => 244,
                 'uuid' => 'c29d1f3a-75d3-4b20-86fa-e3b3215c93a4',
@@ -5387,7 +5387,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            244 => 
+            244 =>
             array (
                 'id' => 245,
                 'uuid' => 'a8bf0db6-2b7e-4102-b67d-952b4b4784e9',
@@ -5409,7 +5409,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            245 => 
+            245 =>
             array (
                 'id' => 246,
                 'uuid' => '9efbf911-c73a-4ec2-a829-179d69f2d476',
@@ -5431,7 +5431,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            246 => 
+            246 =>
             array (
                 'id' => 247,
                 'uuid' => 'a2f6197b-fa3d-44b8-bbe8-95a42319b881',
@@ -5453,7 +5453,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            247 => 
+            247 =>
             array (
                 'id' => 248,
                 'uuid' => 'ea890abe-80a6-4d0d-b7ad-81b0750357a2',
@@ -5475,7 +5475,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            248 => 
+            248 =>
             array (
                 'id' => 249,
                 'uuid' => 'c4f20974-e04e-405f-8722-2e897cab16d0',
@@ -5497,7 +5497,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            249 => 
+            249 =>
             array (
                 'id' => 250,
                 'uuid' => '2607497f-88d4-43b3-afcd-bce8dca16f59',
@@ -5519,7 +5519,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            250 => 
+            250 =>
             array (
                 'id' => 251,
                 'uuid' => '3a6b8c0c-2778-43e9-be04-f01b60f3e5b5',
@@ -5541,7 +5541,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            251 => 
+            251 =>
             array (
                 'id' => 252,
                 'uuid' => 'f6a2db6a-de71-4991-8d5c-790a4b25f663',
@@ -5563,7 +5563,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            252 => 
+            252 =>
             array (
                 'id' => 253,
                 'uuid' => '36bf7f5a-fe95-4d99-8734-0867d378d207',
@@ -5585,7 +5585,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            253 => 
+            253 =>
             array (
                 'id' => 254,
                 'uuid' => '2cf6db2d-984d-47fc-9cf7-a516e3367177',
@@ -5607,7 +5607,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            254 => 
+            254 =>
             array (
                 'id' => 255,
                 'uuid' => 'aece6dc0-050a-430d-9a00-01d79f7f7e25',
@@ -5629,7 +5629,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            255 => 
+            255 =>
             array (
                 'id' => 256,
                 'uuid' => 'f46f9c1f-c200-4a42-96b7-957c2ba3ee6e',
@@ -5651,7 +5651,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            256 => 
+            256 =>
             array (
                 'id' => 257,
                 'uuid' => 'e262e64c-b880-430b-ae96-dbb2fe6c5465',
@@ -5673,7 +5673,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            257 => 
+            257 =>
             array (
                 'id' => 258,
                 'uuid' => '69e773f8-d237-4631-824d-386c812f76e9',
@@ -5695,7 +5695,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            258 => 
+            258 =>
             array (
                 'id' => 259,
                 'uuid' => '2a7a4f5c-57bd-4194-84f5-2a0391db6c9a',
@@ -5717,7 +5717,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            259 => 
+            259 =>
             array (
                 'id' => 260,
                 'uuid' => '8bdb7540-0a39-49e4-87f3-c2b6b4a0b253',
@@ -5739,7 +5739,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            260 => 
+            260 =>
             array (
                 'id' => 261,
                 'uuid' => '346720c8-4242-4353-9092-1172f758448c',
@@ -5761,7 +5761,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            261 => 
+            261 =>
             array (
                 'id' => 262,
                 'uuid' => '6578b95b-8e08-4993-afd3-4debbe675641',
@@ -5783,7 +5783,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            262 => 
+            262 =>
             array (
                 'id' => 263,
                 'uuid' => '2c0ed0f4-8cc3-48e4-9de1-80edc1db469e',
@@ -5805,7 +5805,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            263 => 
+            263 =>
             array (
                 'id' => 264,
                 'uuid' => 'b3aadc99-d3b9-45cc-a8fc-434426ed2c85',
@@ -5827,7 +5827,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            264 => 
+            264 =>
             array (
                 'id' => 265,
                 'uuid' => '9100edd3-93f1-492e-ad84-7d9afedb4f35',
@@ -5849,7 +5849,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            265 => 
+            265 =>
             array (
                 'id' => 266,
                 'uuid' => '05de2eb4-6886-4ecd-b588-6031696be3b0',
@@ -5871,7 +5871,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            266 => 
+            266 =>
             array (
                 'id' => 267,
                 'uuid' => 'aa9644a9-5450-480d-8d57-c1ee61b1fb26',
@@ -5893,7 +5893,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            267 => 
+            267 =>
             array (
                 'id' => 268,
                 'uuid' => '08bbf596-3431-4579-be4d-29a35af0b5cc',
@@ -5915,7 +5915,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            268 => 
+            268 =>
             array (
                 'id' => 269,
                 'uuid' => '80ca6c10-fd31-46a1-9805-9054fa1b2d30',
@@ -5937,7 +5937,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            269 => 
+            269 =>
             array (
                 'id' => 270,
                 'uuid' => '5d019ad0-b989-4c40-8c67-af4abb00f735',
@@ -5959,7 +5959,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            270 => 
+            270 =>
             array (
                 'id' => 271,
                 'uuid' => 'bc56f54c-1373-4764-8ffa-cd952c0eac00',
@@ -5981,7 +5981,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            271 => 
+            271 =>
             array (
                 'id' => 272,
                 'uuid' => 'db121378-7666-4b0b-8bc5-7b30c732b396',
@@ -6003,7 +6003,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            272 => 
+            272 =>
             array (
                 'id' => 273,
                 'uuid' => 'd26393d2-d608-40de-b7ff-157e96b44ca8',
@@ -6025,7 +6025,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            273 => 
+            273 =>
             array (
                 'id' => 274,
                 'uuid' => 'd9fe95d7-46f9-470f-9264-7f68e9a1705b',
@@ -6047,7 +6047,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            274 => 
+            274 =>
             array (
                 'id' => 275,
                 'uuid' => 'aebe9cab-53ea-4ecc-aac1-34e5039429fc',
@@ -6069,7 +6069,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            275 => 
+            275 =>
             array (
                 'id' => 276,
                 'uuid' => 'fa9bad85-bc9a-4d2d-bc4d-c659ce757da9',
@@ -6091,7 +6091,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            276 => 
+            276 =>
             array (
                 'id' => 277,
                 'uuid' => 'dbddc639-99ee-4d12-bc48-af2fc21deb06',
@@ -6113,7 +6113,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            277 => 
+            277 =>
             array (
                 'id' => 278,
                 'uuid' => 'd3019684-f2f6-401b-9179-b810d41fe0bf',
@@ -6135,7 +6135,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            278 => 
+            278 =>
             array (
                 'id' => 279,
                 'uuid' => '91f4058e-d045-4926-9704-97f6cf6b8d46',
@@ -6157,7 +6157,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            279 => 
+            279 =>
             array (
                 'id' => 280,
                 'uuid' => 'bf73b571-0777-4b93-97b5-b9dc617d4767',
@@ -6179,7 +6179,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            280 => 
+            280 =>
             array (
                 'id' => 281,
                 'uuid' => 'eb03c5be-baf5-4783-9416-0502d42994b1',
@@ -6201,7 +6201,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            281 => 
+            281 =>
             array (
                 'id' => 282,
                 'uuid' => '1e6cce58-a8c7-4815-978e-b8be9fbd8511',
@@ -6223,7 +6223,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            282 => 
+            282 =>
             array (
                 'id' => 283,
                 'uuid' => '7445f61c-0416-4189-a874-f79a4d2f0cb2',
@@ -6245,7 +6245,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            283 => 
+            283 =>
             array (
                 'id' => 284,
                 'uuid' => '39c637d6-3508-4411-82cc-ca358847cbc1',
@@ -6267,7 +6267,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            284 => 
+            284 =>
             array (
                 'id' => 285,
                 'uuid' => 'cedd3b5a-c87e-4f8b-bace-1358fed3d7ca',
@@ -6289,7 +6289,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            285 => 
+            285 =>
             array (
                 'id' => 286,
                 'uuid' => 'd60d61bf-d90e-4443-b192-92577d361a8f',
@@ -6311,7 +6311,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            286 => 
+            286 =>
             array (
                 'id' => 287,
                 'uuid' => 'c86a8701-c8aa-4948-afaf-82c074ed7991',
@@ -6333,7 +6333,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            287 => 
+            287 =>
             array (
                 'id' => 288,
                 'uuid' => '95012dc3-ff51-4027-a771-97a0fb6ee334',
@@ -6355,7 +6355,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            288 => 
+            288 =>
             array (
                 'id' => 289,
                 'uuid' => '058a2eb3-4ece-4fb1-b02b-aa041ed34616',
@@ -6377,7 +6377,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            289 => 
+            289 =>
             array (
                 'id' => 290,
                 'uuid' => '20acc325-611e-4bee-8da4-c7e73c26e26a',
@@ -6399,7 +6399,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            290 => 
+            290 =>
             array (
                 'id' => 291,
                 'uuid' => '9e8d9c44-146f-4bbb-966f-0628255f395d',
@@ -6421,7 +6421,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            291 => 
+            291 =>
             array (
                 'id' => 292,
                 'uuid' => '9a1a1802-12fe-434e-b66f-7cac48e1940d',
@@ -6443,7 +6443,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            292 => 
+            292 =>
             array (
                 'id' => 293,
                 'uuid' => 'f6f608ee-e3ee-4f1f-acd6-83acff97ea20',
@@ -6465,7 +6465,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            293 => 
+            293 =>
             array (
                 'id' => 294,
                 'uuid' => '558806ab-9e8a-42a6-9b3a-c8cfb1e6ffaa',
@@ -6487,7 +6487,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            294 => 
+            294 =>
             array (
                 'id' => 295,
                 'uuid' => '7884596f-4ed7-4202-9208-8c6a1b93b1e6',
@@ -6509,7 +6509,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            295 => 
+            295 =>
             array (
                 'id' => 296,
                 'uuid' => '63212867-c2ba-4f2b-9155-8469fa97b108',
@@ -6531,7 +6531,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            296 => 
+            296 =>
             array (
                 'id' => 297,
                 'uuid' => '2b3fb73a-3dea-47b5-b108-d129eb5d995e',
@@ -6553,7 +6553,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            297 => 
+            297 =>
             array (
                 'id' => 298,
                 'uuid' => '687d5944-177b-4cc9-9534-d91cf644a465',
@@ -6575,7 +6575,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            298 => 
+            298 =>
             array (
                 'id' => 299,
                 'uuid' => '6ed37d7e-f93a-4a21-9927-9504ee9e46f6',
@@ -6597,7 +6597,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            299 => 
+            299 =>
             array (
                 'id' => 300,
                 'uuid' => '6228bbf8-d02e-4be1-b53d-3c09bf46947a',
@@ -6619,7 +6619,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            300 => 
+            300 =>
             array (
                 'id' => 301,
                 'uuid' => 'f270f50e-6926-46e6-b83f-0f66bd38c7f3',
@@ -6641,7 +6641,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            301 => 
+            301 =>
             array (
                 'id' => 302,
                 'uuid' => '50e2a3ab-2fb7-4923-a018-3c18b552df2a',
@@ -6663,7 +6663,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            302 => 
+            302 =>
             array (
                 'id' => 303,
                 'uuid' => '2adda933-6351-4a45-ae52-a420cdd05ce5',
@@ -6685,7 +6685,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            303 => 
+            303 =>
             array (
                 'id' => 304,
                 'uuid' => 'a28fa578-22f2-4a23-9859-fd7e65e2d4a9',
@@ -6707,7 +6707,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            304 => 
+            304 =>
             array (
                 'id' => 305,
                 'uuid' => '359c1144-e89d-48ca-975e-1be8879c6f32',
@@ -6729,7 +6729,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            305 => 
+            305 =>
             array (
                 'id' => 306,
                 'uuid' => '36c313bc-d2be-4262-89a3-9f9ee51bb455',
@@ -6751,7 +6751,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            306 => 
+            306 =>
             array (
                 'id' => 307,
                 'uuid' => 'c3452495-aa0d-45cf-a701-c0e0368c84e6',
@@ -6773,7 +6773,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            307 => 
+            307 =>
             array (
                 'id' => 308,
                 'uuid' => '5aea0c50-c7a3-4419-a62d-919289f9b64a',
@@ -6795,7 +6795,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            308 => 
+            308 =>
             array (
                 'id' => 309,
                 'uuid' => '04955d4b-6caf-41dc-9485-6b7c5c6bb610',
@@ -6817,7 +6817,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            309 => 
+            309 =>
             array (
                 'id' => 310,
                 'uuid' => 'e7e06e7b-ea6a-4db4-973c-1343e4327aeb',
@@ -6839,7 +6839,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            310 => 
+            310 =>
             array (
                 'id' => 311,
                 'uuid' => 'fbbbca12-a846-4255-a6f2-e4a4734c727c',
@@ -6861,7 +6861,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            311 => 
+            311 =>
             array (
                 'id' => 312,
                 'uuid' => 'f8d40e57-274a-4f92-a3bd-846a215a6578',
@@ -6883,7 +6883,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            312 => 
+            312 =>
             array (
                 'id' => 313,
                 'uuid' => 'e4b1e005-a26b-4403-ac94-7cff58b1be6a',
@@ -6905,7 +6905,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            313 => 
+            313 =>
             array (
                 'id' => 314,
                 'uuid' => 'f282244c-b199-4e1e-8d90-cc16d077465f',
@@ -6927,7 +6927,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            314 => 
+            314 =>
             array (
                 'id' => 315,
                 'uuid' => 'f9aa1d2e-6a70-4971-a1e5-c5e0c818cc1a',
@@ -6949,7 +6949,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            315 => 
+            315 =>
             array (
                 'id' => 316,
                 'uuid' => 'cfbdcdc8-3249-4df1-85c2-86cc4ee8f0cd',
@@ -6971,7 +6971,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            316 => 
+            316 =>
             array (
                 'id' => 317,
                 'uuid' => '06678011-46b9-4642-b89b-cb1800947966',
@@ -6993,7 +6993,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            317 => 
+            317 =>
             array (
                 'id' => 318,
                 'uuid' => '06be54a0-08bb-42e6-9404-187a45b95b59',
@@ -7015,7 +7015,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            318 => 
+            318 =>
             array (
                 'id' => 319,
                 'uuid' => 'c9c4442e-ac17-4dcc-b285-8ef97c1256da',
@@ -7037,7 +7037,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            319 => 
+            319 =>
             array (
                 'id' => 320,
                 'uuid' => '2b2c7693-b7a0-41fb-9a08-a52910fb6c4b',
@@ -7059,7 +7059,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            320 => 
+            320 =>
             array (
                 'id' => 321,
                 'uuid' => 'f3a0dc6a-491c-4efc-a16d-e5657150c56a',
@@ -7081,7 +7081,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            321 => 
+            321 =>
             array (
                 'id' => 322,
                 'uuid' => '5f2ba3ad-f9c0-4ffa-b240-cdef8118f4dd',
@@ -7103,7 +7103,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            322 => 
+            322 =>
             array (
                 'id' => 323,
                 'uuid' => '1ff93585-fda6-4629-a0e8-80ece8b647a0',
@@ -7125,7 +7125,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            323 => 
+            323 =>
             array (
                 'id' => 324,
                 'uuid' => '71704392-781d-426b-bebf-7af76b0f2c48',
@@ -7147,7 +7147,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2024-05-24 05:00:29',
                 'updated_at' => '2024-05-24 05:00:29',
             ),
-            324 => 
+            324 =>
             array (
                 'id' => 325,
                 'uuid' => '963e9a20-eae7-4226-a032-51b7ef43602d',
@@ -7170,7 +7170,7 @@ class ProductsTableSeeder extends Seeder
                 'updated_at' => '2024-05-24 05:00:29',
             ),
         ));
-        
-        
+
+
     }
 }
