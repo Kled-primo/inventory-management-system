@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderDetails;
 use Illuminate\Database\Seeder;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class OrderSeeder extends Seeder
@@ -40,7 +41,12 @@ class OrderSeeder extends Seeder
                     'order_status' => 1,
                     'total_products' => 0, // Will be updated later
                     'total' => 0, // Will be updated later
-                    'invoice_no' => 'INV-'. $inv_counter++,
+                    'invoice_no' => IdGenerator::generate([
+                            'table' => 'orders',
+                            'field' => 'invoice_no',
+                            'length' => 10,
+                            'prefix' => 'INV-'
+                        ]),
                     'payment_type' => 'HandCash',
                     'pay' => 0,
                     'due' => 0,

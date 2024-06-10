@@ -147,6 +147,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [SettingController::class, 'save'])->name('settings.save');
+    Route::get('/settings/{id}/setactive', [SettingController::class, 'setactive'])->name('settings.setactive');
 
 
 });
