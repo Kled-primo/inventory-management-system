@@ -21,6 +21,8 @@ class ProductTable extends Component
 
     public $setting;
 
+    public $year;
+
     public function mount()
     {
         $this->year = now()->format('Y');
