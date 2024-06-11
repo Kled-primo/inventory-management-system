@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
@@ -19,11 +18,11 @@ return new class extends Migration
             $table->tinyInteger('order_status')
                 ->comment('0 - Pending / 1 - Complete');
             $table->integer('total_products');
-            $table->float('total');
+            $table->decimal('total', 10, 2);
             $table->string('invoice_no');
             $table->string('payment_type');
-            $table->float('pay');
-            $table->float('due');
+            $table->decimal('pay', 10, 2);
+            $table->decimal('due', 10, 2);
             $table->timestamps();
         });
     }
