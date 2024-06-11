@@ -21,12 +21,9 @@ class ProductController extends Controller
     {
         $products = Product::where("user_id", auth()->id())->count();
 
-
-
         return view('products.index', [
             'products' => $products,
         ]);
-
 
     }
 
@@ -63,12 +60,12 @@ class ProductController extends Controller
         }
 
         Product::create([
-            "code" => IdGenerator::generate([
-                'table' => 'products',
-                'field' => 'code',
-                'length' => 4,
-                'prefix' => 'PC'
-            ]),
+            // "code" => IdGenerator::generate([
+            //     'table' => 'products',
+            //     'field' => 'code',
+            //     'length' => 7,
+            //     'prefix' => 'PC'
+            // ]),
 
             'name'              => $request->name,
             'category_id'       => $request->category_id,

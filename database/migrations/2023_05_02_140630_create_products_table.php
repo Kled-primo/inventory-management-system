@@ -22,8 +22,8 @@ return new class () extends Migration {
             //$table->string('product_barcode_symbology')->nullable();
             $table->integer('quantity');
             $table->char('unit_number')->comment('Unit Number')->nullable();
-            $table->float('selling_price')->comment('Selling Price');
-            $table->float('purchase_price')->comment('Purchase Price');
+            $table->decimal('selling_price', 10, 2)->comment('Selling Price');
+            $table->decimal('purchase_price', 10, 2)->comment('Purchase Price');
             $table->integer('quantity_alert');
             $table->text('notes')->nullable();
             $table->timestamp('manufacturing_date')->nullable();

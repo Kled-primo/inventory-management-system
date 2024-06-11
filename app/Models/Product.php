@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use App\Enums\TaxType;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -15,26 +16,26 @@ class Product extends Model
 
     protected $guarded = ['id'];
 
-    public $fillable = [
-        'name',
-        'slug',
-        'code',
-        'quantity',
-        'quantity_alert',
-        'unit_number',
-        'selling_price',
-        'purchase_price',
-        'producttype',
-        'notes',
-        'category_id',
-        'unit_id',
-        'created_at',
-        'updated_at',
-        "user_id",
-        "uuid",
-        "manufacturing_date",
-        "expiry_date"
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'slug',
+    //     'code',
+    //     'quantity',
+    //     'quantity_alert',
+    //     'unit_number',
+    //     'selling_price',
+    //     'purchase_price',
+    //     'producttype',
+    //     'notes',
+    //     'category_id',
+    //     'unit_id',
+    //     'created_at',
+    //     'updated_at',
+    //     "user_id",
+    //     "uuid",
+    //     "manufacturing_date",
+    //     "expiry_date"
+    // ];
 
     public static function boot()
     {
@@ -42,6 +43,13 @@ class Product extends Model
 
         static::creating(function ($model) {
             $model->uuid = Str::uuid();
+
+            $model->code =  IdGenerator::generate([
+                'table' => 'products',
+                'field' => 'code',
+                'length' => 7,
+                'prefix' => 'PC'
+            ]);
         });
     }
 

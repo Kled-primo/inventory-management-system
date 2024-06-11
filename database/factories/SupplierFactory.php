@@ -18,14 +18,15 @@ class SupplierFactory extends Factory
      */
     public function definition(): array
     {
+        $shopname = fake()->company();
         return [
             "user_id" => 1,
             "uuid" => Str::uuid(),
-            'name' => fake()->name(),
+            'name' => $shopname,
             'email' => fake()->unique()->safeEmail(),
         //    'phone' => fake()->unique()->phoneNumber(),
             'address' => fake()->address(),
-            'shopname' => fake()->company(),
+            'shopname' => $shopname,
         //    'type' => fake()->randomElement(SupplierType::cases()),
         //    'account_holder' => fake()->name(),
         //    'account_number' => fake()->randomNumber(8, true),

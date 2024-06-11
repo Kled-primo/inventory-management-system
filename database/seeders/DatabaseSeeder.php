@@ -32,13 +32,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Supplier::factory()->create([
-                    'user_id' => '4'
-                ]);
+            'user_id' => '4'
+        ]);
 
 
         Supplier::factory()->create([
-                    'user_id' => '5'
-                ]);
+            'user_id' => '5'
+        ]);
 
 
         $this->call(ProductsTableSeeder::class);
