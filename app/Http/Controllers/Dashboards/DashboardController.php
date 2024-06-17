@@ -352,7 +352,8 @@ class DashboardController extends Controller
                 'color'    => '#eb6b2c',
                 'fontSize' => 14
             ],
-            'colors' => ['#c37c31'],
+            'legend' => ['position' => 'none'], // No legend as colors are row-specific
+            'bar' => ['groupWidth' => '75%']
         ];
 
         \Lava::ColumnChart('SecondQuarter', $q2_graph, $q2_options);
@@ -363,7 +364,8 @@ class DashboardController extends Controller
                 'color'    => '#eb6b2c',
                 'fontSize' => 14
             ],
-            'colors' => ['#4bb54a'],
+            'legend' => ['position' => 'none'], // No legend as colors are row-specific
+            'bar' => ['groupWidth' => '75%']
         ];
 
         \Lava::ColumnChart('ThirdQuarter', $q3_graph, $q3_options);
@@ -374,7 +376,8 @@ class DashboardController extends Controller
                 'color'    => '#eb6b2c',
                 'fontSize' => 14
             ],
-            'colors' => ['#bd429f'],
+            'legend' => ['position' => 'none'], // No legend as colors are row-specific
+            'bar' => ['groupWidth' => '75%']
         ];
 
         \Lava::ColumnChart('ForthQuarter', $q4_graph, $q4_options);

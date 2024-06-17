@@ -65,7 +65,7 @@
 
                         <div class="col">
                             <label for="invoice_no" class="form-label required">
-                                {{ __('Invoice No.') }}
+                                {{ __('Transaction No.') }}
                             </label>
                             <input type="text" id="invoice_no" class="form-control" value="{{ $order->invoice_no }}"
                                 disabled>
@@ -86,7 +86,6 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="align-middle text-center">No.</th>
-                                    <th scope="col" class="align-middle text-center">Photo</th>
                                     <th scope="col" class="align-middle text-center">Product Name</th>
                                     <th scope="col" class="align-middle text-center">Product Code</th>
                                     <th scope="col" class="align-middle text-center">Quantity</th>
@@ -99,12 +98,6 @@
                                     <tr>
                                         <td class="align-middle text-center">
                                             {{ $loop->iteration }}
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <div style="max-height: 80px; max-width: 80px;">
-                                                <img class="img-fluid"
-                                                    src="{{ $item->product->product_image ? asset('storage/' . $item->product->product_image) : asset('assets/img/products/default.webp') }}">
-                                            </div>
                                         </td>
                                         <td class="align-middle text-center">
                                             {{ $item->product->name }}

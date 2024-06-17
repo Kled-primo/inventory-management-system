@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="invoice">
-                                        {{-- <h1>Invoice # <span>123456</span></h1> --}}
+                                        {{-- <h1>Transaction # <span>123456</span></h1> --}}
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="col-sm-6 mb-50">
                                     <div class="invoice-number">
-                                        <h4 class="inv-title-1">Invoice date:</h4>
+                                        <h4 class="inv-title-1">Transaction date:</h4>
                                         <p class="invo-addr-1">
                                             {{ Carbon\Carbon::now()->format('M d, Y') }}
                                         </p>

@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-6">
                                 <div class="invoice">
-                                    <h1>Invoice # <span>123456</span></h1>
+                                    <h1>Transaction Number # <span>123456</span></h1>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-sm-6 mb-50">
                                 <div class="invoice-number">
-                                    <h4 class="inv-title-1">Invoice date:</h4>
+                                    <h4 class="inv-title-1">Transaction date:</h4>
                                     <p class="invo-addr-1">
                                         {{ Carbon\Carbon::now()->format('M d, Y') }}
                                     </p>
@@ -106,7 +106,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title text-center mx-auto" id="modalCenterTitle">Invoice of {{ $customer->name }}<br/>Total Amount ${{ Cart::total() }}</h3>
+                <h3 class="modal-title text-center mx-auto" id="modalCenterTitle">Transaction of {{ $customer->name }}<br/>Total Amount ${{ Cart::total() }}</h3>
             </div>
 
             <form action="{{ route('orders.store') }}" method="POST">

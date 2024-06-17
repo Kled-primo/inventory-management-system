@@ -109,7 +109,6 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">No.</th>
-                                        <th scope="col">Photo</th>
                                         <th scope="col">Product Name</th>
                                         <th scope="col">Product Code</th>
                                         <th scope="col">Current Stock</th>
@@ -122,11 +121,6 @@
                                     @foreach ($purchase->details as $item)
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
-                                        <td scope="row">
-                                            <div style="max-height: 80px; max-width: 80px;">
-                                                <img class="img-fluid" src="{{ $item->product->product_image ? asset('storage/products/'.$item->product->product_image) : asset('assets/img/products/default.webp') }}">
-                                            </div>
-                                        </td>
                                         <td scope="row">{{ $item->product->product_name }}</td>
                                         <td scope="row">{{ $item->product->product_code }}</td>
                                         <td scope="row"><span class="btn btn-warning">{{ $item->product->stock }}</span></td>

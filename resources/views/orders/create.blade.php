@@ -145,7 +145,7 @@
                     </div>
                     <div class="card-footer text-end">
                         <a href="{{ route('invoice.create') }}" type="submit" class="btn btn-success add-list mx-1 {{ Cart::count() > 0 ? '' : 'disabled' }}">
-                            {{ __('Create Invoice') }}
+                            {{ __('Create Transaction Record') }}
                         </a>
                     </div>
                     </form>

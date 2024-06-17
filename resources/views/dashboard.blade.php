@@ -255,7 +255,7 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="heading-1">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#best-seller-collapse" aria-expanded="false">
-                                                Best Sellers ( {{ $year }} )
+                                                Most Purchased Products ( {{ $year }} )
                                             </button>
                                         </h2>
                                         <div id="best-seller-collapse" class="accordion-collapse collapse" data-bs-parent="#best-seller-accordion" style="">
@@ -286,7 +286,7 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="heading-1">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lowseller_collapse" aria-expanded="false">
-                                                Low Sellers ( {{ $year }} )
+                                                Least Purchased Products ( {{ $year }} )
                                             </button>
                                         </h2>
                                         <div id="lowseller_collapse" class="accordion-collapse collapse" data-bs-parent="#low-seller-accordion" style="">

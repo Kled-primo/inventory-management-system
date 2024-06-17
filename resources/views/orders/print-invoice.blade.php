@@ -35,7 +35,7 @@
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="invoice">
                                         <h1>
-                                            Invoice # <span>{{ $order->invoice_no }}</span>
+                                        Transaction # <span>{{ $order->invoice_no }}</span>
                                         </h1>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                 <div class="col-sm-6 mb-50">
                                     <div class="invoice-number">
                                         <h4 class="inv-title-1">
-                                            Invoice date:
+                                        Transaction date:
                                         </h4>
                                         <p class="invo-addr-1">
                                             {{ $order->order_date }}
@@ -110,11 +110,11 @@
                     <div class="invoice-btn-section clearfix d-print-none">
                         <a href="javascript:window.print()" class="btn btn-lg btn-print">
                             <i class="fa fa-print"></i>
-                            Print Invoice
+                            Print Transaction
                         </a>
                         <a id="invoice_download_btn" class="btn btn-lg btn-download">
                             <i class="fa fa-download"></i>
-                            Download Invoice
+                            Download Transaction
                         </a>
                     </div>
 

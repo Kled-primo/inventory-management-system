@@ -45,7 +45,7 @@ class OrderSeeder extends Seeder
                             'table' => 'orders',
                             'field' => 'invoice_no',
                             'length' => 10,
-                            'prefix' => 'INV-'
+                            'prefix' => 'TR-'
                         ]),
                     'payment_type' => 'HandCash',
                     'pay' => 0,

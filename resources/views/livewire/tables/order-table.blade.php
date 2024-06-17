@@ -28,7 +28,7 @@
             <div class="ms-auto text-secondary">
                 Search:
                 <div class="ms-2 d-inline-block">
-                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Search invoice">
+                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Search Transaction">
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('invoice_no')" href="#" role="button">
-                            {{ __('Invoice No.') }}
+                            {{ __('Transaction No.') }}
                             @include('inclues._sort-icon', ['field' => 'invoice_no'])
                         </a>
                     </th>
@@ -106,7 +106,7 @@
                         <x-button.show class="btn-icon" route="{{ route('orders.show', $order->uuid) }}" />
                         <x-button.print class="btn-icon" route="{{ route('order.downloadInvoice', $order->uuid) }}" />
                         @if ($order->order_status === \App\Enums\OrderStatus::PENDING)
-                        <x-button.delete class="btn-icon" route="{{ route('orders.cancel', $order) }}" onclick="return confirm('Are you sure to cancel invoice no. {{ $order->invoice_no }} ?')" />
+                        <x-button.delete class="btn-icon" route="{{ route('orders.cancel', $order) }}" onclick="return confirm('Are you sure to cancel Transaction no. {{ $order->invoice_no }} ?')" />
                         @endif
                     </td>
                 </tr>

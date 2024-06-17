@@ -28,18 +28,20 @@ class DatabaseSeeder extends Seeder
 
         Customer::factory(15)->create();
         Supplier::factory()->create([
-            'user_id' => '3'
+            'user_id' => '3',
+            'name' => 'Allps Pharmacy',
+            'email' => 'allpspharma@gmail.com',
+            'address' => '433 SANTOL STREET, SANTA MESA, BARANGGAY 505, ZONE 050 SAMPALOC, MANILA',
+            'shopname' => 'Allps Pharmacy WHOLESALE DRUGS/MEDICINES'
         ]);
 
         Supplier::factory()->create([
-            'user_id' => '4'
+            'user_id' => '4',
+            'name' => 'Dyna Drug',
+            'email' => 'info@dynadrug.com',
+            'address' => 'Felipe Pike, Corner Lanite and Banner Streets, Pasig, 1600 Metro Manila',
+            'shopname' => 'Dyna Drug Corporation'
         ]);
-
-
-        Supplier::factory()->create([
-            'user_id' => '5'
-        ]);
-
 
         $this->call(ProductsTableSeeder::class);
         $this->call(OrderSeeder::class);
