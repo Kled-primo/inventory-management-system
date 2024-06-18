@@ -84,11 +84,11 @@ class ProductForecastController extends Controller {
 
 		$this->product_forecasts = collect();
 
-		$counter = 0;
+		$this->counter = 0;
 
-		$prev_container = collect();
+		$this->prev_container = collect();
 
-		$ave = 0;
+		$this->ave = 0;
 
 		$this->quarters = collect(
 			array(
@@ -100,7 +100,7 @@ class ProductForecastController extends Controller {
 		);
 
 		// Define a mapping of months to quarters
-		$monthToQuarter = array(
+		$this->monthToQuarter = array(
 			1  => 1,
 			2  => 1,
 			3  => 1, // Q1
@@ -122,35 +122,24 @@ class ProductForecastController extends Controller {
 		->addNumberColumn( 'Forecast' );
 
 		foreach ( $order_details as $details ) {
+			$this->forcastdetails( $details );
+		}
 
-			$quarter = $monthToQuarter[ $details->month ];
+		if ( ( $this->cmonth != 1 ) && ( $this->cmonth != 12 ) ) {
+			$this->prev_container->shift();
 
-			$this->quarters->put( $quarter, $this->quarters->get( $quarter ) + $details->total_quantity );
-
-			$prev_container->push( $details->total_quantity );
-
-			if ( $prev_container->count() > 3 ) {
-				$prev_container->shift();
-			}
-
-			if ( $counter > 0 ) {
-
-				$ave = $prev_container->avg();
-			}
-
-			++$counter;
+			$this->ave = $this->prev_container->avg();
 
 			$this->product_forecasts->push(
 				array(
-					'year'     => $details->year,
-					'month'    => $details->month,
-					'sales'    => $details->total_quantity,
-					'forecast' => $ave,
+					'year'     => $this->cyear,
+					'month'    => $this->cmonth + 1,
+					'sales'    => 0,
+					'forecast' => $this->ave,
 				)
 			);
 
-			$this->fcgraph->addRow( array( $details->year . '-' . $details->month, $details->total_quantity, $ave ) );
-
+			$this->fcgraph->addRow( array( $this->cyear . '-' . $this->cmonth + 1, 0, $this->ave ) );
 		}
 
 		$this->options = array(
@@ -164,6 +153,39 @@ class ProductForecastController extends Controller {
 			),
 
 		);
+	}
+
+	public function forcastdetails( $details ) {
+		$quarter = $this->monthToQuarter[ $details->month ];
+
+		$this->quarters->put( $quarter, $this->quarters->get( $quarter ) + $details->total_quantity );
+
+		$this->prev_container->push( $details->total_quantity );
+
+		if ( $this->prev_container->count() > 3 ) {
+			$this->prev_container->shift();
+		}
+
+		if ( $this->counter > 0 ) {
+
+			$this->ave = $this->prev_container->avg();
+		}
+
+			++$this->counter;
+
+			$this->product_forecasts->push(
+				array(
+					'year'     => $details->year,
+					'month'    => $details->month,
+					'sales'    => $details->total_quantity,
+					'forecast' => $this->ave,
+				)
+			);
+
+			$this->fcgraph->addRow( array( $details->year . '-' . $details->month, $details->total_quantity, $this->ave ) );
+
+			$this->cyear  = $details->year;
+			$this->cmonth = $details->month;
 	}
 
 	public function history() {
