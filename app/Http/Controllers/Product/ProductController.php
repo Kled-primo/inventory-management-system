@@ -14,6 +14,7 @@ use Picqer\Barcode\BarcodeGeneratorHTML;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
+use Spatie\Activitylog\Contracts\Activity;
 
 class ProductController extends Controller {
 
@@ -30,17 +31,17 @@ class ProductController extends Controller {
 	}
 
 	public function create( Request $request ) {
-		$categories = Category::where( 'user_id', auth()->id() )->get( array( 'id', 'name' ) );
-		$units      = Unit::where( 'user_id', auth()->id() )->get( array( 'id', 'name' ) );
+		$categories = Category::get( array( 'id', 'name' ) );
+		$units      = Unit::get( array( 'id', 'name' ) );
 
-		$producttypes = ProductType::where( 'user_id', auth()->id() )->select( array( 'id', 'name', 'slug' ) )->get();
+		$producttypes = ProductType::select( array( 'id', 'name', 'slug' ) )->get();
 
 		if ( $request->has( 'category' ) ) {
-			$categories = Category::where( 'user_id', auth()->id() )->whereSlug( $request->get( 'category' ) )->get();
+			$categories = Category::whereSlug( $request->get( 'category' ) )->get();
 		}
 
 		if ( $request->has( 'unit' ) ) {
-			$units = Unit::where( 'user_id', auth()->id() )->whereSlug( $request->get( 'unit' ) )->get();
+			$units = Unit::whereSlug( $request->get( 'unit' ) )->get();
 		}
 
 		return view(
@@ -62,7 +63,7 @@ class ProductController extends Controller {
 			$image = $request->file( 'product_image' )->store( 'products', 'public' );
 		}
 
-		Product::create(
+		$product = Product::create(
 			array(
 				// "code" => IdGenerator::generate([
 				// 'table' => 'products',
@@ -88,6 +89,12 @@ class ProductController extends Controller {
 				'uuid'               => Str::uuid(),
 			)
 		);
+
+		activity()
+			->causedBy( Auth::user() )
+			->performedOn( $product )
+			->event( 'created' )
+			->log( 'created Product' );
 
 		return to_route( 'products.index' )->with( 'success', 'Product has been created!' );
 	}
