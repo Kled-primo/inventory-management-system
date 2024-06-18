@@ -7,47 +7,46 @@ use App\Models\Setting;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ProductTable extends Component
-{
-    use WithPagination;
+class ProductTable extends Component {
 
-    public $perPage = 5;
+	use WithPagination;
 
-    public $search = '';
+	public $perPage = 5;
 
-    public $sortField = 'id';
+	public $search = '';
 
-    public $sortAsc = false;
+	public $sortField = 'id';
 
-    public $setting;
+	public $sortAsc = false;
 
-    public $year;
+	public $setting;
 
-    public function mount()
-    {
-        $this->year = now()->format('Y');
-    }
+	public $year;
 
-    public function sortBy($field): void
-    {
-        if($this->sortField === $field) {
-            $this->sortAsc = ! $this->sortAsc;
+	public function mount() {
+		$this->year = now()->format( 'Y' );
+	}
 
-        } else {
-            $this->sortAsc = true;
-        }
+	public function sortBy( $field ): void {
+		if ( $this->sortField === $field ) {
+			$this->sortAsc = ! $this->sortAsc;
 
-        $this->sortField = $field;
-    }
+		} else {
+			$this->sortAsc = true;
+		}
 
-    public function render()
-    {
-        return view('livewire.tables.product-table', [
-            'products' => Product::where("user_id", auth()->id())
-                ->with(['category', 'unit','product_type'])
-                ->search($this->search)
-                ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                ->paginate($this->perPage)
-        ]);
-    }
+		$this->sortField = $field;
+	}
+
+	public function render() {
+		return view(
+			'livewire.tables.product-table',
+			array(
+				'products' => Product::with( array( 'category', 'unit', 'product_type' ) )
+					->search( $this->search )
+					->orderBy( $this->sortField, $this->sortAsc ? 'asc' : 'desc' )
+					->paginate( $this->perPage ),
+			)
+		);
+	}
 }

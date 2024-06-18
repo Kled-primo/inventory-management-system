@@ -401,6 +401,9 @@
                                             <a href="{{ route('settings.index') }}" class="dropdown-item">
                                                 Year Settings
                                             </a>
+                                            <a href="{{ route('logs.index') }}" class="dropdown-item">
+                                                User Logs
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

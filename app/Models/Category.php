@@ -6,52 +6,56 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
-class Category extends Model
-{
-    use HasFactory;
-    
-    public $timestamps = true;
+class Category extends Model {
 
-    protected $guarded = [
-        'id',
-    ];
+	use HasFactory;
+	use LogsActivity;
 
-    protected $fillable = [
-        'name',
-        'slug',
-        'short_code',
-        "user_id",
-    ];
+	public $timestamps = true;
 
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
+	protected $guarded = array(
+		'id',
+	);
 
-    public function products(): HasMany
-    {
-        return $this->hasMany(Product::class, 'category_id', 'id');
-    }
+	protected $fillable = array(
+		'name',
+		'slug',
+		'short_code',
+		'user_id',
+	);
 
-    public function scopeSearch($query, $value): void
-    {
-        $query->where('name', 'like', "%{$value}%")
-            ->orWhere('slug', 'like', "%{$value}%");
-    }
+	protected $casts = array(
+		'created_at' => 'datetime',
+		'updated_at' => 'datetime',
+	);
 
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
+	public function products(): HasMany {
+		return $this->hasMany( Product::class, 'category_id', 'id' );
+	}
 
-    /**
-     * Get the user that owns the Category
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+	public function scopeSearch( $query, $value ): void {
+		$query->where( 'name', 'like', "%{$value}%" )
+			->orWhere( 'slug', 'like', "%{$value}%" );
+	}
+
+	public function getRouteKeyName(): string {
+		return 'slug';
+	}
+
+	/**
+	 * Get the user that owns the Category
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function user(): BelongsTo {
+		return $this->belongsTo( User::class );
+	}
+
+	public function getActivitylogOptions(): LogOptions {
+		return LogOptions::defaults();
+		// Chain fluent methods for configuration options
+	}
 }

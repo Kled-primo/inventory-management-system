@@ -8,82 +8,80 @@ use Livewire\Attributes\Validate;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
 
-class PurchaseForm extends Component
-{
-    #[Validate('Required')]
-    public int $taxes = 0;
+class PurchaseForm extends Component {
 
-    public array $invoiceProducts = [];
+	#[Validate( 'Required' )]
+	public int $taxes = 0;
 
-    #[Validate('required', message: 'Please select products')]
-    public Collection $allProducts;
+	public array $invoiceProducts = array();
 
-    public function mount(): void
-    {
-        $this->allProducts = Product::where("user_id", auth()->id())->get();
-    }
+	#[Validate( 'required', message: 'Please select products' )]
+	public Collection $allProducts;
 
-    public function render(): View
-    {
-        $total = 0;
+	public function mount(): void {
+		$this->allProducts = Product::all();
+	}
 
-        foreach ($this->invoiceProducts as $invoiceProduct) {
-            if ($invoiceProduct['is_saved'] && $invoiceProduct['purchase_price'] && $invoiceProduct['quantity']) {
-                $total += $invoiceProduct['purchase_price'] * $invoiceProduct['quantity'];
-            }
-        }
+	public function render(): View {
+		$total = 0;
 
-        return view('livewire.purchase-form', [
-            'subtotal' => $total,
-            'total' => $total * (1 + (is_numeric($this->taxes) ? $this->taxes : 0) / 100)
-        ]);
-    }
+		foreach ( $this->invoiceProducts as $invoiceProduct ) {
+			if ( $invoiceProduct['is_saved'] && $invoiceProduct['purchase_price'] && $invoiceProduct['quantity'] ) {
+				$total += $invoiceProduct['purchase_price'] * $invoiceProduct['quantity'];
+			}
+		}
 
-    public function addProduct(): void
-    {
-        foreach ($this->invoiceProducts as $key => $invoiceProduct) {
-            if (!$invoiceProduct['is_saved']) {
-                $this->addError('invoiceProducts.' . $key, 'This line must be saved before creating a new one.');
-                return;
-            }
-        }
+		return view(
+			'livewire.purchase-form',
+			array(
+				'subtotal' => $total,
+				'total'    => $total * ( 1 + ( is_numeric( $this->taxes ) ? $this->taxes : 0 ) / 100 ),
+			)
+		);
+	}
 
-        $this->invoiceProducts[] = [
-            'product_id' => '',
-            'quantity' => 1,
-            'is_saved' => false,
-            'product_name' => '',
-            'purchase_price' => 0
-        ];
-    }
+	public function addProduct(): void {
 
-    public function editProduct($index): void
-    {
-        foreach ($this->invoiceProducts as $key => $invoiceProduct) {
-            if (! $invoiceProduct['is_saved']) {
-                $this->addError('invoiceProducts.' . $key, 'This line must be saved before editing another.');
-                return;
-            }
-        }
+		foreach ( $this->invoiceProducts as $key => $invoiceProduct ) {
+			if ( ! $invoiceProduct['is_saved'] ) {
+				$this->addError( 'invoiceProducts.' . $key, 'This line must be saved before creating a new one.' );
+				return;
+			}
+		}
 
-        $this->invoiceProducts[$index]['is_saved'] = false;
-    }
+		$this->invoiceProducts[] = array(
+			'product_id'     => '',
+			'quantity'       => 1,
+			'is_saved'       => false,
+			'product_name'   => '',
+			'purchase_price' => 0,
+		);
+	}
 
-    public function saveProduct($index): void
-    {
-        $this->resetErrorBag();
+	public function editProduct( $index ): void {
+		foreach ( $this->invoiceProducts as $key => $invoiceProduct ) {
+			if ( ! $invoiceProduct['is_saved'] ) {
+				$this->addError( 'invoiceProducts.' . $key, 'This line must be saved before editing another.' );
+				return;
+			}
+		}
 
-        $product = $this->allProducts->find($this->invoiceProducts[$index]['product_id']);
+		$this->invoiceProducts[ $index ]['is_saved'] = false;
+	}
 
-        $this->invoiceProducts[$index]['product_name'] = $product->name;
-        $this->invoiceProducts[$index]['purchase_price'] = $product->purchase_price;
-        $this->invoiceProducts[$index]['is_saved'] = true;
-    }
+	public function saveProduct( $index ): void {
+		$this->resetErrorBag();
 
-    public function removeProduct($index): void
-    {
-        unset($this->invoiceProducts[$index]);
+		$product = $this->allProducts->find( $this->invoiceProducts[ $index ]['product_id'] );
 
-        $this->invoiceProducts = array_values($this->invoiceProducts);
-    }
+		$this->invoiceProducts[ $index ]['product_name']   = $product->name;
+		$this->invoiceProducts[ $index ]['purchase_price'] = $product->purchase_price;
+		$this->invoiceProducts[ $index ]['is_saved']       = true;
+	}
+
+	public function removeProduct( $index ): void {
+		unset( $this->invoiceProducts[ $index ] );
+
+		$this->invoiceProducts = array_values( $this->invoiceProducts );
+	}
 }

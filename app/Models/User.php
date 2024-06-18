@@ -8,51 +8,57 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
-class User extends Authenticatable implements MustVerifyEmail
-{
-    use HasApiTokens;
-    use HasFactory;
-    use Notifiable;
-    use HasRoles;
+class User extends Authenticatable implements MustVerifyEmail {
 
-    protected $fillable = [
-        'uuid',
-        'photo',
-        'name',
-        'username',
-        'email',
-        'password',
-        "store_name",
-        "store_address",
-        "store_phone",
-        "store_email",
-    ];
+	use HasApiTokens;
+	use HasFactory;
+	use Notifiable;
+	use HasRoles;
+	use LogsActivity;
 
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+	protected $fillable = array(
+		'uuid',
+		'photo',
+		'name',
+		'username',
+		'email',
+		'password',
+		'store_name',
+		'store_address',
+		'store_phone',
+		'store_email',
+	);
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime'
-    ];
+	protected $hidden = array(
+		'password',
+		'remember_token',
+	);
 
-    public function scopeSearch($query, $value): void
-    {
-        $query->where('name', 'like', "%{$value}%")
-            ->orWhere('email', 'like', "%{$value}%");
-    }
+	protected $casts = array(
+		'email_verified_at' => 'datetime',
+		'created_at'        => 'datetime',
+		'updated_at'        => 'datetime',
+	);
 
-    public function getRouteKeyName(): string
-    {
-        return 'name';
-    }
+	public function scopeSearch( $query, $value ): void {
+		$query->where( 'name', 'like', "%{$value}%" )
+			->orWhere( 'email', 'like', "%{$value}%" );
+	}
 
-    public function supplier()
-    {
-        return $this->hasOne(Supplier::class, 'user_id', 'id');
-    }
+	public function getRouteKeyName(): string {
+		return 'name';
+	}
+
+	public function supplier() {
+		return $this->hasOne( Supplier::class, 'user_id', 'id' );
+	}
+
+	public function getActivitylogOptions(): LogOptions {
+		return LogOptions::defaults()
+		->logOnly( array( 'name', 'email' ) );
+		// Chain fluent methods for configuration options
+	}
 }
