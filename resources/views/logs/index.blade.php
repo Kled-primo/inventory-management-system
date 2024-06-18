@@ -17,6 +17,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if(count($activities) > 0)
                         @foreach($activities as $activity)
                         <tr>
                             <td>{{ $activity->description ?? "" }}</td>
@@ -24,12 +25,14 @@
                             <td>
                                 {{ $activity->changes ?? "" }}
                             </td>
-                            <td>{{ $activity->causer->name }}</td>
+                            <td>{{ $activity->causer->name ?? "" }}</td>
                             <td>{{ $activity->created_at }}</td>
                         </tr>
                         @endforeach
+                        @endif
                         </tbody>
                     </table>
+                    {{ $activities->links() }}
                 </div>
             </div>
         </div>

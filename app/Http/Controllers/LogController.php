@@ -9,7 +9,7 @@ class LogController extends Controller {
 
 	public function index() {
 
-		$activities = Activity::with( 'causer' )->with( 'subject' )->get();
+		$activities = Activity::with( 'causer' )->with( 'subject' )->paginate( 15 );
 
 		return view( 'logs.index' )->with( 'activities', $activities );
 	}
