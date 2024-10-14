@@ -137,7 +137,7 @@
                         {{ $product->name }}
                     </td>
                     <td class="align-middle text-center">
-                        {{ $product->code }}
+                        {{ $product->code }} 
                     </td>
                     <td class="align-middle text-center">
                         {{ $product->unit_number }}

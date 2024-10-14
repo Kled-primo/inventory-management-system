@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="small mb-1">Total</label>
-                        <div class="form-control form-control-solid">{{ $purchase->total_amount }}</div>
+                        <div class="form-control form-control-solid">₱{{ $purchase->total_amount }}</div>
                     </div>
                 </div>
                 <div class="row gx-3 mb-3">
@@ -74,6 +74,7 @@
                                 <tr>
                                     <th scope="col" class="align-middle text-center">No.</th>
                                     <th scope="col" class="align-middle text-center">Product Name</th>
+                                    <th scope="col" class="align-middle text-center">Unit</th>
                                     <th scope="col" class="align-middle text-center">Product Code</th>
                                     <th scope="col" class="align-middle text-center">Current Stock</th>
                                     <th scope="col" class="align-middle text-center">Quantity</th>
@@ -89,10 +90,14 @@
                                         {{ $item->product->name }}
                                     </td>
                                     <td class="align-middle text-center">
+                                        {{ $item->product->unit_number}}
+                                        {{ $item->product->unit->short_code}}
+                                    </td>
+                                    <td class="align-middle text-center">
                                         <span class="badge bg-indigo-lt">
                                             {{ $item->product->code }}
                                         </span>
-                                    </td>
+                                    </td><
                                     <td class="align-middle text-center">
                                         <span class="badge bg-primary-lt">
                                             {{ $item->product->quantity }}
@@ -104,10 +109,10 @@
                                         </span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        {{ number_format($item->unitcost, 2) }}
+                                        ₱{{ number_format($item->unitcost, 2) }}
                                     </td>
                                     <td class="align-middle text-center">
-                                        {{ number_format($item->total, 2) }}
+                                        ₱{{ number_format($item->total, 2) }}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -125,7 +130,7 @@
                                         Total Amount
                                     </td>
                                     <td class="align-middle text-center">
-                                        {{ number_format($purchase->total_amount, 2) }}
+                                        ₱{{ number_format($purchase->total_amount, 2) }}
                                     </td>
                                 </tr>
                                 <tr>

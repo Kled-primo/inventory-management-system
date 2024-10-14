@@ -99,6 +99,8 @@ trait ForecastTrait {
 					array(
 						'pid'            => $detail->product_id,
 						'name'           => $detail->product_name,
+						'unit_number'        => $detail->product->unit_number,
+						'short_code'        => $detail->product->unit->short_code,
 						'total_quantity' => 0,
 					)
 				);
@@ -106,6 +108,8 @@ trait ForecastTrait {
 
 			// Add the total_quantity to the product's total in the quarter
 			$productData                    = $collection->get( $detail->product_id );
+			$productData['unit_number'] = $detail->product->unit_number;
+			$productData['short_code'] = $detail->product->unit->short_code;
 			$productData['total_quantity'] += $detail->total_quantity;
 			$collection->put( $detail->product_id, $productData );
 		} // loop over product

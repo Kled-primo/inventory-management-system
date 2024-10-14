@@ -17,7 +17,8 @@
                     @if($invoiceProduct['is_saved'])
                     <input type="hidden" name="invoiceProducts[{{$index}}][product_id]" value="{{ $invoiceProduct['product_id'] }}">
 
-                    {{ $invoiceProduct['product_name'] }}
+                    {{ $invoiceProduct['product_name']}}
+
 
                     @else
 
@@ -28,6 +29,8 @@
                         @foreach ($allProducts as $product)
                         <option value="{{ $product->id }}" class="text-center">
                             {{ $product->name }}
+                            {{ $product->unit_number}}
+                            {{ $product->unit->short_code}}
                             {{-- (${{ number_format($product->buying_price, 2) }})--}}
                         </option>
                         @endforeach

@@ -337,7 +337,7 @@
                                     </tr>
                                     @foreach ($q1->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr @if($productData['stype']==1) class="bg-lime text-white" @else class="bg-red text-white" @endif>
-                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }} </a></td>
+                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }} ({{ $productData['unit_number'] }}{{ $productData['short_code'] }}) </a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -369,7 +369,7 @@
                                     </tr>
                                     @foreach ($q2->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr @if($productData['stype']==1) class="bg-lime text-white" @else class="bg-red text-white" @endif>
-                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
+                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }} ({{ $productData['unit_number'] }}{{ $productData['short_code'] }}) </a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -401,7 +401,7 @@
                                     </tr>
                                     @foreach ($q3->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr @if($productData['stype']==1) class="bg-lime text-white" @else class="bg-red text-white" @endif>
-                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
+                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }} ({{ $productData['unit_number'] }}{{ $productData['short_code'] }}) </a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -432,7 +432,7 @@
                                     </tr>
                                     @foreach ($q4->sortByDesc('total_quantity') as $product_id => $productData)
                                     <tr @if($productData['stype']==1) class="bg-lime text-white" @else class="bg-red text-white" @endif>
-                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }}</a></td>
+                                        <td><a class="text-white" href="{{ route('forecast.product', [$productData['pid'],$year]) }}">{{ $productData['name'] }} ({{ $productData['unit_number'] }}{{ $productData['short_code'] }}) </a></td>
                                         <td>{{ $productData['total_quantity'] }}</td>
                                     </tr>
                                     @endforeach
@@ -464,7 +464,7 @@
                     </tr>
                     @foreach($fifty_products as $f_product)
                     <tr>
-                        <td>{{ $f_product->name }}</td>
+                        <td>{{ $f_product->name }} ({{ $f_product->unit_number }}{{ $f_product->unit->short_code }})</td>
                         <td>{{ $f_product->quantity }}</td>
                         <td><a href="{{ route('purchases.create') }}" class="btn btn-success btn-sm">Purchase</a></td>
                     </tr>
@@ -495,8 +495,8 @@
                     </tr>
                     @foreach($twentyfive_products as $tf_product)
                     <tr>
-                        <td>{{ $tf_product->name }}</td>
-                        <td>{{ $tf_product->quantity }}</td>
+                        <td>{{ $f_product->name }} ({{ $f_product->unit_number }}{{ $f_product->unit->short_code }})</td>
+                        <td>{{ $f_product->quantity }}</td>
                         <td><a href="{{ route('purchases.create') }}" class="btn btn-success btn-sm">Purchase</a></td>
                     </tr>
                     @endforeach
@@ -526,7 +526,7 @@
                     </tr>
                     @foreach($expiring_products as $expiring_product)
                     <tr>
-                        <td>{{ $expiring_product->name }}</td>
+                        <td>{{ $expiring_product->name }} ({{ $expiring_product->unit_number }}{{ $expiring_product->unit->short_code }})</td>
                         <td>{{ \Carbon\Carbon::parse($expiring_product->manufacturing_date)->format('M d, Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($expiring_product->expiry_date)->format('M d, Y') }} ( {{ \Carbon\Carbon::parse($expiring_product->expiry_date)->diffforHumans() }} )</td>
                     </tr>
@@ -564,7 +564,7 @@
                     </tr>
                     @foreach($expired_products as $expired_product)
                     <tr>
-                        <td>{{ $expired_product->name }}</td>
+                        <td>{{ $expired_product->name }} ({{ $expired_product->unit_number }}{{ $expired_product->unit->short_code }})</td>
                         <td>{{ \Carbon\Carbon::parse($expired_product->manufacturing_date)->format('M d, Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($expired_product->expiry_date)->format('M d, Y') }} (
                             {{ \Carbon\Carbon::parse($expired_product->expiry_date)->diffforHumans(['options'=>0]) }} )</td>

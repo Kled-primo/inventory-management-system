@@ -181,7 +181,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-status-top bg-teal"></div>
-                            <div class="ribbon bg-teal"> Forth Quarter</div>
+                            <div class="ribbon bg-teal"> Fourth Quarter</div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-6">

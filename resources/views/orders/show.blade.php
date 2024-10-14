@@ -100,7 +100,7 @@
                                             {{ $loop->iteration }}
                                         </td>
                                         <td class="align-middle text-center">
-                                            {{ $item->product->name }}
+                                            {{ $item->product->name }} ({{ $item->product->unit_number }}{{ $item->product->unit->short_code }})
                                         </td>
                                         <td class="align-middle text-center">
                                             {{ $item->product->code }}
@@ -109,10 +109,10 @@
                                             {{ $item->quantity }}
                                         </td>
                                         <td class="align-middle text-center">
-                                            {{ number_format($item->unitcost, 2) }}
+                                            ₱{{ number_format($item->unitcost, 2) }}
                                         </td>
                                         <td class="align-middle text-center">
-                                            {{ number_format($item->total, 2) }}
+                                            ₱{{ number_format($item->total, 2) }}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -120,19 +120,11 @@
                                     <td colspan="6" class="text-end">
                                         Payed amount
                                     </td>
-                                    <td class="text-center">{{ number_format($order->pay, 2) }}</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6" class="text-end">Due</td>
-                                    <td class="text-center">{{ number_format($order->due, 2) }}</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6" class="text-end">VAT</td>
-                                    <td class="text-center">{{ number_format($order->vat, 2) }}</td>
+                                    <td class="text-center">₱{{ number_format($order->pay, 2) }}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="text-end">Total</td>
-                                    <td class="text-center">{{ number_format($order->total, 2) }}</td>
+                                    <td class="text-center">₱{{ number_format($order->total, 2) }}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="text-end">Status</td>

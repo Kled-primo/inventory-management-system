@@ -19,7 +19,7 @@
                                 <tr @if($productData['stype']==1) class="text-success" @else class="text-danger" @endif>
                                     <td>Quarter 1</td>
                                     <td>
-                                        <a @if($productData['stype']==1) class="text-success" @else class="text-danger" @endif href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})">{{ $productData['name'] }}</a>
+                                        <a @if($productData['stype']==1) class="text-success" @else class="text-danger" @endif href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})">{{ $productData['name'] }} ({{ $productData['unit_number'] }}{{ $productData['short_code'] }})</a>
 
                                     </td>
                                     <td>{{ $productData['total_quantity'] }}</td>
@@ -63,7 +63,7 @@
                             <td>Quarter 2</td>
                             <td>
                                 <a @if($productData['stype']==1) class="text-success" @else class="text-danger" @endif href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})">
-                                    {{ $productData['name'] }}
+                                {{ $productData['name'] }} ({{ $productData['unit_number'] }}{{ $productData['short_code'] }})
                                 </a>
                             </td>
                             <td>{{ $productData['total_quantity'] }}</td>
@@ -104,7 +104,7 @@
                             <td>Quarter 3</td>
                             <td>
                                 <a href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})" @if($productData['stype']==1) class="text-success" @else class="text-danger" @endif>
-                                    {{ $productData['name'] }}
+                                {{ $productData['name'] }} ({{ $productData['unit_number'] }}{{ $productData['short_code'] }})
                                 </a>
                             </td>
                             <td>{{ $productData['total_quantity'] }}</td>
@@ -132,7 +132,7 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-status-top bg-teal"></div>
-            <div class="ribbon bg-teal"> Forth Quarter</div>
+            <div class="ribbon bg-teal"> Fourth Quarter</div>
             <div class="card-body">
                 <table class="table card-table table-vcenter text-nowrap mt-4 table-sm">
                     <thead>
@@ -148,7 +148,7 @@
                             <td>Quarter 4</td>
                             <td>
                                 <a href="javascript:void(0)" onclick="submitForm({{ $productData['pid'] }})" @if($productData['stype']==1) class="text-success" @else class="text-danger" @endif>
-                                    {{ $productData['name'] }}
+                                {{ $productData['name'] }} ({{ $productData['unit_number'] }}{{ $productData['short_code'] }})
                                 </a>
                             </td>
                             <td>{{ $productData['total_quantity'] }}</td>

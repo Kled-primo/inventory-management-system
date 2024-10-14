@@ -125,7 +125,7 @@
                                 <span class="dropdown-header">Low Stocks</span>
                                 @foreach($notify_products as $nprod)
                                 <a class="dropdown-item" href="#">
-                                    {{ $nprod->name }} ({{ $nprod->quantity }})
+                                    {{ $nprod->name }} ({{ $nprod->unit_number }}{{ $nprod->unit->short_code }}) ({{ $nprod->quantity }} Left)
                                 </a>
                                 @endforeach
                                 @endif

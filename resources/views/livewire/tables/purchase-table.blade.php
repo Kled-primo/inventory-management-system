@@ -96,7 +96,6 @@
                     </td>
                     <td class="align-middle text-center">
                         {{ Number::currency($purchase->total_amount, 'PHP') }}
-                        {{ $purchase->status }}
                     </td>
 
                     @if ($purchase->status == 3)

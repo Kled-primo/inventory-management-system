@@ -110,6 +110,7 @@
                                     <tr>
                                         <th scope="col">No.</th>
                                         <th scope="col">Product Name</th>
+                                        <th scope="col">Unit</th>
                                         <th scope="col">Product Code</th>
                                         <th scope="col">Current Stock</th>
                                         <th scope="col">Quantity</th>
@@ -122,6 +123,7 @@
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
                                         <td scope="row">{{ $item->product->product_name }}</td>
+                                        <td scope="row">{{ $item->product->unit_number }}</td>
                                         <td scope="row">{{ $item->product->product_code }}</td>
                                         <td scope="row"><span class="btn btn-warning">{{ $item->product->stock }}</span></td>
                                         <td scope="row"><span class="btn btn-success">{{ $item->quantity }}</span></td>
